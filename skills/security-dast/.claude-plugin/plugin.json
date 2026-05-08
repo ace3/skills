@@ -1,0 +1,21 @@
+{
+  "name": "security-dast",
+  "version": "0.1.0",
+  "description": "Blackbox/dynamic security workflows for authorized runtime targets, active surface scans, API and web probing, TLS checks, fuzzing, pentest reports, finding normalization, and hardening gates.",
+  "author": {
+    "name": "ace3",
+    "url": "https://github.com/ace3"
+  },
+  "homepage": "https://github.com/ace3/skills/tree/main/skills/security-dast",
+  "repository": "https://github.com/ace3/skills",
+  "license": "MIT",
+  "keywords": [
+    "security",
+    "dast",
+    "pentest",
+    "zap",
+    "nuclei",
+    "surface-scan",
+    "hardening"
+  ]
+}

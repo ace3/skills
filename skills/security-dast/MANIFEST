@@ -1,10 +1,7 @@
 SKILL.md
 .claude-plugin/plugin.json
 .codex-plugin/plugin.json
-references/threat-modeling.md
-references/repo-static-scan.md
 references/active-surface-scan.md
-references/log-threat-hunt.md
 references/finding-normalization.md
 references/enterprise-security-report.md
 references/security-fix-queue.md

@@ -1,7 +1,7 @@
 {
   "name": "@ace3/skills",
   "version": "0.1.0",
-  "description": "Security, monitoring, deployment ops, drawing, and design stress-test skills installable for Codex and Claude",
+  "description": "SAST, DAST, monitoring, deployment ops, drawing, and design stress-test skills installable for Codex and Claude",
   "bin": {
     "ace3-skills": "./bin/cli.js"
   },
@@ -10,6 +10,8 @@
     "claude",
     "skills",
     "security",
+    "sast",
+    "dast",
     "monitoring",
     "deployment",
     "drawing",

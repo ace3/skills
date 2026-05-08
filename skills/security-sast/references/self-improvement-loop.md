@@ -1,6 +1,6 @@
 # Security Skill Self-Improvement Loop
 
-Use to research, benchmark, or improve this `security` skill. The loop improves guidance only; it does not run privileged actions, active scans, or automatic edits.
+Use to research, benchmark, or improve this security skill. The loop improves guidance only; it does not run privileged actions, active scans, or automatic edits.
 
 ## Operating Rules
 
@@ -12,7 +12,7 @@ Use to research, benchmark, or improve this `security` skill. The loop improves 
 
 ## Loop
 
-1. Research `skills/security/SKILL.md`, `skills/security/MANIFEST`, relevant references, repo docs, and supplied benchmark reports. Use current public sources only when useful, and cite sources that influence the proposal.
+1. Research `skills/<security-sast|security-dast>/SKILL.md`, `skills/<security-sast|security-dast>/MANIFEST`, relevant references, repo docs, and supplied benchmark reports. Use current public sources only when useful, and cite sources that influence the proposal.
 2. Benchmark the skill against the fixtures below.
 3. Diagnose each weak score as an instruction, routing, rubric, or reference-content issue.
 4. Propose the smallest patch plan that should improve the score.
@@ -27,30 +27,30 @@ Score the answer the current skill would lead the agent to produce.
 Prompt:
 
 ```text
-Use security. Scope: a Go REST API repo with auth middleware, SQL repositories, Dockerfile, and compose files. Action: read-only review. Output: confirmed findings only, with file evidence, exploitability, remediation, and verification.
+Use security-sast. Scope: a Go REST API repo with auth middleware, SQL repositories, Dockerfile, and compose files. Action: read-only review. Output: confirmed findings only, with file evidence, exploitability, remediation, and verification.
 ```
 
 Expected: load base plus `repo-static-scan.md`, inspect real files before claims, separate confirmed findings from scanner noise, require concrete evidence, and include realistic exploitability plus verification.
 
-### Fixture B: Active Scan Planning
+### Fixture B: Static Finding Normalization
 
 Prompt:
 
 ```text
-Use security. Scope: https://api.staging.example.com only. Action: active scan plan only. Output: allowlist, rate limits, tools, risks, and finding schema. Do not run scans yet.
-```
-
-Expected: load base plus `active-surface-scan.md`, treat the hostname as the only allowed target, define exclusions/rate limits/identity headers/stop conditions, plan without running tools, and keep broader or privileged actions blocked.
-
-### Fixture C: Finding Normalization
-
-Prompt:
-
-```text
-Use security. Scope: mixed Semgrep, Trivy, Nuclei, and manual review notes. Action: read-only triage. Output: deduplicated findings with severity, proof, confidence, exploitability, and next action.
+Use security-sast. Scope: mixed Semgrep, Trivy, CodeQL, and manual review notes. Action: read-only triage. Output: deduplicated findings with severity, proof, confidence, exploitability, and next action.
 ```
 
 Expected: load base plus `finding-normalization.md`, deduplicate root causes, keep unrelated issues separate, mark unverified scanner output as unconfirmed, and produce operator-ready findings.
+
+### Fixture C: Threat Model Review
+
+Prompt:
+
+```text
+Use security-sast. Scope: auth, admin, and money-movement routes in a backend repo. Action: read-only review. Output: trust boundaries, realistic attack paths, mitigations, and verification checks.
+```
+
+Expected: load base plus `threat-modeling.md`, inspect real routes and auth controls before claims, tie STRIDE risks to code-backed paths, and recommend minimal mitigations with tests or checks.
 
 ## Scorecard
 

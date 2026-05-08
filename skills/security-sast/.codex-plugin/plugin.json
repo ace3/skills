@@ -1,0 +1,22 @@
+{
+  "name": "security-sast",
+  "version": "0.1.0",
+  "description": "Whitebox/static security workflows for source code, config, dependencies, containers, IaC, threat modeling, scanner-output review, finding normalization, and hardening gates.",
+  "author": {
+    "name": "ace3",
+    "url": "https://github.com/ace3"
+  },
+  "homepage": "https://github.com/ace3/skills/tree/main/skills/security-sast",
+  "repository": "https://github.com/ace3/skills",
+  "license": "MIT",
+  "keywords": [
+    "security",
+    "sast",
+    "audit",
+    "threat-modeling",
+    "static-scan",
+    "codeql",
+    "semgrep",
+    "hardening"
+  ]
+}

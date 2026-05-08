@@ -4,7 +4,7 @@ Use when security findings need to be handed off for implementation by `em-think
 
 ## Purpose
 
-The security skill owns evidence, risk framing, exploitability, routing, and verification requirements. It does not perform broad remediation by default. For implementation handoff, produce one Markdown bundle with an embedded strict JSON block that downstream skills can process one finding at a time.
+The current security skill owns evidence, risk framing, exploitability, routing, and verification requirements. It does not perform broad remediation by default. For implementation handoff, produce one Markdown bundle with an embedded strict JSON block that downstream skills can process one finding at a time.
 
 Owner routing:
 
@@ -21,7 +21,7 @@ Use `em-thinking` as the thinking consumer name.
 - Keep each fix packet focused on one root cause. Split unrelated vulnerabilities.
 - Include enough evidence and verification that the owner does not need to reread the full audit.
 - Route by the smallest real owner: code to the thinking-plus-Go chain; infra and operations to `deployment-ops`.
-- Preserve destructive-command and privileged-change gates. If a fix needs destructive or privileged action, describe the manual gate, approval need, rollback notes, and exact verification, but do not execute it from the security skill.
+- Preserve destructive-command and privileged-change gates. If a fix needs destructive or privileged action, describe the manual gate, approval need, rollback notes, and exact verification, but do not execute it from the current security skill.
 - Keep `implementation_hints` as hints, not permission for unrelated cleanup.
 
 ## Markdown Shape
@@ -35,8 +35,8 @@ Summary:
 <short human-readable summary>
 
 Owner routing:
-- code: security -> em-thinking -> golang-developer
-- infra: security -> deployment-ops
+- code: security-sast -> em-thinking -> golang-developer
+- infra: security-dast -> deployment-ops
 
 ```json
 <strict JSON payload>
@@ -53,7 +53,7 @@ Top-level fields:
 ```json
 {
   "handoff_version": "security-fix-queue/v1",
-  "producer": "security",
+  "producer": "<security-sast|security-dast>",
   "routing_policy": {
     "code": ["em-thinking", "golang-developer"],
     "infra": ["deployment-ops"]
@@ -182,13 +182,13 @@ Summary:
 One confirmed authorization bypass affects public order access. The fix should preserve existing controller shape and add a focused regression test.
 
 Owner routing:
-- code: security -> em-thinking -> golang-developer
-- infra: security -> deployment-ops
+- code: security-sast -> em-thinking -> golang-developer
+- infra: security-dast -> deployment-ops
 
 ```json
 {
   "handoff_version": "security-fix-queue/v1",
-  "producer": "security",
+  "producer": "<security-sast|security-dast>",
   "routing_policy": {
     "code": ["em-thinking", "golang-developer"],
     "infra": ["deployment-ops"]
@@ -264,13 +264,13 @@ Summary:
 One dependency advisory is actionable because the vulnerable package is reachable from token parsing. A second scanner hit is not actionable yet.
 
 Owner routing:
-- code: security -> em-thinking -> golang-developer
-- infra: security -> deployment-ops
+- code: security-sast -> em-thinking -> golang-developer
+- infra: security-dast -> deployment-ops
 
 ```json
 {
   "handoff_version": "security-fix-queue/v1",
-  "producer": "security",
+  "producer": "<security-sast|security-dast>",
   "routing_policy": {
     "code": ["em-thinking", "golang-developer"],
     "infra": ["deployment-ops"]
@@ -345,13 +345,13 @@ Summary:
 One confirmed load balancer route exposes an internal admin path. This is an infra routing fix, not an application code fix.
 
 Owner routing:
-- code: security -> em-thinking -> golang-developer
-- infra: security -> deployment-ops
+- code: security-sast -> em-thinking -> golang-developer
+- infra: security-dast -> deployment-ops
 
 ```json
 {
   "handoff_version": "security-fix-queue/v1",
-  "producer": "security",
+  "producer": "<security-sast|security-dast>",
   "routing_policy": {
     "code": ["em-thinking", "golang-developer"],
     "infra": ["deployment-ops"]
@@ -427,13 +427,13 @@ Summary:
 The security finding is valid, but the remediation must stay narrow. The thinking step should reduce the fix from "rewrite authorization" to one missing permission check.
 
 Owner routing:
-- code: security -> em-thinking -> golang-developer
-- infra: security -> deployment-ops
+- code: security-sast -> em-thinking -> golang-developer
+- infra: security-dast -> deployment-ops
 
 ```json
 {
   "handoff_version": "security-fix-queue/v1",
-  "producer": "security",
+  "producer": "<security-sast|security-dast>",
   "routing_policy": {
     "code": ["em-thinking", "golang-developer"],
     "infra": ["deployment-ops"]

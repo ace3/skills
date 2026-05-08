@@ -2,9 +2,9 @@
 
 ## Context
 
-The `ace3-skills` security skill already separates passive review, active scanning, and privileged changes. It requires approval for privileged changes, but it does not explicitly forbid the security agent from executing destructive commands itself.
+The `ace3-skills` security skills separate passive review, active scanning, and privileged changes. They require approval for privileged changes, but must also explicitly forbid the security agent from executing destructive commands itself.
 
-This design adds a narrow guardrail for the `skills/security` skill, especially the entrypoint and shared base operating layer.
+This design adds a narrow guardrail for the security skill entrypoints and shared base operating layer.
 
 ## Goal
 
@@ -14,8 +14,10 @@ The security agent must not execute destructive commands. When destructive actio
 
 In scope:
 
-- `skills/security/SKILL.md`
-- `skills/security/references/karpathy-superpowers-base.md`
+- `skills/security-sast/SKILL.md`
+- `skills/security-sast/references/karpathy-superpowers-base.md`
+- `skills/security-dast/SKILL.md`
+- `skills/security-dast/references/karpathy-superpowers-base.md`
 - Documentation updates only if needed to keep the public usage contract aligned
 
 Out of scope:
@@ -73,8 +75,8 @@ Verification should be simple and repo-local:
 
 ## Acceptance Criteria
 
-- `skills/security/SKILL.md` clearly states that destructive commands must not be executed by the agent.
-- `skills/security/references/karpathy-superpowers-base.md` reinforces the same rule in the base operating layer.
+- `skills/security-sast/SKILL.md` and `skills/security-dast/SKILL.md` clearly state that destructive commands must not be executed by the agent.
+- Both security skill base layers reinforce the same rule.
 - The instructions explain the manual-user-execution flow.
 - The change is limited to the security skill and aligned docs.
 - Validation passes.

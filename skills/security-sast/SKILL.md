@@ -1,16 +1,17 @@
 ---
-name: security
+name: security-sast
 description: >
-  Security operations for threat modeling, code/config audit, active surface
-  scan planning or execution, log threat hunting, finding normalization,
-  enterprise security reports, penetration-test reports, vulnerability reports,
-  CVSS scoring, remediation plans, and release hardening. Use when work affects
-  auth, secrets, data protection, external exposure, money, or integrity.
+  Whitebox/static application security testing for source code, config,
+  dependencies, containers, IaC, CI, threat modeling, scanner-output review,
+  finding normalization, vulnerability reports, CVSS scoring, remediation
+  plans, fix queue handoffs, and release hardening. Use for SAST, Semgrep,
+  CodeQL, govulncheck, Trivy filesystem/image/config scans, auth reviews,
+  secrets, data protection, money movement, or integrity-sensitive code.
 ---
 
-# Security
+# Security SAST
 
-Produce evidence-backed security work with the smallest safe remediation. Load the base layer, then only task-relevant references.
+Produce evidence-backed whitebox security work with the smallest safe remediation. Load the base layer, then only task-relevant references.
 
 ## Base Operating Layer
 
@@ -18,16 +19,14 @@ Load `references/karpathy-superpowers-base.md` first. It defines assumptions, si
 
 ## Classify
 
-- Passive review: code, config, dependency, image, IaC, DNS record, log, or audit evidence already available.
-- Active scan: network, web, TLS, endpoint, or attack-surface probing against an explicit allowlist.
+- Static review: code, config, dependency, image, IaC, CI, generated artifact, or scanner evidence already available.
+- Threat model: assets, actors, trust boundaries, entry points, and privilege transitions backed by repo or architecture evidence.
 - Privileged change: any remediation, service change, credential change, DNS change, or deploy action.
 
 ## References
 
 - Threat model, API security, OWASP, trust boundaries, exploit paths, or threat-model checklist: `references/threat-modeling.md`.
 - Go/backend review, Semgrep, CodeQL, `govulncheck`, Trivy, repo/image/IaC scanning: `references/repo-static-scan.md`.
-- Amass, Naabu, httpx, ffuf, ZAP, Nuclei, SSLyze, or active scan planning: `references/active-surface-scan.md`.
-- Sigma logic, Linux/GCP/Docker/Nginx logs, or forensic evidence: `references/log-threat-hunt.md`.
 - Multi-tool triage, deduplication, severity, confidence, or retest state: `references/finding-normalization.md`.
 - Enterprise report, pentest report, vulnerability report, CVSS, roadmap, or release hardening: `references/enterprise-security-report.md`.
 - Security finding handoff to `em-thinking`, `golang-developer`, or `deployment-ops`: `references/security-fix-queue.md`.
@@ -36,7 +35,7 @@ Load `references/karpathy-superpowers-base.md` first. It defines assumptions, si
 ## Rules
 
 - Findings require concrete evidence, not speculation.
-- Active scans require allowlisted targets, rate limits, and non-production preference unless approved.
+- Do not run blackbox or active probing from this skill; use `security-dast` for allowlisted runtime target testing.
 - Privileged changes require explicit approval and rollback notes.
 - Do not execute destructive commands. Print the exact command for the user to run, explain impact and rollback or recovery limits, then wait for the result.
 - Prefer fail-closed behavior when uncertainty affects auth, secrets, money, or integrity.

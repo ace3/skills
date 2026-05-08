@@ -1,8 +1,8 @@
 # @ace3/skills
 
-Curated skills for security, monitoring, deployment operations, drawing, and design stress testing across Claude and Codex.
+Curated skills for SAST, DAST, monitoring, deployment operations, drawing, and design stress testing across Claude and Codex.
 
-This package exposes five installable skills. Each skill is a compact router that loads one-level `references/` only when needed, keeping prompts cheaper while covering security scans, read-only monitoring, controlled deployments, diagram creation, and plan interviews.
+This package exposes six installable skills. Each skill is a compact router that loads one-level `references/` only when needed, keeping prompts cheaper while covering static security review, dynamic security testing, read-only monitoring, controlled deployments, diagram creation, and plan interviews.
 
 Every operational skill carries a standalone Karpathy + Superpowers base layer. It requires assumptions, the simplest sufficient path, surgical changes, verification before action, approval gates for privileged changes, and manual user execution for destructive commands.
 
@@ -10,7 +10,8 @@ Every operational skill carries a standalone Karpathy + Superpowers base layer. 
 
 | Skill | Use when | Loads guidance for |
 |---|---|---|
-| `security` | You need threat modeling, code/config audit, active surface scan, log threat hunt, enterprise security report, vulnerability report, penetration-test report, fix queue handoff, or release hardening. | STRIDE, OWASP/API review, Semgrep/CodeQL, `govulncheck`, Trivy, Amass, Naabu, httpx, ffuf, ZAP, Nuclei, SSLyze, Sigma, finding normalization, CVSS, reports, remediation roadmaps, security fix queue bundles. |
+| `security-sast` | You need whitebox/static review of code, config, dependencies, containers, IaC, CI, threat models, scanner output, security reports, fix queue handoff, or release hardening. | STRIDE, OWASP/API review, Semgrep/CodeQL, `govulncheck`, Trivy filesystem/image/config scans, finding normalization, CVSS, reports, remediation roadmaps, security fix queue bundles. |
+| `security-dast` | You need blackbox/dynamic testing of authorized runtime targets, APIs, web surfaces, domains, ports, TLS, active scan planning/execution, pentest reports, vulnerability reports, or retest evidence. | Amass, Naabu, httpx, ffuf, ZAP, Nuclei, SSLyze, active scan controls, finding normalization, CVSS, reports, remediation roadmaps, security fix queue bundles. |
 | `monitoring` | You need read-only health checks, dashboard/alert design, telemetry gap analysis, dependency/runtime vulnerability inventory, or incident triage. | Grafana, Prometheus, GCP/MIG reads, Docker inspect, Node Exporter, osquery, SLI/SLO design, OTel, version drift, dependency inventory, vulnerability alert reports, alert quality. |
 | `deployment-ops` | You need release readiness, GCP MIG rollout, Docker service operations, Ansible Runner, Semaphore UI/API execution, rollback, or post-deploy verification. | Artifact gates, GCP MIG updates, Cloud DNS/LB-aware verification, Docker Compose/Swarm, Ansible Runner, Semaphore UI projects/templates/tasks/runners/schedules, rollback checks. |
 | `drawing` | You need to create, design, explain, render, or improve diagrams with Mermaid or Excalidraw. | Mermaid diagram selection and syntax, Excalidraw visual argument design, technical diagram evidence, and format-specific validation. |
@@ -19,7 +20,8 @@ Every operational skill carries a standalone Karpathy + Superpowers base layer. 
 ## Install
 
 ```bash
-npx @ace3/skills install security
+npx @ace3/skills install security-sast
+npx @ace3/skills install security-dast
 npx @ace3/skills install monitoring
 npx @ace3/skills install deployment-ops
 npx @ace3/skills install drawing
@@ -42,7 +44,8 @@ Add marketplace:
 Install plugins:
 
 ```text
-/plugin install security@ace3-skills
+/plugin install security-sast@ace3-skills
+/plugin install security-dast@ace3-skills
 /plugin install monitoring@ace3-skills
 /plugin install deployment-ops@ace3-skills
 /plugin install drawing@ace3-skills
@@ -57,7 +60,7 @@ Marketplace catalogs:
 
 Use one skill at a time unless the task clearly crosses domains. Good prompts include four parts:
 
-1. Skill name: `Use security`, `Use monitoring`, `Use deployment-ops`, `Use drawing`, or `roast me`.
+1. Skill name: `Use security-sast`, `Use security-dast`, `Use monitoring`, `Use deployment-ops`, `Use drawing`, or `roast me`.
 2. Scope: repo path, service, environment, URL, host group, time window, or target allowlist.
 3. Action class: read-only review, active scan, plan only, or approved execution.
 4. Output contract: findings, health status, rollout plan, rollback plan, or verification evidence.
@@ -78,51 +81,53 @@ Token-saving rules:
 
 ## Use Cases And Examples
 
-### Security
+### Security SAST
 
 Threat model a sensitive API:
 
 ```text
-Use security. Scope: ./backend-user-engine-v2 auth and passthrough routes. Action: read-only review. Output: STRIDE attack paths with file evidence, severity, remediation, and verification.
+Use security-sast. Scope: ./backend-user-engine-v2 auth and passthrough routes. Action: read-only review. Output: STRIDE attack paths with file evidence, severity, remediation, and verification.
 ```
 
 Run a focused static scan review:
 
 ```text
-Use security. Scope: Go service repo, Dockerfile, compose files, and CI config. Action: read-only review. Output: confirmed findings only, using govulncheck/Trivy/Semgrep evidence where available.
+Use security-sast. Scope: Go service repo, Dockerfile, compose files, and CI config. Action: read-only review. Output: confirmed findings only, using govulncheck/Trivy/Semgrep evidence where available.
 ```
 
 Create a fix handoff for downstream agents:
 
 ```text
-Use security. Scope: Go service repo auth paths, dependency findings, and staging route exposure. Action: read-only review. Output: security-fix-queue/v1 Markdown bundle with embedded JSON. Route code findings to em-thinking then golang-developer; route infra findings to deployment-ops. Put only confirmed or high-confidence actionable findings in fix_queue.
+Use security-sast. Scope: Go service repo auth paths and dependency findings. Action: read-only review. Output: security-fix-queue/v1 Markdown bundle with embedded JSON. Route code findings to em-thinking then golang-developer; route infra findings to deployment-ops. Put only confirmed or high-confidence actionable findings in fix_queue.
+```
+
+Benchmark and improve the SAST skill:
+
+```text
+Use security-sast. Scope: the installed security-sast skill. Action: self-improvement plan only. Output: research summary, benchmark scorecard, failed expectations, root-cause diagnosis, minimal patch plan, regression risk, and verification checks. Do not edit files yet.
+```
+
+### Security DAST
+
+Prepare an active scan safely:
+
+```text
+Use security-dast. Scope: https://api.staging.example.com only. Action: active scan plan only. Output: allowlist, rate limits, tools to use, risks, and expected finding schema. Do not run scans yet.
 ```
 
 Create an enterprise security report:
 
 ```text
-Use security. Scope: authorized findings for metabase.example.com. Action: report only. Output: enterprise security report with executive summary, finding table, CVSS vectors, redacted evidence, remediation roadmap, and retest plan.
+Use security-dast. Scope: authorized findings for metabase.example.com. Action: report only. Output: enterprise security report with executive summary, finding table, CVSS vectors, redacted evidence, remediation roadmap, and retest plan.
 ```
 
-Prepare an active scan safely:
+Retest a deployed finding:
 
 ```text
-Use security. Scope: https://api.staging.example.com only. Action: active scan plan only. Output: allowlist, rate limits, tools to use, risks, and expected finding schema. Do not run scans yet.
+Use security-dast. Scope: https://api.staging.example.com/v1/orders IDOR finding. Action: retest only. Output: request/response proof, retest status, residual risk, and next action.
 ```
 
-Triage security logs:
-
-```text
-Use security. Scope: GCP audit logs and Nginx access logs from 2026-05-08 01:00-03:00 UTC. Action: read-only review. Output: timeline, suspicious events, matched Sigma-style logic, impact, and next actions.
-```
-
-Benchmark and improve the security skill:
-
-```text
-Use security. Scope: the installed security skill. Action: self-improvement plan only. Output: research summary, benchmark scorecard, failed expectations, root-cause diagnosis, minimal patch plan, regression risk, and verification checks. Do not edit files yet.
-```
-
-The self-improvement loop researches the current skill, runs three benchmark fixtures for passive Go/API review, active scan planning, and finding normalization, then proposes the smallest approval-gated improvement. It optimizes finding quality without lowering active-scan or privileged-change safety gates.
+The self-improvement loop researches the current SAST or DAST skill, runs relevant benchmark fixtures, then proposes the smallest approval-gated improvement. It optimizes finding quality without lowering active-scan or privileged-change safety gates.
 
 ### Monitoring
 
@@ -224,11 +229,16 @@ Operational skills include `references/karpathy-superpowers-base.md` so single-s
 
 ```text
 skills/
-  security/
+  security-sast/
     SKILL.md
     references/
       karpathy-superpowers-base.md
-      self-improvement-loop.md
+      repo-static-scan.md
+  security-dast/
+    SKILL.md
+    references/
+      karpathy-superpowers-base.md
+      active-surface-scan.md
   monitoring/
     SKILL.md
     references/

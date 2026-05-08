@@ -10,9 +10,9 @@
   },
   "plugins": [
     {
-      "name": "security",
-      "source": "./skills/security",
-      "description": "Security workflows for threat modeling, static scanning, active surface scans, log threat hunting, finding normalization, and hardening gates.",
+      "name": "security-sast",
+      "source": "./skills/security-sast",
+      "description": "Whitebox/static security workflows for source code, config, dependencies, containers, IaC, threat modeling, scanner-output review, finding normalization, and hardening gates.",
       "version": "0.1.0",
       "author": {
         "name": "ace3"
@@ -20,13 +20,35 @@
       "category": "security",
       "tags": [
         "security",
+        "sast",
         "audit",
         "threat-modeling",
         "static-scan",
+        "codeql",
+        "semgrep",
+        "hardening"
+      ],
+      "homepage": "https://github.com/ace3/skills/tree/main/skills/security-sast"
+    },
+    {
+      "name": "security-dast",
+      "source": "./skills/security-dast",
+      "description": "Blackbox/dynamic security workflows for authorized runtime targets, active surface scans, API and web probing, TLS checks, fuzzing, pentest reports, finding normalization, and hardening gates.",
+      "version": "0.1.0",
+      "author": {
+        "name": "ace3"
+      },
+      "category": "security",
+      "tags": [
+        "security",
+        "dast",
+        "pentest",
+        "zap",
+        "nuclei",
         "surface-scan",
         "hardening"
       ],
-      "homepage": "https://github.com/ace3/skills/tree/main/skills/security"
+      "homepage": "https://github.com/ace3/skills/tree/main/skills/security-dast"
     },
     {
       "name": "monitoring",
