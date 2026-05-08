@@ -50,7 +50,7 @@
     {
       "name": "deployment-ops",
       "source": "./skills/deployment-ops",
-      "description": "Deployment workflows for release readiness, GCP MIG rollouts, Docker service ops, Ansible/Semaphore execution, rollback, and verification.",
+      "description": "Deployment workflows for release readiness, GCP MIG rollouts, Docker service ops, Ansible Runner, Semaphore UI/API, rollback, and verification.",
       "version": "0.1.0",
       "author": {
         "name": "ace3"
@@ -63,7 +63,8 @@
         "devops",
         "gcp-mig",
         "docker",
-        "ansible"
+        "ansible",
+        "semaphore-ui"
       ],
       "homepage": "https://github.com/ace3/skills/tree/main/skills/deployment-ops"
     },

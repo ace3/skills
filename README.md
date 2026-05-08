@@ -12,7 +12,7 @@ Every skill also carries a standalone Karpathy + Superpowers base layer. The bas
 |---|---|---|
 | `security` | You need threat modeling, code/config audit, active surface scan, log threat hunt, enterprise security report, vulnerability report, penetration-test report, or release hardening. | STRIDE, OWASP/API review, Semgrep/CodeQL, `govulncheck`, Trivy, Amass, Naabu, httpx, ffuf, ZAP, Nuclei, SSLyze, Sigma, finding normalization, CVSS scoring, executive summaries, remediation roadmaps. |
 | `monitoring` | You need read-only health checks, dashboard/alert design, telemetry gap analysis, or incident triage. | Grafana, Prometheus, GCP/MIG reads, Docker inspect, Node Exporter, osquery, SLI/SLO design, OTel, version drift, alert quality. |
-| `deployment-ops` | You need release readiness, GCP MIG rollout, Docker service operations, Ansible/Semaphore execution, rollback, or post-deploy verification. | Artifact gates, GCP MIG updates, Cloud DNS/LB-aware verification, Docker Compose/Swarm, Ansible Runner, Semaphore API, rollback checks. |
+| `deployment-ops` | You need release readiness, GCP MIG rollout, Docker service operations, Ansible Runner, Semaphore UI/API execution, rollback, or post-deploy verification. | Artifact gates, GCP MIG updates, Cloud DNS/LB-aware verification, Docker Compose/Swarm, Ansible Runner, Semaphore UI projects/templates/tasks/runners/schedules, rollback checks. |
 | `roast` | You say "roast me" or need a one-question-at-a-time plan, spec, PRD, AGENT_SPEC.md, architecture, or design stress test. | Goal clarity, design tree traversal, codebase-first answers, concrete recommendations, optional CONTEXT.md/ADR-aware domain checks. |
 
 ## Install
@@ -155,10 +155,10 @@ Refresh one Docker service:
 Use deployment-ops. Scope: HA VM /opt/app compose stack, service backend-user-engine. Action: approved execution only after showing exact commands. Output: current digest, pull/up command, rollback command, and post-change checks.
 ```
 
-Run Ansible or Semaphore safely:
+Run Ansible or Semaphore UI safely:
 
 ```text
-Use deployment-ops. Scope: Semaphore project dki-staging, deploy template backend-api. Action: plan only. Output: template parameters, dry-run/check-mode path, approval gate, rollback task, and verification evidence to collect.
+Use deployment-ops. Scope: Semaphore UI project dki-staging, deploy template backend-api. Action: plan only. Output: project/template IDs, parameters, dry-run/check-mode path, approval gate, rollback task, and verification evidence to collect.
 ```
 
 ### Roast

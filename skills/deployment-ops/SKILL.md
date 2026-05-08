@@ -2,9 +2,9 @@
 name: deployment-ops
 description: >
   Deployment operations skill for release readiness, GCP MIG rollouts,
-  Docker Compose and Swarm service operations, Ansible/Semaphore execution,
-  rollback safety, and post-deploy verification. Use when planning or executing
-  production changes that require controlled risk.
+  Docker Compose and Swarm service operations, Ansible Runner, Semaphore UI/API
+  execution, rollback safety, and post-deploy verification. Use when planning
+  or executing production changes that require controlled risk.
 ---
 
 # Deployment Ops
@@ -18,15 +18,16 @@ Load `references/karpathy-superpowers-base.md` first. Classify the task, state a
 ## Classify First
 
 - Plan only: release readiness, rollout design, dry run, verification, or rollback planning.
-- Passive read-only: current status, logs, health, MIG describe, Docker inspect, Semaphore template reads.
-- Privileged change: deploy, rollback, Docker update, Ansible run, Semaphore task launch, Cloud DNS change, or MIG update.
+- Passive read-only: current status, logs, health, MIG describe, Docker inspect, Semaphore project, template, task, or log reads.
+- Privileged change: deploy, rollback, Docker update, Ansible run, Semaphore task launch or schedule update, Cloud DNS change, or MIG update.
 
 ## Load References
 
 - Artifact, dependency, migration, preflight, ownership, or go/no-go gates: `references/release-readiness.md`.
 - GCP MIG, instance template, Cloud DNS, load balancer, or real-path verification: `references/gcp-mig-rollout.md`.
 - Docker Engine, Compose, Swarm, service update, image swap, or rollback: `references/docker-service-ops.md`.
-- Ansible Runner, Semaphore API, playbook dry run, or approved execution: `references/ansible-semaphore.md`.
+- Ansible Runner, playbook dry run, inventory, role, tag, or approved playbook execution: `references/ansible-semaphore.md`.
+- Semaphore UI/API, projects, repositories, key store, inventories, variable groups, task templates, tasks, schedules, runners, or task logs: `references/semaphore-ui.md`.
 - Rollback triggers and post-rollback checks: `references/rollback-verification.md`.
 - Quick rollout checklist: `references/rollout-checklist.md`.
 - Quick rollback checklist: `references/rollback-checklist.md`.
