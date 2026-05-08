@@ -25,7 +25,7 @@ Load `references/karpathy-superpowers-base.md` first. It defines assumptions, si
 
 ## References
 
-- Amass, Naabu, httpx, ffuf, ZAP, Nuclei, SSLyze, or active scan planning: `references/active-surface-scan.md`.
+- Blackbox web/API pentest, OWASP scan, auth probing, input validation probing, retest requests, Amass, Naabu, httpx, ffuf, ZAP, Nuclei, SSLyze, or active scan planning: `references/active-surface-scan.md`.
 - Multi-tool triage, deduplication, severity, confidence, or retest state: `references/finding-normalization.md`.
 - Enterprise report, pentest report, vulnerability report, CVSS, roadmap, or release hardening: `references/enterprise-security-report.md`.
 - Security finding handoff to `em-thinking`, `golang-developer`, or `deployment-ops`: `references/security-fix-queue.md`.
@@ -34,7 +34,8 @@ Load `references/karpathy-superpowers-base.md` first. It defines assumptions, si
 ## Rules
 
 - Findings require concrete evidence, not speculation.
-- Active scans require allowlisted targets, rate limits, and non-production preference unless approved.
+- Active scans require allowlisted targets, rate limits, exclusions, stop conditions, and non-production preference unless approved.
+- Redact credentials, tokens, cookies, auth headers, private keys, and PII from evidence by default.
 - Do not perform whitebox source, dependency, container, or IaC review from this skill; use `security-sast` for repository and artifact analysis.
 - Privileged changes require explicit approval and rollback notes.
 - Do not execute destructive commands. Print the exact command for the user to run, explain impact and rollback or recovery limits, then wait for the result.
