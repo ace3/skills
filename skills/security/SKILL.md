@@ -39,6 +39,7 @@ Load `references/karpathy-superpowers-base.md` first. Classify the task, state a
 - Findings require concrete evidence, not speculation.
 - Active scans require allowlisted targets, rate limits, and non-production preference unless approved.
 - Privileged changes require explicit approval and rollback notes.
+- Do not execute destructive commands. If destructive action is required, print the exact command for the user to run, explain impact and rollback or recovery limits, then wait for the user's result before continuing.
 - Prefer fail-closed behavior when uncertainty affects auth, secrets, money, or integrity.
 
 ## Output Contract
