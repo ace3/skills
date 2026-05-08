@@ -3,8 +3,10 @@ name: security
 description: >
   Security operations skill for threat modeling, code and config audits,
   active surface scanning, log threat hunting, finding normalization, and
-  release hardening gates. Use when a task impacts authentication,
-  authorization, secrets, data protection, external exposure, or integrity.
+  enterprise security reporting, penetration-test reports, vulnerability
+  reports, executive summaries, CVSS scoring, remediation plans, and release
+  hardening gates. Use when a task impacts authentication, authorization,
+  secrets, data protection, external exposure, or integrity.
 ---
 
 # Security
@@ -28,6 +30,7 @@ Load `references/karpathy-superpowers-base.md` first. Classify the task, state a
 - Amass, Naabu, httpx, ffuf, ZAP, Nuclei, or SSLyze: `references/active-surface-scan.md`.
 - Sigma rules, Linux/GCP/Docker/Nginx logs, or forensic evidence: `references/log-threat-hunt.md`.
 - Multi-tool reports or triage output: `references/finding-normalization.md`.
+- Enterprise security report, penetration-test report, vulnerability report, executive summary, CVSS scoring, or remediation roadmap: `references/enterprise-security-report.md`.
 - Release hardening gates: `references/release-hardening-checklist.md`.
 
 ## Rules
@@ -39,4 +42,4 @@ Load `references/karpathy-superpowers-base.md` first. Classify the task, state a
 
 ## Output Contract
 
-Findings first, highest severity first. Include target, severity, evidence, exploitability, remediation, and verification.
+Findings first, highest severity first. Include target, severity, evidence, exploitability, remediation, verification, and retest status. For enterprise reports, start with an executive summary and finding table before detailed findings.

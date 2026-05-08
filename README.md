@@ -10,7 +10,7 @@ Every skill also carries a standalone Karpathy + Superpowers base layer. The bas
 
 | Skill | Use when | Loads guidance for |
 |---|---|---|
-| `security` | You need threat modeling, code/config audit, active surface scan, log threat hunt, or release hardening. | STRIDE, OWASP/API review, Semgrep/CodeQL, `govulncheck`, Trivy, Amass, Naabu, httpx, ffuf, ZAP, Nuclei, SSLyze, Sigma, finding normalization. |
+| `security` | You need threat modeling, code/config audit, active surface scan, log threat hunt, enterprise security report, vulnerability report, penetration-test report, or release hardening. | STRIDE, OWASP/API review, Semgrep/CodeQL, `govulncheck`, Trivy, Amass, Naabu, httpx, ffuf, ZAP, Nuclei, SSLyze, Sigma, finding normalization, CVSS scoring, executive summaries, remediation roadmaps. |
 | `monitoring` | You need read-only health checks, dashboard/alert design, telemetry gap analysis, or incident triage. | Grafana, Prometheus, GCP/MIG reads, Docker inspect, Node Exporter, osquery, SLI/SLO design, OTel, version drift, alert quality. |
 | `deployment-ops` | You need release readiness, GCP MIG rollout, Docker service operations, Ansible/Semaphore execution, rollback, or post-deploy verification. | Artifact gates, GCP MIG updates, Cloud DNS/LB-aware verification, Docker Compose/Swarm, Ansible Runner, Semaphore API, rollback checks. |
 | `roast` | You say "roast me" or need a one-question-at-a-time plan, spec, PRD, AGENT_SPEC.md, architecture, or design stress test. | Goal clarity, design tree traversal, codebase-first answers, concrete recommendations, optional CONTEXT.md/ADR-aware domain checks. |
@@ -87,6 +87,12 @@ Run a focused static scan review:
 
 ```text
 Use security. Scope: Go service repo, Dockerfile, compose files, and CI config. Action: read-only review. Output: confirmed findings only, using govulncheck/Trivy/Semgrep evidence where available.
+```
+
+Create an enterprise security report:
+
+```text
+Use security. Scope: authorized findings for metabase.example.com. Action: report only. Output: enterprise security report with executive summary, finding table, CVSS vectors, redacted evidence, remediation roadmap, and retest plan.
 ```
 
 Prepare an active scan safely:
