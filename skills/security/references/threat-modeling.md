@@ -16,6 +16,12 @@ Use for STRIDE, OWASP/API security, trust boundaries, and exploit-path review.
 4. Validate each issue with code, config, logs, tests, or runtime evidence.
 5. Recommend the smallest mitigation that closes the exploit path.
 
+## Quick Checklist
+
+- Assets, actors, trust boundaries, entry points, and privilege transitions are explicit.
+- STRIDE risks are tied to realistic paths and preconditions.
+- Mitigations have test, config, runtime, or control verification.
+
 ## Output
 
 - Trust boundaries and high-value assets.

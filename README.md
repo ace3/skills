@@ -2,15 +2,15 @@
 
 Curated skills for security, monitoring, deployment operations, and design stress testing across Claude and Codex.
 
-This package intentionally exposes only four installable skills. Each skill is a small router that loads detailed one-level `references/` only when the task needs them. That keeps prompts cheaper while still covering security scans, read-only monitoring, controlled deployments, and plan interviews.
+This package exposes four installable skills. Each skill is a compact router that loads one-level `references/` only when needed, keeping prompts cheaper while covering security scans, read-only monitoring, controlled deployments, and plan interviews.
 
-Every skill also carries a standalone Karpathy + Superpowers base layer. The base layer makes the skill state assumptions, choose the simplest sufficient path, keep changes surgical, and define verification before action. It also adds a risk gate: read-only checks can proceed after classification, design or behavior changes need brainstorming or an equivalent written design, and privileged actions need an exact plan, approval, rollback notes, and post-change verification.
+Every operational skill carries a standalone Karpathy + Superpowers base layer. It requires assumptions, the simplest sufficient path, surgical changes, verification before action, approval gates for privileged changes, and manual user execution for destructive commands.
 
 ## Skills
 
 | Skill | Use when | Loads guidance for |
 |---|---|---|
-| `security` | You need threat modeling, code/config audit, active surface scan, log threat hunt, enterprise security report, vulnerability report, penetration-test report, or release hardening. | STRIDE, OWASP/API review, Semgrep/CodeQL, `govulncheck`, Trivy, Amass, Naabu, httpx, ffuf, ZAP, Nuclei, SSLyze, Sigma, finding normalization, CVSS scoring, executive summaries, remediation roadmaps. |
+| `security` | You need threat modeling, code/config audit, active surface scan, log threat hunt, enterprise security report, vulnerability report, penetration-test report, or release hardening. | STRIDE, OWASP/API review, Semgrep/CodeQL, `govulncheck`, Trivy, Amass, Naabu, httpx, ffuf, ZAP, Nuclei, SSLyze, Sigma, finding normalization, CVSS, reports, remediation roadmaps. |
 | `monitoring` | You need read-only health checks, dashboard/alert design, telemetry gap analysis, or incident triage. | Grafana, Prometheus, GCP/MIG reads, Docker inspect, Node Exporter, osquery, SLI/SLO design, OTel, version drift, alert quality. |
 | `deployment-ops` | You need release readiness, GCP MIG rollout, Docker service operations, Ansible Runner, Semaphore UI/API execution, rollback, or post-deploy verification. | Artifact gates, GCP MIG updates, Cloud DNS/LB-aware verification, Docker Compose/Swarm, Ansible Runner, Semaphore UI projects/templates/tasks/runners/schedules, rollback checks. |
 | `roast` | You say "roast me" or need a one-question-at-a-time plan, spec, PRD, AGENT_SPEC.md, architecture, or design stress test. | Goal clarity, design tree traversal, codebase-first answers, concrete recommendations, optional CONTEXT.md/ADR-aware domain checks. |
@@ -189,7 +189,7 @@ Each skill includes `references/karpathy-superpowers-base.md` so single-skill in
 
 - Karpathy defaults: explicit assumptions, simplicity first, surgical changes, and goal-driven verification.
 - Superpowers planning: brainstorming or written design before creative or behavior-changing work.
-- Execution gate: exact plan, approval, rollback, and verification before privileged actions.
+- Execution gate: exact plan, approval, rollback, and verification before privileged actions; destructive commands are printed for the user to run manually.
 
 ## Repository Layout
 

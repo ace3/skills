@@ -17,6 +17,13 @@ Use for logs, metrics, traces, OpenTelemetry, host inventory, version drift, and
 - Cost risk: label cardinality or trace volume can grow without bound.
 - Drift risk: runtime, package, image, or config version cannot be audited.
 
+## Coverage Gate
+
+- Critical workflows have success and failure counters.
+- Key endpoint latency is tracked by percentile.
+- Error rates are segmented by dependency and route.
+- Trace sampling preserves incident diagnostics without leaking secrets.
+
 ## Output
 
 - Coverage matrix.

@@ -1,6 +1,6 @@
 # Security Skill Self-Improvement Loop
 
-Use when the task is to research, benchmark, or improve this `security` skill. The loop improves skill guidance only. It does not run privileged actions, active scans, or automatic edits.
+Use to research, benchmark, or improve this `security` skill. The loop improves guidance only; it does not run privileged actions, active scans, or automatic edits.
 
 ## Operating Rules
 
@@ -12,10 +12,7 @@ Use when the task is to research, benchmark, or improve this `security` skill. T
 
 ## Loop
 
-1. Research the current skill:
-   - Read `skills/security/SKILL.md`, `skills/security/MANIFEST`, and relevant `skills/security/references/*.md`.
-   - Review repo docs and any prior benchmark report supplied by the user.
-   - When network is available and useful, check current security-skill, scanner, OWASP, or tool documentation sources and cite the sources that influence the proposal.
+1. Research `skills/security/SKILL.md`, `skills/security/MANIFEST`, relevant references, repo docs, and supplied benchmark reports. Use current public sources only when useful, and cite sources that influence the proposal.
 2. Benchmark the skill against the fixtures below.
 3. Diagnose each weak score as an instruction, routing, rubric, or reference-content issue.
 4. Propose the smallest patch plan that should improve the score.
@@ -23,7 +20,7 @@ Use when the task is to research, benchmark, or improve this `security` skill. T
 
 ## Benchmark Fixtures
 
-Use these fixtures as prompt scenarios. Score the answer that the current skill would lead the agent to produce.
+Score the answer the current skill would lead the agent to produce.
 
 ### Fixture A: Passive Go/API Review
 
@@ -33,13 +30,7 @@ Prompt:
 Use security. Scope: a Go REST API repo with auth middleware, SQL repositories, Dockerfile, and compose files. Action: read-only review. Output: confirmed findings only, with file evidence, exploitability, remediation, and verification.
 ```
 
-Expected behavior:
-
-- Loads the base layer and `repo-static-scan.md`.
-- Inspects real files before making claims.
-- Separates confirmed findings from scanner noise.
-- Requires file, config, command, dependency, or image evidence.
-- Gives realistic exploitability and verification steps for each finding.
+Expected: load base plus `repo-static-scan.md`, inspect real files before claims, separate confirmed findings from scanner noise, require concrete evidence, and include realistic exploitability plus verification.
 
 ### Fixture B: Active Scan Planning
 
@@ -49,13 +40,7 @@ Prompt:
 Use security. Scope: https://api.staging.example.com only. Action: active scan plan only. Output: allowlist, rate limits, tools, risks, and finding schema. Do not run scans yet.
 ```
 
-Expected behavior:
-
-- Loads the base layer and `active-surface-scan.md`.
-- Treats the single hostname as the only allowed target.
-- Defines excluded targets, low concurrency, rate limits, identity headers, and stop conditions.
-- Produces a plan without running tools.
-- Keeps production, broad discovery, and privileged actions blocked unless separately approved.
+Expected: load base plus `active-surface-scan.md`, treat the hostname as the only allowed target, define exclusions/rate limits/identity headers/stop conditions, plan without running tools, and keep broader or privileged actions blocked.
 
 ### Fixture C: Finding Normalization
 
@@ -65,13 +50,7 @@ Prompt:
 Use security. Scope: mixed Semgrep, Trivy, Nuclei, and manual review notes. Action: read-only triage. Output: deduplicated findings with severity, proof, confidence, exploitability, and next action.
 ```
 
-Expected behavior:
-
-- Loads the base layer and `finding-normalization.md`.
-- Deduplicates the same root cause across tools.
-- Keeps unrelated issues separate.
-- Marks unverified scanner output as unconfirmed.
-- Produces operator-ready findings instead of raw scanner dumps.
+Expected: load base plus `finding-normalization.md`, deduplicate root causes, keep unrelated issues separate, mark unverified scanner output as unconfirmed, and produce operator-ready findings.
 
 ## Scorecard
 
@@ -87,20 +66,7 @@ Score each fixture from 0 to 5 in these dimensions:
 | Coverage guardrail | The answer loads the right reference and covers the relevant security surface without drifting. |
 | Operational discipline | The answer respects read-only, active-scan, and privileged-change gates. |
 
-Primary score:
-
-```text
-finding_quality = average(evidence quality, severity accuracy, exploitability clarity, remediation usefulness, verification clarity)
-```
-
-Guardrail scores:
-
-```text
-coverage_guardrail = coverage guardrail
-operational_discipline = operational discipline
-```
-
-An improvement is acceptable only if `finding_quality` increases without lowering either guardrail.
+Primary score is the average of evidence, severity, exploitability, remediation, and verification. An improvement is acceptable only if primary score rises without lowering coverage or operational discipline.
 
 ## Output Contract
 

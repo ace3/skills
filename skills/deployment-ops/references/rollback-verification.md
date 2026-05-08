@@ -10,6 +10,14 @@ Use for rollback triggers, previous artifact checks, rollback execution plans, a
 4. Execute rollback only after approval unless the runbook already grants emergency authority.
 5. Verify real request path first, then backend health, logs, metrics, and data consistency.
 
+## Rollback Gate
+
+- Trigger thresholds are predefined.
+- Previous stable artifact is available.
+- Rollback command path is tested.
+- Data compatibility is validated before rollback.
+- Post-rollback checks confirm recovery.
+
 ## Output
 
 - Rollback trigger and evidence.

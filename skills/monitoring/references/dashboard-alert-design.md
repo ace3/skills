@@ -17,6 +17,14 @@ Use for Grafana dashboards, SLI/SLO design, alert thresholds, and runbook linkag
 - Prefer percentile latency over averages.
 - Avoid high-cardinality labels unless they are needed for incident response.
 
+## Alert Quality Gate
+
+- Impact statement is clear.
+- Next action is actionable.
+- Owner and escalation path are assigned.
+- Threshold is tested against historical data.
+- Noise budget is measured regularly.
+
 ## Output
 
 - Dashboard purpose and panel list.
