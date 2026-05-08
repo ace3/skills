@@ -1,0 +1,21 @@
+{
+  "name": "deployment-ops",
+  "version": "0.1.0",
+  "description": "Deployment workflows for release readiness, GCP MIG rollouts, Docker service ops, Ansible/Semaphore execution, rollback, and verification.",
+  "author": {
+    "name": "ace3",
+    "url": "https://github.com/ace3"
+  },
+  "homepage": "https://github.com/ace3/skills/tree/main/skills/deployment-ops",
+  "repository": "https://github.com/ace3/skills",
+  "license": "MIT",
+  "keywords": [
+    "deployment",
+    "release",
+    "rollback",
+    "devops",
+    "gcp-mig",
+    "docker",
+    "ansible"
+  ]
+}

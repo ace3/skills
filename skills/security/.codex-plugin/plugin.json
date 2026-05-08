@@ -1,0 +1,20 @@
+{
+  "name": "security",
+  "version": "0.1.0",
+  "description": "Security workflows for threat modeling, static scanning, active surface scans, log threat hunting, finding normalization, and hardening gates.",
+  "author": {
+    "name": "ace3",
+    "url": "https://github.com/ace3"
+  },
+  "homepage": "https://github.com/ace3/skills/tree/main/skills/security",
+  "repository": "https://github.com/ace3/skills",
+  "license": "MIT",
+  "keywords": [
+    "security",
+    "audit",
+    "threat-modeling",
+    "static-scan",
+    "surface-scan",
+    "hardening"
+  ]
+}

@@ -1,0 +1,36 @@
+{
+  "name": "@ace3/skills",
+  "version": "0.1.0",
+  "description": "Security, monitoring, deployment ops, and design stress-test skills installable for Codex and Claude",
+  "bin": {
+    "ace3-skills": "./bin/cli.js"
+  },
+  "keywords": [
+    "codex",
+    "claude",
+    "skills",
+    "security",
+    "monitoring",
+    "deployment",
+    "design-interview",
+    "stress-test",
+    "plugin-marketplace"
+  ],
+  "author": "ace3",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ace3/skills.git"
+  },
+  "files": [
+    ".claude-plugin/",
+    ".codex-plugin/",
+    "bin/",
+    "skills/",
+    "README.md",
+    "install.sh"
+  ],
+  "publishConfig": {
+    "access": "public"
+  }
+}

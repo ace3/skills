@@ -1,0 +1,21 @@
+{
+  "name": "roast",
+  "version": "0.1.0",
+  "description": "Relentless one-question-at-a-time design interview and docs-aware plan stress testing triggered by \"roast me\".",
+  "author": {
+    "name": "ace3",
+    "url": "https://github.com/ace3"
+  },
+  "homepage": "https://github.com/ace3/skills/tree/main/skills/roast",
+  "repository": "https://github.com/ace3/skills",
+  "license": "MIT",
+  "keywords": [
+    "design-interview",
+    "roast",
+    "stress-test",
+    "architecture",
+    "prd",
+    "adr",
+    "context-docs"
+  ]
+}

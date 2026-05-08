@@ -1,0 +1,91 @@
+{
+  "name": "ace3-skills",
+  "owner": {
+    "name": "ace3",
+    "url": "https://github.com/ace3"
+  },
+  "metadata": {
+    "description": "Skills for security, monitoring, deployment operations, and design stress testing. English-only. Installable via npm CLI and plugin marketplaces.",
+    "version": "0.1.0"
+  },
+  "plugins": [
+    {
+      "name": "security",
+      "source": "./skills/security",
+      "description": "Security workflows for threat modeling, static scanning, active surface scans, log threat hunting, finding normalization, and hardening gates.",
+      "version": "0.1.0",
+      "author": {
+        "name": "ace3"
+      },
+      "category": "security",
+      "tags": [
+        "security",
+        "audit",
+        "threat-modeling",
+        "static-scan",
+        "surface-scan",
+        "hardening"
+      ],
+      "homepage": "https://github.com/ace3/skills/tree/main/skills/security"
+    },
+    {
+      "name": "monitoring",
+      "source": "./skills/monitoring",
+      "description": "Monitoring workflows for read-only health checks, dashboard and alert design, telemetry coverage, and incident triage.",
+      "version": "0.1.0",
+      "author": {
+        "name": "ace3"
+      },
+      "category": "operations",
+      "tags": [
+        "monitoring",
+        "observability",
+        "sre",
+        "alerts",
+        "health-checks",
+        "incident-response"
+      ],
+      "homepage": "https://github.com/ace3/skills/tree/main/skills/monitoring"
+    },
+    {
+      "name": "deployment-ops",
+      "source": "./skills/deployment-ops",
+      "description": "Deployment workflows for release readiness, GCP MIG rollouts, Docker service ops, Ansible/Semaphore execution, rollback, and verification.",
+      "version": "0.1.0",
+      "author": {
+        "name": "ace3"
+      },
+      "category": "operations",
+      "tags": [
+        "deployment",
+        "release",
+        "rollback",
+        "devops",
+        "gcp-mig",
+        "docker",
+        "ansible"
+      ],
+      "homepage": "https://github.com/ace3/skills/tree/main/skills/deployment-ops"
+    },
+    {
+      "name": "roast",
+      "source": "./skills/roast",
+      "description": "Relentless one-question-at-a-time design interview and docs-aware plan stress testing triggered by \"roast me\".",
+      "version": "0.1.0",
+      "author": {
+        "name": "ace3"
+      },
+      "category": "planning",
+      "tags": [
+        "design-interview",
+        "roast",
+        "stress-test",
+        "architecture",
+        "prd",
+        "adr",
+        "context-docs"
+      ],
+      "homepage": "https://github.com/ace3/skills/tree/main/skills/roast"
+    }
+  ]
+}
