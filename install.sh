@@ -4,7 +4,7 @@ set -e
 REPO="ace3/skills"
 REPO_URL="https://github.com/$REPO"
 RAW_BASE="https://raw.githubusercontent.com/$REPO/main"
-ALL_SKILLS=("security" "monitoring" "deployment-ops")
+ALL_SKILLS=("security" "monitoring" "deployment-ops" "drawing")
 REQUESTED_SKILLS=("$@")
 if [ ${#REQUESTED_SKILLS[@]} -eq 0 ]; then
   REQUESTED_SKILLS=("${ALL_SKILLS[@]}")

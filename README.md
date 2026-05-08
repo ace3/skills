@@ -1,8 +1,8 @@
 # @ace3/skills
 
-Curated skills for security, monitoring, deployment operations, and design stress testing across Claude and Codex.
+Curated skills for security, monitoring, deployment operations, drawing, and design stress testing across Claude and Codex.
 
-This package exposes four installable skills. Each skill is a compact router that loads one-level `references/` only when needed, keeping prompts cheaper while covering security scans, read-only monitoring, controlled deployments, and plan interviews.
+This package exposes five installable skills. Each skill is a compact router that loads one-level `references/` only when needed, keeping prompts cheaper while covering security scans, read-only monitoring, controlled deployments, diagram creation, and plan interviews.
 
 Every operational skill carries a standalone Karpathy + Superpowers base layer. It requires assumptions, the simplest sufficient path, surgical changes, verification before action, approval gates for privileged changes, and manual user execution for destructive commands.
 
@@ -13,6 +13,7 @@ Every operational skill carries a standalone Karpathy + Superpowers base layer. 
 | `security` | You need threat modeling, code/config audit, active surface scan, log threat hunt, enterprise security report, vulnerability report, penetration-test report, or release hardening. | STRIDE, OWASP/API review, Semgrep/CodeQL, `govulncheck`, Trivy, Amass, Naabu, httpx, ffuf, ZAP, Nuclei, SSLyze, Sigma, finding normalization, CVSS, reports, remediation roadmaps. |
 | `monitoring` | You need read-only health checks, dashboard/alert design, telemetry gap analysis, dependency/runtime vulnerability inventory, or incident triage. | Grafana, Prometheus, GCP/MIG reads, Docker inspect, Node Exporter, osquery, SLI/SLO design, OTel, version drift, dependency inventory, vulnerability alert reports, alert quality. |
 | `deployment-ops` | You need release readiness, GCP MIG rollout, Docker service operations, Ansible Runner, Semaphore UI/API execution, rollback, or post-deploy verification. | Artifact gates, GCP MIG updates, Cloud DNS/LB-aware verification, Docker Compose/Swarm, Ansible Runner, Semaphore UI projects/templates/tasks/runners/schedules, rollback checks. |
+| `drawing` | You need to create, design, explain, render, or improve diagrams with Mermaid or Excalidraw. | Mermaid diagram selection and syntax, Excalidraw visual argument design, technical diagram evidence, and format-specific validation. |
 | `roast` | You say "roast me" or need a one-question-at-a-time plan, spec, PRD, AGENT_SPEC.md, architecture, or design stress test. | Goal clarity, design tree traversal, codebase-first answers, concrete recommendations, optional CONTEXT.md/ADR-aware domain checks. |
 
 ## Install
@@ -21,6 +22,7 @@ Every operational skill carries a standalone Karpathy + Superpowers base layer. 
 npx @ace3/skills install security
 npx @ace3/skills install monitoring
 npx @ace3/skills install deployment-ops
+npx @ace3/skills install drawing
 npx @ace3/skills install roast
 npx @ace3/skills install --all
 ```
@@ -43,6 +45,7 @@ Install plugins:
 /plugin install security@ace3-skills
 /plugin install monitoring@ace3-skills
 /plugin install deployment-ops@ace3-skills
+/plugin install drawing@ace3-skills
 /plugin install roast@ace3-skills
 ```
 
@@ -54,7 +57,7 @@ Marketplace catalogs:
 
 Use one skill at a time unless the task clearly crosses domains. Good prompts include four parts:
 
-1. Skill name: `Use security`, `Use monitoring`, `Use deployment-ops`, or `roast me`.
+1. Skill name: `Use security`, `Use monitoring`, `Use deployment-ops`, `Use drawing`, or `roast me`.
 2. Scope: repo path, service, environment, URL, host group, time window, or target allowlist.
 3. Action class: read-only review, active scan, plan only, or approved execution.
 4. Output contract: findings, health status, rollout plan, rollback plan, or verification evidence.
@@ -167,6 +170,20 @@ Run Ansible or Semaphore UI safely:
 Use deployment-ops. Scope: Semaphore UI project dki-staging, deploy template backend-api. Action: plan only. Output: project/template IDs, parameters, dry-run/check-mode path, approval gate, rollback task, and verification evidence to collect.
 ```
 
+### Drawing
+
+Create a Markdown-native diagram:
+
+```text
+Use drawing. Scope: README architecture section and service flow. Action: Mermaid diagram. Output: renderable fenced mermaid block.
+```
+
+Create a visual explanation:
+
+```text
+Use drawing. Scope: auth callback flow and supplied API examples. Action: Excalidraw diagram. Output: .excalidraw artifact with render validation if available.
+```
+
 ### Roast
 
 Stress-test a design:
@@ -191,7 +208,7 @@ Roast me on this architecture against the codebase docs. If terminology or decis
 
 ## Base Layer
 
-Each skill includes `references/karpathy-superpowers-base.md` so single-skill installs remain self-contained.
+Operational skills include `references/karpathy-superpowers-base.md` so single-skill installs remain self-contained.
 
 - Karpathy defaults: explicit assumptions, simplicity first, surgical changes, and goal-driven verification.
 - Superpowers planning: brainstorming or written design before creative or behavior-changing work.
@@ -214,6 +231,11 @@ skills/
     SKILL.md
     references/
       karpathy-superpowers-base.md
+  drawing/
+    SKILL.md
+    references/
+      mermaid.md
+      excalidraw.md
   roast/
     SKILL.md
 ```

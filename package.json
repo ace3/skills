@@ -1,7 +1,7 @@
 {
   "name": "@ace3/skills",
   "version": "0.1.0",
-  "description": "Security, monitoring, deployment ops, and design stress-test skills installable for Codex and Claude",
+  "description": "Security, monitoring, deployment ops, drawing, and design stress-test skills installable for Codex and Claude",
   "bin": {
     "ace3-skills": "./bin/cli.js"
   },
@@ -12,6 +12,10 @@
     "security",
     "monitoring",
     "deployment",
+    "drawing",
+    "diagram",
+    "mermaid",
+    "excalidraw",
     "design-interview",
     "stress-test",
     "plugin-marketplace"

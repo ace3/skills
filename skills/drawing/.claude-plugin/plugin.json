@@ -1,0 +1,21 @@
+{
+  "name": "drawing",
+  "version": "0.1.0",
+  "description": "Diagram creation router for Mermaid and Excalidraw, covering Markdown-native diagrams and visual .excalidraw artifacts.",
+  "author": {
+    "name": "ace3",
+    "url": "https://github.com/ace3"
+  },
+  "homepage": "https://github.com/ace3/skills/tree/main/skills/drawing",
+  "repository": "https://github.com/ace3/skills",
+  "license": "MIT",
+  "keywords": [
+    "drawing",
+    "diagram",
+    "mermaid",
+    "excalidraw",
+    "architecture",
+    "workflow",
+    "visualization"
+  ]
+}

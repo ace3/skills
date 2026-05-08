@@ -5,7 +5,7 @@
     "url": "https://github.com/ace3"
   },
   "metadata": {
-    "description": "Skills for security, monitoring, deployment operations, and design stress testing. English-only. Installable via npm CLI and plugin marketplaces.",
+    "description": "Skills for security, monitoring, deployment operations, drawing, and design stress testing. English-only. Installable via npm CLI and plugin marketplaces.",
     "version": "0.1.0"
   },
   "plugins": [
@@ -70,6 +70,26 @@
         "semaphore-ui"
       ],
       "homepage": "https://github.com/ace3/skills/tree/main/skills/deployment-ops"
+    },
+    {
+      "name": "drawing",
+      "source": "./skills/drawing",
+      "description": "Diagram creation router for Mermaid and Excalidraw, covering Markdown-native diagrams and visual .excalidraw artifacts.",
+      "version": "0.1.0",
+      "author": {
+        "name": "ace3"
+      },
+      "category": "design",
+      "tags": [
+        "drawing",
+        "diagram",
+        "mermaid",
+        "excalidraw",
+        "architecture",
+        "workflow",
+        "visualization"
+      ],
+      "homepage": "https://github.com/ace3/skills/tree/main/skills/drawing"
     },
     {
       "name": "roast",
