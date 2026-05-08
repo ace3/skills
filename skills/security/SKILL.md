@@ -30,6 +30,7 @@ Load `references/karpathy-superpowers-base.md` first. It defines assumptions, si
 - Sigma logic, Linux/GCP/Docker/Nginx logs, or forensic evidence: `references/log-threat-hunt.md`.
 - Multi-tool triage, deduplication, severity, confidence, or retest state: `references/finding-normalization.md`.
 - Enterprise report, pentest report, vulnerability report, CVSS, roadmap, or release hardening: `references/enterprise-security-report.md`.
+- Security finding handoff to `em-thinking`, `golang-developer`, or `deployment-ops`: `references/security-fix-queue.md`.
 - Researching, benchmarking, or improving this skill: `references/self-improvement-loop.md`.
 
 ## Rules
@@ -43,3 +44,5 @@ Load `references/karpathy-superpowers-base.md` first. It defines assumptions, si
 ## Output Contract
 
 Findings first, highest severity first. Include target, severity, evidence, exploitability, remediation, verification, and retest status. For enterprise reports, start with an executive summary and finding table before detailed findings.
+
+When the requested output is a fix handoff, emit a Security Fix Queue Bundle using `references/security-fix-queue.md`. The bundle is Markdown with an embedded strict JSON block. Route code findings to `em-thinking`, then `golang-developer`; route infra, runtime, deployment, DNS, image, load balancer, service operation, or rollout findings to `deployment-ops`. Only confirmed or high-confidence actionable findings belong in `fix_queue`; weak scanner output belongs in `unconfirmed_findings`.

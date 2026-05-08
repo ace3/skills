@@ -10,7 +10,7 @@ Every operational skill carries a standalone Karpathy + Superpowers base layer. 
 
 | Skill | Use when | Loads guidance for |
 |---|---|---|
-| `security` | You need threat modeling, code/config audit, active surface scan, log threat hunt, enterprise security report, vulnerability report, penetration-test report, or release hardening. | STRIDE, OWASP/API review, Semgrep/CodeQL, `govulncheck`, Trivy, Amass, Naabu, httpx, ffuf, ZAP, Nuclei, SSLyze, Sigma, finding normalization, CVSS, reports, remediation roadmaps. |
+| `security` | You need threat modeling, code/config audit, active surface scan, log threat hunt, enterprise security report, vulnerability report, penetration-test report, fix queue handoff, or release hardening. | STRIDE, OWASP/API review, Semgrep/CodeQL, `govulncheck`, Trivy, Amass, Naabu, httpx, ffuf, ZAP, Nuclei, SSLyze, Sigma, finding normalization, CVSS, reports, remediation roadmaps, security fix queue bundles. |
 | `monitoring` | You need read-only health checks, dashboard/alert design, telemetry gap analysis, dependency/runtime vulnerability inventory, or incident triage. | Grafana, Prometheus, GCP/MIG reads, Docker inspect, Node Exporter, osquery, SLI/SLO design, OTel, version drift, dependency inventory, vulnerability alert reports, alert quality. |
 | `deployment-ops` | You need release readiness, GCP MIG rollout, Docker service operations, Ansible Runner, Semaphore UI/API execution, rollback, or post-deploy verification. | Artifact gates, GCP MIG updates, Cloud DNS/LB-aware verification, Docker Compose/Swarm, Ansible Runner, Semaphore UI projects/templates/tasks/runners/schedules, rollback checks. |
 | `drawing` | You need to create, design, explain, render, or improve diagrams with Mermaid or Excalidraw. | Mermaid diagram selection and syntax, Excalidraw visual argument design, technical diagram evidence, and format-specific validation. |
@@ -90,6 +90,12 @@ Run a focused static scan review:
 
 ```text
 Use security. Scope: Go service repo, Dockerfile, compose files, and CI config. Action: read-only review. Output: confirmed findings only, using govulncheck/Trivy/Semgrep evidence where available.
+```
+
+Create a fix handoff for downstream agents:
+
+```text
+Use security. Scope: Go service repo auth paths, dependency findings, and staging route exposure. Action: read-only review. Output: security-fix-queue/v1 Markdown bundle with embedded JSON. Route code findings to em-thinking then golang-developer; route infra findings to deployment-ops. Put only confirmed or high-confidence actionable findings in fix_queue.
 ```
 
 Create an enterprise security report:
