@@ -107,6 +107,14 @@ Triage security logs:
 Use security. Scope: GCP audit logs and Nginx access logs from 2026-05-08 01:00-03:00 UTC. Action: read-only review. Output: timeline, suspicious events, matched Sigma-style logic, impact, and next actions.
 ```
 
+Benchmark and improve the security skill:
+
+```text
+Use security. Scope: the installed security skill. Action: self-improvement plan only. Output: research summary, benchmark scorecard, failed expectations, root-cause diagnosis, minimal patch plan, regression risk, and verification checks. Do not edit files yet.
+```
+
+The self-improvement loop researches the current skill, runs three benchmark fixtures for passive Go/API review, active scan planning, and finding normalization, then proposes the smallest approval-gated improvement. It optimizes finding quality without lowering active-scan or privileged-change safety gates.
+
 ### Monitoring
 
 Check read-only service health:
@@ -191,6 +199,7 @@ skills/
     SKILL.md
     references/
       karpathy-superpowers-base.md
+      self-improvement-loop.md
   monitoring/
     SKILL.md
     references/

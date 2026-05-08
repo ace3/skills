@@ -31,6 +31,7 @@ Load `references/karpathy-superpowers-base.md` first. Classify the task, state a
 - Sigma rules, Linux/GCP/Docker/Nginx logs, or forensic evidence: `references/log-threat-hunt.md`.
 - Multi-tool reports or triage output: `references/finding-normalization.md`.
 - Enterprise security report, penetration-test report, vulnerability report, executive summary, CVSS scoring, or remediation roadmap: `references/enterprise-security-report.md`.
+- Researching, benchmarking, or improving this security skill: `references/self-improvement-loop.md`.
 - Release hardening gates: `references/release-hardening-checklist.md`.
 
 ## Rules
