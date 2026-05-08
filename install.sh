@@ -3,7 +3,7 @@ set -e
 
 REPO="ace3/skills"
 REPO_URL="https://github.com/$REPO"
-ALL_SKILLS=("security-sast" "security-dast" "monitoring" "deployment-ops" "drawing" "roast")
+ALL_SKILLS=("security-sast" "security-dast" "monitoring" "deployment-ops" "drawing" "roast" "plane")
 REQUESTED_SKILLS=("$@")
 if [ ${#REQUESTED_SKILLS[@]} -eq 0 ]; then
   REQUESTED_SKILLS=("${ALL_SKILLS[@]}")

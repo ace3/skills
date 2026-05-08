@@ -5,7 +5,7 @@
     "url": "https://github.com/ace3"
   },
   "metadata": {
-    "description": "Skills for security, monitoring, deployment operations, drawing, and design stress testing. English-only. Installable via npm CLI and plugin marketplaces.",
+    "description": "Skills for security, monitoring, deployment operations, drawing, Plane, and design stress testing. English-only. Installable via npm CLI and plugin marketplaces.",
     "version": "0.1.0"
   },
   "plugins": [
@@ -112,6 +112,26 @@
         "visualization"
       ],
       "homepage": "https://github.com/ace3/skills/tree/main/skills/drawing"
+    },
+    {
+      "name": "plane",
+      "source": "./skills/plane",
+      "description": "Plane.so project management workflow for looking up, listing, creating, and updating work items through the Plane REST API.",
+      "version": "0.1.0",
+      "author": {
+        "name": "ace3"
+      },
+      "category": "productivity",
+      "tags": [
+        "plane",
+        "plane-so",
+        "project-management",
+        "work-items",
+        "issues",
+        "api",
+        "tasks"
+      ],
+      "homepage": "https://github.com/ace3/skills/tree/main/skills/plane"
     },
     {
       "name": "roast",

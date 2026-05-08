@@ -1,8 +1,8 @@
 # @ace3/skills
 
-Curated skills for SAST, DAST, monitoring, deployment operations, drawing, and design stress testing across Claude and Codex.
+Curated skills for SAST, DAST, monitoring, deployment operations, drawing, Plane, and design stress testing across Claude and Codex.
 
-This package exposes six installable skills. Each skill is a compact router that loads one-level `references/` only when needed, keeping prompts cheaper while covering static security review, dynamic security testing, read-only monitoring, controlled deployments, diagram creation, and plan interviews.
+This package exposes seven installable skills. Each skill is a compact router that loads one-level `references/` only when needed, keeping prompts cheaper while covering static security review, dynamic security testing, read-only monitoring, controlled deployments, diagram creation, Plane work item workflows, and plan interviews.
 
 Every operational skill carries a standalone Karpathy + Superpowers base layer. It requires assumptions, the simplest sufficient path, surgical changes, verification before action, approval gates for privileged changes, and manual user execution for destructive commands.
 
@@ -15,6 +15,7 @@ Every operational skill carries a standalone Karpathy + Superpowers base layer. 
 | `monitoring` | You need read-only health checks, dashboard/alert design, telemetry gap analysis, dependency/runtime vulnerability inventory, or incident triage. | Grafana, Prometheus, GCP/MIG reads, Docker inspect, Node Exporter, osquery, SLI/SLO design, OTel, version drift, dependency inventory, vulnerability alert reports, alert quality. |
 | `deployment-ops` | You need release readiness, GCP MIG rollout, Docker service operations, Ansible Runner, Semaphore UI/API execution, rollback, or post-deploy verification. | Artifact gates, GCP MIG updates, Cloud DNS/LB-aware verification, Docker Compose/Swarm, Ansible Runner, Semaphore UI projects/templates/tasks/runners/schedules, rollback checks. |
 | `drawing` | You need to create, design, explain, render, or improve diagrams with Mermaid or Excalidraw. | Mermaid diagram selection and syntax, Excalidraw visual argument design, technical diagram evidence, and format-specific validation. |
+| `plane` | You need to look up, list, create, update, or report on Plane.so projects and work items through the Plane REST API. | Plane auth, `work-items` endpoints, pagination, project/member/state/label/module/cycle lookup, safe mutation plans, and a small API helper script. |
 | `roast` | You say "roast me" or need a one-question-at-a-time plan, spec, PRD, AGENT_SPEC.md, architecture, or design stress test. | Goal clarity, design tree traversal, codebase-first answers, concrete recommendations, optional CONTEXT.md/ADR-aware domain checks. |
 
 ## Install
@@ -25,6 +26,7 @@ npx @ace3/skills install security-dast
 npx @ace3/skills install monitoring
 npx @ace3/skills install deployment-ops
 npx @ace3/skills install drawing
+npx @ace3/skills install plane
 npx @ace3/skills install roast
 npx @ace3/skills install --all
 ```
@@ -49,6 +51,7 @@ Install plugins:
 /plugin install monitoring@ace3-skills
 /plugin install deployment-ops@ace3-skills
 /plugin install drawing@ace3-skills
+/plugin install plane@ace3-skills
 /plugin install roast@ace3-skills
 ```
 
@@ -60,7 +63,7 @@ Marketplace catalogs:
 
 Use one skill at a time unless the task clearly crosses domains. Good prompts include four parts:
 
-1. Skill name: `Use security-sast`, `Use security-dast`, `Use monitoring`, `Use deployment-ops`, `Use drawing`, or `roast me`.
+1. Skill name: `Use security-sast`, `Use security-dast`, `Use monitoring`, `Use deployment-ops`, `Use drawing`, `Use plane`, or `roast me`.
 2. Scope: repo path, service, environment, URL, host group, time window, or target allowlist.
 3. Action class: read-only review, active scan, plan only, or approved execution.
 4. Output contract: findings, health status, rollout plan, rollback plan, or verification evidence.
@@ -195,6 +198,26 @@ Create a visual explanation:
 Use drawing. Scope: auth callback flow and supplied API examples. Action: Excalidraw diagram. Output: .excalidraw artifact with render validation if available.
 ```
 
+### Plane
+
+Look up a Plane work item by key:
+
+```text
+Use plane. Scope: workspace slug acme and item API-123. Action: read-only lookup. Output: current title, state, priority, assignees, target date, and endpoint evidence without secrets.
+```
+
+Create a work item after review:
+
+```text
+Use plane. Scope: workspace acme, project API backend UUID. Action: mutation plan first. Output: exact POST /work-items/ endpoint, JSON body, and verification GET before applying.
+```
+
+Report project status:
+
+```text
+Use plane. Scope: workspace acme, project API backend. Action: read-only. Output: grouped work item status by state and priority using cursor pagination if needed.
+```
+
 ### Roast
 
 Stress-test a design:
@@ -265,6 +288,12 @@ skills/
       excalidraw.md
   roast/
     SKILL.md
+  plane/
+    SKILL.md
+    scripts/
+      plane_api.py
+    references/
+      api-reference.md
 ```
 
 Each `SKILL.md` stays short. Detailed procedures live in `references/` and are loaded only when relevant.

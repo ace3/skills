@@ -1,0 +1,6 @@
+SKILL.md
+.claude-plugin/plugin.json
+.codex-plugin/plugin.json
+agents/openai.yaml
+scripts/plane_api.py
+references/api-reference.md

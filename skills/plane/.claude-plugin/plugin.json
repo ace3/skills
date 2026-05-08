@@ -1,0 +1,21 @@
+{
+  "name": "plane",
+  "version": "0.1.0",
+  "description": "Plane.so project management workflow for looking up, listing, creating, and updating work items through the Plane REST API.",
+  "author": {
+    "name": "ace3",
+    "url": "https://github.com/ace3"
+  },
+  "homepage": "https://github.com/ace3/skills/tree/main/skills/plane",
+  "repository": "https://github.com/ace3/skills",
+  "license": "MIT",
+  "keywords": [
+    "plane",
+    "plane-so",
+    "project-management",
+    "work-items",
+    "issues",
+    "api",
+    "tasks"
+  ]
+}
