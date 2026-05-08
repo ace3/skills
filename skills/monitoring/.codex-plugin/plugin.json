@@ -1,7 +1,7 @@
 {
   "name": "monitoring",
   "version": "0.1.0",
-  "description": "Monitoring workflows for read-only health checks, dashboard and alert design, telemetry coverage, and incident triage.",
+  "description": "Monitoring workflows for read-only health checks, dashboard and alert design, telemetry coverage, dependency and runtime vulnerability inventory, and incident triage.",
   "author": {
     "name": "ace3",
     "url": "https://github.com/ace3"
@@ -15,6 +15,9 @@
     "sre",
     "alerts",
     "health-checks",
-    "incident-response"
+    "incident-response",
+    "vulnerability-inventory",
+    "dependency-inventory",
+    "runtime-drift"
   ]
 }

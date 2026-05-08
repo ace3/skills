@@ -31,7 +31,7 @@
     {
       "name": "monitoring",
       "source": "./skills/monitoring",
-      "description": "Monitoring workflows for read-only health checks, dashboard and alert design, telemetry coverage, and incident triage.",
+      "description": "Monitoring workflows for read-only health checks, dashboard and alert design, telemetry coverage, dependency and runtime vulnerability inventory, and incident triage.",
       "version": "0.1.0",
       "author": {
         "name": "ace3"
@@ -43,7 +43,10 @@
         "sre",
         "alerts",
         "health-checks",
-        "incident-response"
+        "incident-response",
+        "vulnerability-inventory",
+        "dependency-inventory",
+        "runtime-drift"
       ],
       "homepage": "https://github.com/ace3/skills/tree/main/skills/monitoring"
     },

@@ -11,7 +11,7 @@ Every operational skill carries a standalone Karpathy + Superpowers base layer. 
 | Skill | Use when | Loads guidance for |
 |---|---|---|
 | `security` | You need threat modeling, code/config audit, active surface scan, log threat hunt, enterprise security report, vulnerability report, penetration-test report, or release hardening. | STRIDE, OWASP/API review, Semgrep/CodeQL, `govulncheck`, Trivy, Amass, Naabu, httpx, ffuf, ZAP, Nuclei, SSLyze, Sigma, finding normalization, CVSS, reports, remediation roadmaps. |
-| `monitoring` | You need read-only health checks, dashboard/alert design, telemetry gap analysis, or incident triage. | Grafana, Prometheus, GCP/MIG reads, Docker inspect, Node Exporter, osquery, SLI/SLO design, OTel, version drift, alert quality. |
+| `monitoring` | You need read-only health checks, dashboard/alert design, telemetry gap analysis, dependency/runtime vulnerability inventory, or incident triage. | Grafana, Prometheus, GCP/MIG reads, Docker inspect, Node Exporter, osquery, SLI/SLO design, OTel, version drift, dependency inventory, vulnerability alert reports, alert quality. |
 | `deployment-ops` | You need release readiness, GCP MIG rollout, Docker service operations, Ansible Runner, Semaphore UI/API execution, rollback, or post-deploy verification. | Artifact gates, GCP MIG updates, Cloud DNS/LB-aware verification, Docker Compose/Swarm, Ansible Runner, Semaphore UI projects/templates/tasks/runners/schedules, rollback checks. |
 | `roast` | You say "roast me" or need a one-question-at-a-time plan, spec, PRD, AGENT_SPEC.md, architecture, or design stress test. | Goal clarity, design tree traversal, codebase-first answers, concrete recommendations, optional CONTEXT.md/ADR-aware domain checks. |
 
@@ -135,6 +135,12 @@ Triage an incident:
 Use monitoring. Scope: production API latency spike after deploy SHA abc123. Action: read-only triage. Output: impact, timeline, hypotheses with evidence for and against, and next checks.
 ```
 
+Check dependency and runtime vulnerability inventory:
+
+```text
+Use monitoring. Scope: GitLab repo, package.json, go.mod, Dockerfiles, Compose files, and scoped Docker host versions. Action: read-only. Output: confirmed and potential vulnerability alerts with evidence, owners, next actions, and verification commands. Do not create GitLab issues or monitoring alerts.
+```
+
 ### Deployment Ops
 
 Check release readiness:
@@ -179,9 +185,9 @@ Roast me on this architecture against the codebase docs. If terminology or decis
 
 | Action class | Examples | Default | Required controls |
 |---|---|---|---|
-| Passive read-only | PromQL/Grafana reads, MIG describe, OS inventory reads, Docker inspect, DNS record reads, repo review. | Allowed | Narrow credentials, audit trail, evidence summary. |
-| Active non-mutating | ZAP, Nuclei, SSLyze, Naabu, httpx, ffuf, Amass. | Blocked unless scoped | Explicit allowlist, rate limits, low parallelism, target exclusions, scan window. |
-| Privileged change | Docker update, Ansible/Semaphore run, Cloud DNS change, MIG update, rollback execution. | Denied by default | Exact plan or diff, human approval, short-lived credentials, preflight, rollback path, post-change verification. |
+| Passive read-only | PromQL/Grafana reads, MIG describe, OS inventory reads, Docker inspect, DNS record reads, repo review, dependency inventory, scanner output review. | Allowed | Narrow credentials, audit trail, evidence summary. |
+| Active non-mutating | ZAP, Nuclei, SSLyze, Naabu, httpx, ffuf, Amass, OSV/NVD/GitLab vulnerability lookups. | Blocked unless scoped | Explicit allowlist or lookup scope, rate limits, low parallelism, target exclusions, scan window. |
+| Privileged change | Docker update, Ansible/Semaphore run, Cloud DNS change, MIG update, rollback execution, package upgrade, image rebuild, GitLab issue or alert creation. | Denied by default | Exact plan or diff, human approval, short-lived credentials, preflight, rollback path, post-change verification. |
 
 ## Base Layer
 
