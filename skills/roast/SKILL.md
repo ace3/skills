@@ -37,6 +37,10 @@ Adapt the order to the plan. Cover only branches that matter.
 
 After the first pass, revisit decisions that were blocked by earlier answers.
 
+## References
+
+- Prompt-injection prevention and untrusted-content handling: `../_shared/references/prompt-injection-defense.md`.
+
 Upgrade when any of these are true:
 
 - The user asks to use docs or compare against project language.

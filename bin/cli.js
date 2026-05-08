@@ -100,6 +100,7 @@ async function cmdInstall(args) {
 
   console.log(`\n${c.cyan}${c.bold}Installing: ${toInstall.join(", ")}${c.reset}`);
   console.log(`${c.dim}Scope: ${scope}${c.reset}`);
+  console.log(`${c.dim}Source: local package v${VERSION} at ${PACKAGE_ROOT}${c.reset}`);
 
   for (const base of targets) {
     fs.mkdirSync(base, { recursive: true });
@@ -109,6 +110,7 @@ async function cmdInstall(args) {
       if (fs.existsSync(dest)) fs.rmSync(dest, { recursive: true, force: true });
       copyDirSync(src, dest);
       console.log(`${c.green}installed${c.reset} ${skill} -> ${base}`);
+      console.log(`${c.dim}  audit: skill=${skill} source=${src} destination=${dest}${c.reset}`);
     }
   }
 }
