@@ -296,7 +296,7 @@ function improveAce3(rejectedEntry, previousBest, iterationDir) {
 }
 
 function runCodex(prompt, cwd, outputPath, readOnly) {
-  const args = ["exec", "-C", cwd, "-a", "never", "-s", readOnly ? "read-only" : "danger-full-access", "-o", outputPath];
+  const args = ["-a", "never", "-s", readOnly ? "read-only" : "danger-full-access", "-C", cwd, "exec", "-o", outputPath];
   if (CODEX_MODEL) args.push("-m", CODEX_MODEL);
   args.push("-");
   const result = spawnSync("codex", args, { cwd, input: prompt, encoding: "utf8" });
