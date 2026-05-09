@@ -26,7 +26,6 @@ Load `references/karpathy-superpowers-base.md` first. It defines assumptions, si
 - SAST runner orchestration: read-only Semgrep, CodeQL, `gosec`, `govulncheck`, Trivy filesystem/config/image, Gitleaks, TruffleHog, or scanner-output review.
 - Dependency and supply-chain audit: manifests, lockfiles, package managers, transitive dependency evidence, reachability, maintainer/takeover risk, stale advisories, runtime package and image package distinction.
 - Threat model to test cases: assets, actors, trust boundaries, entry points, STRIDE paths, and security tests backed by repo or architecture evidence.
-- External event integrity: webhooks, callbacks, queues, provider status updates, reconciliation, imports, source-of-truth checks, authenticity, replay, and mismatch handling.
 - Deep audit context: bottom-up code comprehension, invariant reconstruction, call-chain tracing, or anti-hallucination review before vulnerability conclusions.
 - Container, IaC, and CI review: Dockerfiles, Compose, Kubernetes, Terraform, GitHub Actions, GitLab CI, deployment config, generated artifacts, or hardening gates.
 - Privileged change: any remediation, service change, credential change, DNS change, or deploy action.
@@ -34,7 +33,6 @@ Load `references/karpathy-superpowers-base.md` first. It defines assumptions, si
 ## References
 
 - Threat model, STRIDE, security test cases, API security, OWASP, trust boundaries, exploit paths, or threat-model checklist: `references/threat-modeling.md`.
-- External-event, webhook, callback, queue, provider status, reconciliation, replay, authenticity, source-of-truth, schema mismatch, account/tenant mismatch, or sensitive-data integrity review: `references/external-event-integrity.md`.
 - Deep context building, invariant reconstruction, call-chain tracing, or context-first audit preparation: `references/deep-audit-context.md`.
 - Go/backend review, auth/API deep-dive, Semgrep, CodeQL, SARIF, `gosec`, `govulncheck`, Trivy, dependency CVE audit, supply-chain risk, secrets scanning, repo/image/IaC/CI scanning: `references/repo-static-scan.md`.
 - Next.js, Node.js, TypeScript, React, API routes, server actions, SSR/SSG, browser bundle exposure, package scripts, JavaScript supply chain, or optional deepsec workflow: `references/javascript-web-static-scan.md`.
@@ -60,7 +58,6 @@ Load `references/karpathy-superpowers-base.md` first. It defines assumptions, si
 - Privileged changes require explicit approval and rollback notes.
 - Do not execute destructive commands. Print the exact command for the user to run, explain impact and rollback or recovery limits, then wait for the result.
 - Prefer fail-closed behavior when uncertainty affects auth, secrets, money, or integrity.
-- For external events, review authenticity, replay, source of truth, schema mismatch, account or tenant mismatch, sensitive data exposure, and fail-closed behavior before trusting state transitions.
 
 ## Output Contract
 

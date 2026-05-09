@@ -2,7 +2,6 @@ SKILL.md
 .claude-plugin/plugin.json
 .codex-plugin/plugin.json
 references/active-surface-scan.md
-references/external-event-integrity.md
 references/javascript-web-runtime-scan.md
 references/finding-normalization.md
 references/enterprise-security-report.md

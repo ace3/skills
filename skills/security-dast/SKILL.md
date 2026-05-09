@@ -22,14 +22,12 @@ Load `references/karpathy-superpowers-base.md` first. It defines assumptions, si
 
 - Passive target review: supplied domains, URLs, API specs, known routes, scanner output, screenshots, or runtime evidence.
 - JavaScript web runtime testing: Next.js, Node.js, TypeScript, React, `_next` assets, API routes, auth flows, browser storage, GraphQL, security headers, and cache behavior.
-- External event integrity testing: authorized runtime checks for webhooks, callbacks, provider status endpoints, import endpoints, authenticity, replay, duplicate delivery, and mismatch rejection.
 - Active scan: network, web, TLS, endpoint, fuzzing, or attack-surface probing against an explicit allowlist.
 - Privileged change: any remediation, service change, credential change, DNS change, or deploy action.
 
 ## References
 
 - Blackbox web/API pentest, OWASP scan, auth probing, input validation probing, retest requests, Amass, Naabu, httpx, ffuf, ZAP, Nuclei, SSLyze, or active scan planning: `references/active-surface-scan.md`.
-- Authorized external-event, webhook, callback, provider status, replay, authenticity, duplicate delivery, mismatch rejection, or reconciliation runtime testing: `references/external-event-integrity.md`.
 - Next.js, Node.js, TypeScript, React, browser-observed requests, `_next` assets, GraphQL, client storage, source maps, CORS, CSRF, cache poisoning, or JavaScript runtime testing: `references/javascript-web-runtime-scan.md`.
 - Multi-tool triage, deduplication, severity, confidence, or retest state: `references/finding-normalization.md`.
 - Enterprise report, pentest report, vulnerability report, CVSS, roadmap, or release hardening: `references/enterprise-security-report.md`.
@@ -53,7 +51,6 @@ Load `references/karpathy-superpowers-base.md` first. It defines assumptions, si
 - Privileged changes require explicit approval and rollback notes.
 - Do not execute destructive commands. Print the exact command for the user to run, explain impact and rollback or recovery limits, then wait for the result.
 - Prefer fail-closed behavior when uncertainty affects auth, secrets, money, or integrity.
-- For external events, test authenticity, replay, duplicate delivery, mismatch rejection, and sensitive-data handling only within explicit allowlists and safe target scope.
 
 ## Output Contract
 

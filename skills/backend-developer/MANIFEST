@@ -2,5 +2,3 @@ SKILL.md
 .claude-plugin/plugin.json
 .codex-plugin/plugin.json
 references/backend-implementation.md
-references/engineering-quality.md
-references/go-microservice-standards.md

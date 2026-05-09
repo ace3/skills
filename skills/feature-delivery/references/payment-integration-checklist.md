@@ -13,10 +13,7 @@ Use this reference for payment gateways, payment provider callbacks, checkout fl
 ## Callback And Webhook Checks
 
 - Verify callback authenticity with the repo's provider-supported method: signature, token, allowlist, or remote fetch confirmation.
-- Complete provider-supported verification before callback processing updates local payment state.
-- Use the callback's scoped provider context, including merchant account, platform account, sub-account, and environment, when looking up remote payment objects.
 - Reject or quarantine callbacks with mismatched amount, currency, payment ID, merchant reference, account, or status.
-- Reject or quarantine callbacks when the provider lookup returns a different transaction/payment ID than the callback's canonical ID.
 - Protect against replay with idempotent state transitions and durable processed-event tracking when available.
 - Treat callbacks as at-least-once delivery.
 - Do not trust client-supplied success states.
@@ -26,7 +23,6 @@ Use this reference for payment gateways, payment provider callbacks, checkout fl
 
 - Network timeouts and provider 5xx responses must not create duplicate charges.
 - Ambiguous provider responses should move to pending/reconciliation, not success.
-- Retry decisions should use typed provider status or classified errors, not message-string matching.
 - Retries must use stable idempotency keys.
 - Local state transitions should be monotonic unless an explicit correction/reversal path exists.
 - Background reconciliation should repair uncertain states when the system already supports it.
@@ -35,7 +31,6 @@ Use this reference for payment gateways, payment provider callbacks, checkout fl
 
 - Unit tests for request construction, config validation, and state transition rules.
 - Callback tests for valid, duplicate, forged, mismatched, stale, and out-of-order events.
-- Callback tests for provider lookup failure, remote object ID mismatch, account/sub-account mismatch, and retryable vs permanent lookup errors.
 - Integration or contract tests around provider client boundaries when the repo pattern supports it.
 - Regression tests for duplicate payment prevention and retry behavior.
 - Security review evidence for secrets, callback trust, replay, authz, and amount/currency consistency.

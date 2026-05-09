@@ -11,17 +11,6 @@ Use this reference to test product and engineering changes.
 5. Add manual or browser checks for UI and integration behavior when needed.
 6. Report pass/fail with evidence and retest steps.
 
-## Risk-Sensitive Scenarios
-
-Add these when the change touches external systems, callbacks, queues, auth, data integrity, migrations, or other T0/T1 paths:
-
-- Retry success, retry exhaustion, rate limit, timeout, and context cancellation.
-- Duplicate event, stale event, out-of-order event, and idempotent reprocessing.
-- Mismatched identity, tenant/account, resource ID, reference ID, amount/count, currency/unit, status, or schema version.
-- Pre-verification state update, remote object ID mismatch, scoped account/sub-account mismatch, and retryable vs permanent provider error classification.
-- Permission denied, expired credential, missing signature/token, and alternate route access.
-- Rollback or recovery trigger, operator-visible logs/metrics/traces, and retest evidence.
-
 ## Defect Rules
 
 - Each defect needs title, severity, environment, steps, expected result, actual result, evidence, and suspected owner.

@@ -50,17 +50,17 @@ Common shortcuts:
 
 | Skill | Use when | Loads guidance for |
 |---|---|---|
-| `feature-delivery` | You want one skill to handle a natural implementation request end to end across planning, implementation, tests, QA, security review, and release handoff. | Feature delivery workflow, generic engineering quality, conditional Go standards, external-event integrity, payment integration checks, and final delivery report shape. |
+| `feature-delivery` | You want one skill to handle a natural implementation request end to end across planning, implementation, tests, QA, security review, and release handoff. | Feature delivery workflow, auto-continue gates, payment integration checks, and final delivery report shape. |
 | `dev-orchestrator` | You need a thin router for multi-role software delivery and want the next correct skill sequence across research, product, engineering, backend, frontend, QA, security, monitoring, deployment, Plane, drawing, or roast. | Development workflow routing, handoff shape, shortcut rules, and plan-first gates. |
 | `research` | You need current-state investigation, competitor/API/library research, technical feasibility, repo discovery, or an evidence-backed decision brief. | Research workflow, source quality, evidence handling, current-source expectations, and concise research brief format. |
 | `product-manager` | You need a PRD, feature brief, acceptance criteria, scope cut, user flow, product tradeoff, or release slice before engineering work starts. | Product brief workflow, requirements, non-goals, acceptance criteria, scope control, and engineering handoff. |
-| `engineering-manager` | You need architecture review, implementation strategy, boundaries, interfaces, migration sequencing, risk gates, task breakdown, rollout planning, or verification strategy. | Implementation planning, EM thinking, T0-T3 risk tiering, invariants, failure modes, deploy readiness, benchmark review, and role-based handoffs. |
-| `backend-developer` | You need approved server/API/data work, with first-class guidance for Go services, REST/gRPC, SQL, queues, auth, idempotency, and migrations. | Backend execution gates, engineering quality, conditional Go microservice standards, focused tests, and verification evidence. |
+| `engineering-manager` | You need architecture review, implementation strategy, boundaries, interfaces, migration sequencing, risk gates, task breakdown, rollout planning, or verification strategy. | Implementation plan workflow, architecture decisions, interfaces, data flow, task order, risks, rollout, rollback, and downstream handoffs. |
+| `backend-developer` | You need approved server/API/data work, with first-class guidance for Go services, REST/gRPC, SQL, queues, auth, idempotency, and migrations. | Backend execution gates, repo inspection, Go/API/data guidance, focused tests, and verification evidence. |
 | `frontend-developer` | You need approved UI/app work, with first-class guidance for JS/TS, React, Next.js, forms, state, API integration, accessibility, and responsive behavior. | Frontend execution gates, React/Next.js guidance, complete UI states, accessibility, browser checks, and visual verification. |
 | `diagnose` | You need disciplined root-cause work for hard bugs, failing tests, broken runtime behavior, flaky failures, unclear causes, or performance regressions before fixing. | Reproduction loops, minimization, hypothesis testing, instrumentation, regression checks, and implementation handoff. |
-| `qa` | You need test planning, regression testing, edge-case review, acceptance validation, bug reproduction, release confidence, or retest evidence. | QA scenario design, risk-sensitive retry/idempotency/mismatch checks, defect reporting, coverage gaps, acceptance checks, retest checklist, and release recommendation. |
-| `security-sast` | You need whitebox/static review of code, config, dependencies, supply-chain risk, containers, IaC, CI, threat models, scanner output, security reports, fix queue handoff, or release hardening. | Deep audit context, STRIDE, external-event integrity, OWASP/API review, JavaScript/TypeScript/Next.js/Node.js/Fastify review, Semgrep/CodeQL/SARIF, optional deepsec workflow, `govulncheck`, Trivy filesystem/image/config scans, finding normalization, CVSS, reports, remediation roadmaps, security fix queue bundles. |
-| `security-dast` | You need blackbox/dynamic testing of authorized runtime targets, APIs, web surfaces, domains, ports, TLS, active scan planning/execution, pentest reports, vulnerability reports, or retest evidence. | JavaScript web runtime testing, external-event integrity runtime checks, Next.js/Node.js route discovery, browser-observed requests, GraphQL, Amass, Naabu, httpx, ffuf, ZAP, Nuclei, SSLyze, active scan controls, finding normalization, CVSS, reports, remediation roadmaps, security fix queue bundles. |
+| `qa` | You need test planning, regression testing, edge-case review, acceptance validation, bug reproduction, release confidence, or retest evidence. | QA scenario design, defect reporting, coverage gaps, acceptance checks, retest checklist, and release recommendation. |
+| `security-sast` | You need whitebox/static review of code, config, dependencies, supply-chain risk, containers, IaC, CI, threat models, scanner output, security reports, fix queue handoff, or release hardening. | Deep audit context, STRIDE, OWASP/API review, JavaScript/TypeScript/Next.js/Node.js/Fastify review, Semgrep/CodeQL/SARIF, optional deepsec workflow, `govulncheck`, Trivy filesystem/image/config scans, finding normalization, CVSS, reports, remediation roadmaps, security fix queue bundles. |
+| `security-dast` | You need blackbox/dynamic testing of authorized runtime targets, APIs, web surfaces, domains, ports, TLS, active scan planning/execution, pentest reports, vulnerability reports, or retest evidence. | JavaScript web runtime testing, Next.js/Node.js route discovery, browser-observed requests, GraphQL, Amass, Naabu, httpx, ffuf, ZAP, Nuclei, SSLyze, active scan controls, finding normalization, CVSS, reports, remediation roadmaps, security fix queue bundles. |
 | `monitoring` | You need read-only health checks, dashboard/alert design, telemetry gap analysis, dependency/runtime vulnerability inventory, supply-chain risk signals, or incident triage. | Grafana, Prometheus, GCP/MIG reads, Docker inspect, Node Exporter, osquery, SLI/SLO design, OTel, version drift, dependency inventory, supply-chain risk, vulnerability alert reports, alert quality. |
 | `deployment-ops` | You need release readiness, GCP MIG rollout, Docker service operations, Ansible Runner, Semaphore UI/API execution, rollback, or post-deploy verification. | Artifact gates, GCP MIG updates, Cloud DNS/LB-aware verification, Docker Compose/Swarm, Ansible Runner, Semaphore UI projects/templates/tasks/runners/schedules, rollback checks. |
 | `drawing` | You need to create, design, explain, render, or improve diagrams with Mermaid or Excalidraw. | Mermaid diagram selection and syntax, Excalidraw visual argument design, technical diagram evidence, and format-specific validation. |
@@ -156,7 +156,7 @@ Token-saving rules:
 Deliver a broad feature end to end:
 
 ```text
-Use feature-delivery. Scope: implement invoice status sync in the billing service. Action: end-to-end implementation. Output: changed behavior, invariants, tests, QA/security notes, gates, and verification evidence.
+Use feature-delivery. Scope: implement the Xendit payment gateway in the payment service. Action: end-to-end implementation. Output: changed behavior, tests, callback/security checks, gates, and verification evidence.
 ```
 
 Expected flow:
@@ -216,25 +216,13 @@ Use product-manager. Scope: admin refund flow. Action: PRD. Output: goal, users,
 Create an implementation plan:
 
 ```text
-Use engineering-manager. Scope: approved refund PRD and backend/frontend repos. Action: implementation plan only. Output: risk tier, architecture, invariants, failure modes, test strategy, rollout, rollback, and role handoffs.
-```
-
-Plan a T0/T1 engineering change:
-
-```text
-Use engineering-manager. Scope: webhook receiver redesign and current repo. Action: plan only. Output: boundaries, data flow, state transitions, trust boundaries, invariants, failure modes, deploy readiness, rollback, and role handoff.
+Use engineering-manager. Scope: approved refund PRD and backend/frontend repos. Action: implementation plan only. Output: architecture, interfaces, task sequence, tests, risks, rollout, rollback, and downstream handoffs.
 ```
 
 Implement backend after approval:
 
 ```text
 Use backend-developer. Scope: approved implementation plan for refund API. Action: approved execution. Output: changed behavior, tests, verification evidence, and remaining risk.
-```
-
-Implement a Go microservice change:
-
-```text
-Use backend-developer. Scope: approved Go service plan for transaction export. Action: approved execution. Output: boundaries, typed errors, transaction/idempotency handling, tests, and verification evidence.
 ```
 
 Implement frontend after approval:
@@ -253,18 +241,6 @@ Run QA:
 
 ```text
 Use qa. Scope: refund feature PRD, implementation diff, and staging URL. Action: acceptance and regression validation. Output: pass/fail, scenarios, defects, coverage gaps, retest list, and release recommendation.
-```
-
-Review external event integrity:
-
-```text
-Use feature-delivery. Scope: provider callback hardening in the payment service. Action: end-to-end implementation. Output: source-of-truth checks, mismatch validation, duplicate-event behavior, retry handling, tests, and verification evidence.
-```
-
-Compare two implementations:
-
-```text
-Use engineering-manager. Scope: branches codex/change-a and codex/change-b. Action: benchmark quality review. Output: methodology, scorecard, evidence, unrelated diff warning, verification commands, and recommended merge slice.
 ```
 
 ### Security SAST
@@ -486,9 +462,6 @@ skills/
     SKILL.md
     references/
       feature-delivery-workflow.md
-      engineering-quality.md
-      go-microservice-standards.md
-      external-event-integrity.md
       payment-integration-checklist.md
       delivery-report.md
   dev-orchestrator/
@@ -507,14 +480,10 @@ skills/
     SKILL.md
     references/
       implementation-plan.md
-      engineering-management-thinking.md
-      benchmark-quality-review.md
   backend-developer/
     SKILL.md
     references/
       backend-implementation.md
-      engineering-quality.md
-      go-microservice-standards.md
   frontend-developer/
     SKILL.md
     references/
@@ -531,13 +500,11 @@ skills/
     SKILL.md
     references/
       karpathy-superpowers-base.md
-      external-event-integrity.md
       repo-static-scan.md
   security-dast/
     SKILL.md
     references/
       karpathy-superpowers-base.md
-      external-event-integrity.md
       active-surface-scan.md
   monitoring/
     SKILL.md
