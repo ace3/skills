@@ -1,0 +1,22 @@
+{
+  "name": "backend-developer",
+  "version": "0.1.0",
+  "description": "Backend implementation for server, API, data, queue, auth, idempotency, and migration work after an approved plan.",
+  "author": {
+    "name": "ace3",
+    "url": "https://github.com/ace3"
+  },
+  "homepage": "https://github.com/ace3/skills/tree/main/skills/backend-developer",
+  "repository": "https://github.com/ace3/skills",
+  "license": "MIT",
+  "keywords": [
+    "backend",
+    "go",
+    "api",
+    "grpc",
+    "rest",
+    "sql",
+    "migration",
+    "idempotency"
+  ]
+}

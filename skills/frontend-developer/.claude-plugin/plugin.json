@@ -1,0 +1,22 @@
+{
+  "name": "frontend-developer",
+  "version": "0.1.0",
+  "description": "Frontend implementation for UI, JavaScript, TypeScript, React, Next.js, forms, state, API integration, accessibility, and responsive behavior.",
+  "author": {
+    "name": "ace3",
+    "url": "https://github.com/ace3"
+  },
+  "homepage": "https://github.com/ace3/skills/tree/main/skills/frontend-developer",
+  "repository": "https://github.com/ace3/skills",
+  "license": "MIT",
+  "keywords": [
+    "frontend",
+    "javascript",
+    "typescript",
+    "react",
+    "nextjs",
+    "ui",
+    "accessibility",
+    "responsive"
+  ]
+}

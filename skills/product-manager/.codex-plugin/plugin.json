@@ -1,0 +1,20 @@
+{
+  "name": "product-manager",
+  "version": "0.1.0",
+  "description": "Product management for PRDs, feature briefs, acceptance criteria, scope cuts, user flows, tradeoffs, and release slices.",
+  "author": {
+    "name": "ace3",
+    "url": "https://github.com/ace3"
+  },
+  "homepage": "https://github.com/ace3/skills/tree/main/skills/product-manager",
+  "repository": "https://github.com/ace3/skills",
+  "license": "MIT",
+  "keywords": [
+    "product",
+    "prd",
+    "requirements",
+    "acceptance-criteria",
+    "scope",
+    "feature-brief"
+  ]
+}

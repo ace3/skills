@@ -1,0 +1,20 @@
+{
+  "name": "research",
+  "version": "0.1.0",
+  "description": "Evidence-backed research for repo discovery, current external facts, technical feasibility, and decision briefs.",
+  "author": {
+    "name": "ace3",
+    "url": "https://github.com/ace3"
+  },
+  "homepage": "https://github.com/ace3/skills/tree/main/skills/research",
+  "repository": "https://github.com/ace3/skills",
+  "license": "MIT",
+  "keywords": [
+    "research",
+    "discovery",
+    "feasibility",
+    "evidence",
+    "technical-research",
+    "decision-brief"
+  ]
+}

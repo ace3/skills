@@ -5,10 +5,168 @@
     "url": "https://github.com/ace3"
   },
   "metadata": {
-    "description": "Skills for security, monitoring, deployment operations, drawing, Plane, and design stress testing. English-only. Installable via npm CLI and plugin marketplaces.",
+    "description": "Skills for development workflow, diagnosis, security, monitoring, deployment operations, drawing, Plane, and design stress testing. English-only. Installable via npm CLI and plugin marketplaces.",
     "version": "0.1.0"
   },
   "plugins": [
+    {
+      "name": "dev-orchestrator",
+      "source": "./skills/dev-orchestrator",
+      "description": "Thin router for multi-role software delivery across research, product, engineering, backend, frontend, QA, security, monitoring, deployment, Plane, drawing, and roast.",
+      "version": "0.1.0",
+      "author": {
+        "name": "ace3"
+      },
+      "category": "development",
+      "tags": [
+        "development",
+        "orchestration",
+        "workflow",
+        "software-delivery",
+        "handoff",
+        "planning"
+      ],
+      "homepage": "https://github.com/ace3/skills/tree/main/skills/dev-orchestrator"
+    },
+    {
+      "name": "research",
+      "source": "./skills/research",
+      "description": "Evidence-backed research for repo discovery, current external facts, technical feasibility, and decision briefs.",
+      "version": "0.1.0",
+      "author": {
+        "name": "ace3"
+      },
+      "category": "development",
+      "tags": [
+        "research",
+        "discovery",
+        "feasibility",
+        "evidence",
+        "technical-research",
+        "decision-brief"
+      ],
+      "homepage": "https://github.com/ace3/skills/tree/main/skills/research"
+    },
+    {
+      "name": "product-manager",
+      "source": "./skills/product-manager",
+      "description": "Product management for PRDs, feature briefs, acceptance criteria, scope cuts, user flows, tradeoffs, and release slices.",
+      "version": "0.1.0",
+      "author": {
+        "name": "ace3"
+      },
+      "category": "development",
+      "tags": [
+        "product",
+        "prd",
+        "requirements",
+        "acceptance-criteria",
+        "scope",
+        "feature-brief"
+      ],
+      "homepage": "https://github.com/ace3/skills/tree/main/skills/product-manager"
+    },
+    {
+      "name": "engineering-manager",
+      "source": "./skills/engineering-manager",
+      "description": "Engineering planning for architecture, implementation strategy, boundaries, interfaces, task sequencing, risk gates, and verification.",
+      "version": "0.1.0",
+      "author": {
+        "name": "ace3"
+      },
+      "category": "development",
+      "tags": [
+        "engineering",
+        "architecture",
+        "implementation-plan",
+        "technical-design",
+        "risk",
+        "verification"
+      ],
+      "homepage": "https://github.com/ace3/skills/tree/main/skills/engineering-manager"
+    },
+    {
+      "name": "backend-developer",
+      "source": "./skills/backend-developer",
+      "description": "Backend implementation for server, API, data, queue, auth, idempotency, and migration work after an approved plan.",
+      "version": "0.1.0",
+      "author": {
+        "name": "ace3"
+      },
+      "category": "development",
+      "tags": [
+        "backend",
+        "go",
+        "api",
+        "grpc",
+        "rest",
+        "sql",
+        "migration",
+        "idempotency"
+      ],
+      "homepage": "https://github.com/ace3/skills/tree/main/skills/backend-developer"
+    },
+    {
+      "name": "frontend-developer",
+      "source": "./skills/frontend-developer",
+      "description": "Frontend implementation for UI, JavaScript, TypeScript, React, Next.js, forms, state, API integration, accessibility, and responsive behavior.",
+      "version": "0.1.0",
+      "author": {
+        "name": "ace3"
+      },
+      "category": "development",
+      "tags": [
+        "frontend",
+        "javascript",
+        "typescript",
+        "react",
+        "nextjs",
+        "ui",
+        "accessibility",
+        "responsive"
+      ],
+      "homepage": "https://github.com/ace3/skills/tree/main/skills/frontend-developer"
+    },
+    {
+      "name": "diagnose",
+      "source": "./skills/diagnose",
+      "description": "Disciplined diagnosis for hard bugs, failing tests, broken runtime behavior, flaky failures, unclear root causes, and performance regressions.",
+      "version": "0.1.0",
+      "author": {
+        "name": "ace3"
+      },
+      "category": "development",
+      "tags": [
+        "diagnose",
+        "debug",
+        "bug",
+        "root-cause",
+        "flaky",
+        "performance",
+        "regression"
+      ],
+      "homepage": "https://github.com/ace3/skills/tree/main/skills/diagnose"
+    },
+    {
+      "name": "qa",
+      "source": "./skills/qa",
+      "description": "Quality assurance for test planning, regression testing, edge-case review, acceptance validation, bug reproduction, and release confidence.",
+      "version": "0.1.0",
+      "author": {
+        "name": "ace3"
+      },
+      "category": "development",
+      "tags": [
+        "qa",
+        "testing",
+        "regression",
+        "acceptance",
+        "bug-reproduction",
+        "retest",
+        "release-confidence"
+      ],
+      "homepage": "https://github.com/ace3/skills/tree/main/skills/qa"
+    },
     {
       "name": "security-sast",
       "source": "./skills/security-sast",

@@ -1,0 +1,21 @@
+{
+  "name": "qa",
+  "version": "0.1.0",
+  "description": "Quality assurance for test planning, regression testing, edge-case review, acceptance validation, bug reproduction, and release confidence.",
+  "author": {
+    "name": "ace3",
+    "url": "https://github.com/ace3"
+  },
+  "homepage": "https://github.com/ace3/skills/tree/main/skills/qa",
+  "repository": "https://github.com/ace3/skills",
+  "license": "MIT",
+  "keywords": [
+    "qa",
+    "testing",
+    "regression",
+    "acceptance",
+    "bug-reproduction",
+    "retest",
+    "release-confidence"
+  ]
+}

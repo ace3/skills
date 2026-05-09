@@ -1,15 +1,54 @@
 # @ace3/skills
 
-Curated skills for SAST, DAST, monitoring, deployment operations, drawing, Plane, and design stress testing across Claude and Codex.
+Curated skills for software delivery across Claude and Codex: plan product work, design implementation, diagnose bugs, build backend/frontend changes, verify with QA, review security, and prepare deployment.
 
-This package exposes seven installable skills. Each skill is a compact router that loads one-level `references/` only when needed, keeping prompts cheaper while covering static security review, dynamic security testing, read-only monitoring, controlled deployments, diagram creation, Plane work item workflows, and plan interviews.
+This package exposes fifteen installable skills. Use `dev-orchestrator` when a task crosses roles and you want the correct workflow. Use the specialized skills directly when the role is already obvious.
 
-Every operational skill carries a standalone Karpathy + Superpowers base layer. It requires assumptions, the simplest sufficient path, surgical changes, verification before action, approval gates for privileged changes, and manual user execution for destructive commands.
+Each skill is a compact router that loads one-level `references/` only when needed, keeping prompts cheaper while covering research, product definition, engineering planning, backend and frontend implementation, diagnosis, QA, static security review, dynamic security testing, read-only monitoring, controlled deployments, diagram creation, Plane work item workflows, and plan interviews.
+
+Operational and implementation skills require assumptions, the simplest sufficient path, surgical changes, verification before action, approval gates for broad or privileged changes, and manual user execution for destructive commands.
+
+## Start Here
+
+Use `dev-orchestrator` for broad work:
+
+```text
+Use dev-orchestrator. Scope: <feature, bug, repo, or service>. Action: route the work. Output: skill sequence, handoff inputs, approval gates, and next immediate action.
+```
+
+It does not implement code. It decides the next skill sequence:
+
+```text
+research -> product-manager -> engineering-manager -> backend-developer/frontend-developer -> qa -> deployment-ops
+```
+
+Common shortcuts:
+
+| Situation | Start with |
+|---|---|
+| Broad feature or project with unclear next step | `dev-orchestrator` |
+| Missing facts, external docs, vendor/library choice | `research` |
+| Idea needs PRD, acceptance criteria, or scope cut | `product-manager` |
+| Product intent is clear but implementation shape is not | `engineering-manager` |
+| Bug fails but root cause is not proven | `diagnose` |
+| Approved backend change | `backend-developer` |
+| Approved frontend change | `frontend-developer` |
+| Need release confidence or acceptance validation | `qa` |
+| Security review or active security testing | `security-sast` / `security-dast` |
+| Runtime health, release, rollback, or deploy | `monitoring` / `deployment-ops` |
 
 ## Skills
 
 | Skill | Use when | Loads guidance for |
 |---|---|---|
+| `dev-orchestrator` | You need a thin router for multi-role software delivery and want the next correct skill sequence across research, product, engineering, backend, frontend, QA, security, monitoring, deployment, Plane, drawing, or roast. | Development workflow routing, handoff shape, shortcut rules, and plan-first gates. |
+| `research` | You need current-state investigation, competitor/API/library research, technical feasibility, repo discovery, or an evidence-backed decision brief. | Research workflow, source quality, evidence handling, current-source expectations, and concise research brief format. |
+| `product-manager` | You need a PRD, feature brief, acceptance criteria, scope cut, user flow, product tradeoff, or release slice before engineering work starts. | Product brief workflow, requirements, non-goals, acceptance criteria, scope control, and engineering handoff. |
+| `engineering-manager` | You need architecture review, implementation strategy, boundaries, interfaces, migration sequencing, risk gates, task breakdown, rollout planning, or verification strategy. | Implementation plan workflow, architecture decisions, interfaces, data flow, task order, risks, rollout, rollback, and downstream handoffs. |
+| `backend-developer` | You need approved server/API/data work, with first-class guidance for Go services, REST/gRPC, SQL, queues, auth, idempotency, and migrations. | Backend execution gates, repo inspection, Go/API/data guidance, focused tests, and verification evidence. |
+| `frontend-developer` | You need approved UI/app work, with first-class guidance for JS/TS, React, Next.js, forms, state, API integration, accessibility, and responsive behavior. | Frontend execution gates, React/Next.js guidance, complete UI states, accessibility, browser checks, and visual verification. |
+| `diagnose` | You need disciplined root-cause work for hard bugs, failing tests, broken runtime behavior, flaky failures, unclear causes, or performance regressions before fixing. | Reproduction loops, minimization, hypothesis testing, instrumentation, regression checks, and implementation handoff. |
+| `qa` | You need test planning, regression testing, edge-case review, acceptance validation, bug reproduction, release confidence, or retest evidence. | QA scenario design, defect reporting, coverage gaps, acceptance checks, retest checklist, and release recommendation. |
 | `security-sast` | You need whitebox/static review of code, config, dependencies, supply-chain risk, containers, IaC, CI, threat models, scanner output, security reports, fix queue handoff, or release hardening. | Deep audit context, STRIDE, OWASP/API review, JavaScript/TypeScript/Next.js/Node.js/Fastify review, Semgrep/CodeQL/SARIF, optional deepsec workflow, `govulncheck`, Trivy filesystem/image/config scans, finding normalization, CVSS, reports, remediation roadmaps, security fix queue bundles. |
 | `security-dast` | You need blackbox/dynamic testing of authorized runtime targets, APIs, web surfaces, domains, ports, TLS, active scan planning/execution, pentest reports, vulnerability reports, or retest evidence. | JavaScript web runtime testing, Next.js/Node.js route discovery, browser-observed requests, GraphQL, Amass, Naabu, httpx, ffuf, ZAP, Nuclei, SSLyze, active scan controls, finding normalization, CVSS, reports, remediation roadmaps, security fix queue bundles. |
 | `monitoring` | You need read-only health checks, dashboard/alert design, telemetry gap analysis, dependency/runtime vulnerability inventory, supply-chain risk signals, or incident triage. | Grafana, Prometheus, GCP/MIG reads, Docker inspect, Node Exporter, osquery, SLI/SLO design, OTel, version drift, dependency inventory, supply-chain risk, vulnerability alert reports, alert quality. |
@@ -21,6 +60,14 @@ Every operational skill carries a standalone Karpathy + Superpowers base layer. 
 ## Install
 
 ```bash
+npx @ace3/skills install dev-orchestrator
+npx @ace3/skills install research
+npx @ace3/skills install product-manager
+npx @ace3/skills install engineering-manager
+npx @ace3/skills install backend-developer
+npx @ace3/skills install frontend-developer
+npx @ace3/skills install diagnose
+npx @ace3/skills install qa
 npx @ace3/skills install security-sast
 npx @ace3/skills install security-dast
 npx @ace3/skills install monitoring
@@ -46,6 +93,14 @@ Add marketplace:
 Install plugins:
 
 ```text
+/plugin install dev-orchestrator@ace3-skills
+/plugin install research@ace3-skills
+/plugin install product-manager@ace3-skills
+/plugin install engineering-manager@ace3-skills
+/plugin install backend-developer@ace3-skills
+/plugin install frontend-developer@ace3-skills
+/plugin install diagnose@ace3-skills
+/plugin install qa@ace3-skills
 /plugin install security-sast@ace3-skills
 /plugin install security-dast@ace3-skills
 /plugin install monitoring@ace3-skills
@@ -63,7 +118,7 @@ Marketplace catalogs:
 
 Use one skill at a time unless the task clearly crosses domains. Good prompts include four parts:
 
-1. Skill name: `Use security-sast`, `Use security-dast`, `Use monitoring`, `Use deployment-ops`, `Use drawing`, `Use plane`, or `roast me`.
+1. Skill name: `Use dev-orchestrator`, `Use research`, `Use product-manager`, `Use engineering-manager`, `Use backend-developer`, `Use frontend-developer`, `Use diagnose`, `Use qa`, `Use security-sast`, `Use security-dast`, `Use monitoring`, `Use deployment-ops`, `Use drawing`, `Use plane`, or `roast me`.
 2. Scope: repo path, service, environment, URL, host group, time window, or target allowlist.
 3. Action class: read-only review, active scan, plan only, or approved execution.
 4. Output contract: findings, health status, rollout plan, rollback plan, or verification evidence.
@@ -83,6 +138,86 @@ Token-saving rules:
 - For design, workflow, or behavior changes, start with brainstorming or an equivalent written design before implementation.
 
 ## Use Cases And Examples
+
+### Development Workflow
+
+Route a broad feature from idea to delivery:
+
+```text
+Use dev-orchestrator. Scope: add admin refund approval flow across backend API and backoffice UI. Action: route the work. Output: skill sequence, handoff inputs, approval gates, and next immediate action.
+```
+
+Expected routing:
+
+```text
+product-manager -> engineering-manager -> backend-developer + frontend-developer -> qa -> deployment-ops
+```
+
+Route a bug without guessing:
+
+```text
+Use dev-orchestrator. Scope: checkout payment intermittently returns duplicate transaction error in staging. Action: route the investigation and fix. Output: next skill, required evidence, approval gates, and verification path.
+```
+
+Expected routing:
+
+```text
+diagnose -> backend-developer or frontend-developer -> qa
+```
+
+Route an already-scoped implementation:
+
+```text
+Use dev-orchestrator. Scope: approved implementation plan for adding CSV export to reports. Action: route execution only. Output: implementation skills, QA handoff, and any security/deployment gates.
+```
+
+Expected routing:
+
+```text
+backend-developer and/or frontend-developer -> qa -> deployment-ops if release execution is needed
+```
+
+Research an integration:
+
+```text
+Use research. Scope: official Stripe subscription docs and current repo billing code. Action: evidence brief. Output: recommendation, source links, repo evidence, risks, and next step.
+```
+
+Write a product brief:
+
+```text
+Use product-manager. Scope: admin refund flow. Action: PRD. Output: goal, users, release slice, acceptance criteria, non-goals, and engineering handoff.
+```
+
+Create an implementation plan:
+
+```text
+Use engineering-manager. Scope: approved refund PRD and backend/frontend repos. Action: implementation plan only. Output: architecture, interfaces, task sequence, tests, risks, rollout, rollback, and downstream handoffs.
+```
+
+Implement backend after approval:
+
+```text
+Use backend-developer. Scope: approved implementation plan for refund API. Action: approved execution. Output: changed behavior, tests, verification evidence, and remaining risk.
+```
+
+Implement frontend after approval:
+
+```text
+Use frontend-developer. Scope: approved implementation plan for refund admin UI. Action: approved execution. Output: user-visible changes, tests, browser verification, and remaining risk.
+```
+
+Diagnose a hard bug:
+
+```text
+Use diagnose. Scope: failing checkout test and local server logs. Action: root-cause investigation. Output: reproduced status, minimal repro, hypotheses, evidence, fix path, regression check, and handoff target.
+```
+
+Run QA:
+
+```text
+Use qa. Scope: refund feature PRD, implementation diff, and staging URL. Action: acceptance and regression validation. Output: pass/fail, scenarios, defects, coverage gaps, retest list, and release recommendation.
+```
 
 ### Security SAST
 
@@ -299,6 +434,38 @@ Operational skills include `references/karpathy-superpowers-base.md` so single-s
 
 ```text
 skills/
+  dev-orchestrator/
+    SKILL.md
+    references/
+      development-workflow.md
+  research/
+    SKILL.md
+    references/
+      research-brief.md
+  product-manager/
+    SKILL.md
+    references/
+      product-brief.md
+  engineering-manager/
+    SKILL.md
+    references/
+      implementation-plan.md
+  backend-developer/
+    SKILL.md
+    references/
+      backend-implementation.md
+  frontend-developer/
+    SKILL.md
+    references/
+      frontend-implementation.md
+  diagnose/
+    SKILL.md
+    references/
+      diagnosis-loop.md
+  qa/
+    SKILL.md
+    references/
+      qa-workflow.md
   security-sast/
     SKILL.md
     references/

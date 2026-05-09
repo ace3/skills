@@ -1,0 +1,20 @@
+{
+  "name": "engineering-manager",
+  "version": "0.1.0",
+  "description": "Engineering planning for architecture, implementation strategy, boundaries, interfaces, task sequencing, risk gates, and verification.",
+  "author": {
+    "name": "ace3",
+    "url": "https://github.com/ace3"
+  },
+  "homepage": "https://github.com/ace3/skills/tree/main/skills/engineering-manager",
+  "repository": "https://github.com/ace3/skills",
+  "license": "MIT",
+  "keywords": [
+    "engineering",
+    "architecture",
+    "implementation-plan",
+    "technical-design",
+    "risk",
+    "verification"
+  ]
+}

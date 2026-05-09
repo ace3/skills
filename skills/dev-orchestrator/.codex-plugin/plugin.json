@@ -1,0 +1,20 @@
+{
+  "name": "dev-orchestrator",
+  "version": "0.1.0",
+  "description": "Thin router for multi-role software delivery across research, product, engineering, backend, frontend, QA, security, monitoring, deployment, Plane, drawing, and roast.",
+  "author": {
+    "name": "ace3",
+    "url": "https://github.com/ace3"
+  },
+  "homepage": "https://github.com/ace3/skills/tree/main/skills/dev-orchestrator",
+  "repository": "https://github.com/ace3/skills",
+  "license": "MIT",
+  "keywords": [
+    "development",
+    "orchestration",
+    "workflow",
+    "software-delivery",
+    "handoff",
+    "planning"
+  ]
+}

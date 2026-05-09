@@ -1,0 +1,21 @@
+{
+  "name": "diagnose",
+  "version": "0.1.0",
+  "description": "Disciplined diagnosis for hard bugs, failing tests, broken runtime behavior, flaky failures, unclear root causes, and performance regressions.",
+  "author": {
+    "name": "ace3",
+    "url": "https://github.com/ace3"
+  },
+  "homepage": "https://github.com/ace3/skills/tree/main/skills/diagnose",
+  "repository": "https://github.com/ace3/skills",
+  "license": "MIT",
+  "keywords": [
+    "diagnose",
+    "debug",
+    "bug",
+    "root-cause",
+    "flaky",
+    "performance",
+    "regression"
+  ]
+}
