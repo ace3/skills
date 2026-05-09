@@ -4,7 +4,7 @@ SKILL ?= all
 
 SKILLS := $(shell find skills -mindepth 2 -maxdepth 2 -name SKILL.md -exec dirname {} \; | xargs -n1 basename | sort)
 
-.PHONY: help list validate install install-global install-project install-claude install-codex install-claude-project install-codex-project
+.PHONY: help list validate install install-global install-project install-claude install-codex install-claude-project install-codex-project benchmark-xendit-loop
 
 help:
 	@printf '%s\n' 'Targets:'
@@ -15,6 +15,7 @@ help:
 	@printf '  %-24s %s\n' 'make install-claude' 'Install all or SKILL=name to ~/.claude/skills only'
 	@printf '  %-24s %s\n' 'make install-codex' 'Install all or SKILL=name to ~/.codex/skills only'
 	@printf '  %-24s %s\n' 'make validate' 'Run repository validation'
+	@printf '  %-24s %s\n' 'make benchmark-xendit-loop' 'Run autonomous Xendit callback benchmark loop'
 
 list:
 	@node bin/cli.js list
@@ -50,6 +51,9 @@ install-claude-project:
 
 install-codex-project:
 	@$(MAKE) _install-target TARGET=".codex/skills" SKILL="$(SKILL)"
+
+benchmark-xendit-loop:
+	@node scripts/benchmark-xendit-loop.js
 
 .PHONY: _install-target
 _install-target:
