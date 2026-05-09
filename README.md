@@ -2,7 +2,7 @@
 
 Curated skills for software delivery across Claude and Codex: plan product work, design implementation, diagnose bugs, build backend/frontend changes, verify with QA, review security, and prepare deployment.
 
-This package exposes fifteen installable skills. Use `dev-orchestrator` when a task crosses roles and you want the correct workflow. Use the specialized skills directly when the role is already obvious.
+This package exposes sixteen installable skills. Use `feature-delivery` when you want a natural feature request handled end to end. Use `dev-orchestrator` when a task crosses roles and you only want the correct workflow routed.
 
 Each skill is a compact router that loads one-level `references/` only when needed, keeping prompts cheaper while covering research, product definition, engineering planning, backend and frontend implementation, diagnosis, QA, static security review, dynamic security testing, read-only monitoring, controlled deployments, diagram creation, Plane work item workflows, and plan interviews.
 
@@ -10,7 +10,15 @@ Operational and implementation skills require assumptions, the simplest sufficie
 
 ## Start Here
 
-Use `dev-orchestrator` for broad work:
+Use `feature-delivery` for broad implementation work:
+
+```text
+Use feature-delivery. Scope: <feature, repo, service, or workflow>. Action: end-to-end implementation. Output: changed behavior, tests, QA/security notes, gates, and verification evidence.
+```
+
+It plans and implements by default, stopping only for critical ambiguity, destructive commands, production data changes, live credentials/provider actions, irreversible migrations, privileged deployment, or business rules that affect money movement or permissions.
+
+Use `dev-orchestrator` for route-only broad work:
 
 ```text
 Use dev-orchestrator. Scope: <feature, bug, repo, or service>. Action: route the work. Output: skill sequence, handoff inputs, approval gates, and next immediate action.
@@ -26,7 +34,8 @@ Common shortcuts:
 
 | Situation | Start with |
 |---|---|
-| Broad feature or project with unclear next step | `dev-orchestrator` |
+| Broad feature that should be planned, built, tested, and verified | `feature-delivery` |
+| Broad feature or project where you only want routing | `dev-orchestrator` |
 | Missing facts, external docs, vendor/library choice | `research` |
 | Idea needs PRD, acceptance criteria, or scope cut | `product-manager` |
 | Product intent is clear but implementation shape is not | `engineering-manager` |
@@ -41,6 +50,7 @@ Common shortcuts:
 
 | Skill | Use when | Loads guidance for |
 |---|---|---|
+| `feature-delivery` | You want one skill to handle a natural implementation request end to end across planning, implementation, tests, QA, security review, and release handoff. | Feature delivery workflow, auto-continue gates, payment integration checks, and final delivery report shape. |
 | `dev-orchestrator` | You need a thin router for multi-role software delivery and want the next correct skill sequence across research, product, engineering, backend, frontend, QA, security, monitoring, deployment, Plane, drawing, or roast. | Development workflow routing, handoff shape, shortcut rules, and plan-first gates. |
 | `research` | You need current-state investigation, competitor/API/library research, technical feasibility, repo discovery, or an evidence-backed decision brief. | Research workflow, source quality, evidence handling, current-source expectations, and concise research brief format. |
 | `product-manager` | You need a PRD, feature brief, acceptance criteria, scope cut, user flow, product tradeoff, or release slice before engineering work starts. | Product brief workflow, requirements, non-goals, acceptance criteria, scope control, and engineering handoff. |
@@ -60,6 +70,7 @@ Common shortcuts:
 ## Install
 
 ```bash
+npx @ace3/skills install feature-delivery
 npx @ace3/skills install dev-orchestrator
 npx @ace3/skills install research
 npx @ace3/skills install product-manager
@@ -93,6 +104,7 @@ Add marketplace:
 Install plugins:
 
 ```text
+/plugin install feature-delivery@ace3-skills
 /plugin install dev-orchestrator@ace3-skills
 /plugin install research@ace3-skills
 /plugin install product-manager@ace3-skills
@@ -118,7 +130,7 @@ Marketplace catalogs:
 
 Use one skill at a time unless the task clearly crosses domains. Good prompts include four parts:
 
-1. Skill name: `Use dev-orchestrator`, `Use research`, `Use product-manager`, `Use engineering-manager`, `Use backend-developer`, `Use frontend-developer`, `Use diagnose`, `Use qa`, `Use security-sast`, `Use security-dast`, `Use monitoring`, `Use deployment-ops`, `Use drawing`, `Use plane`, or `roast me`.
+1. Skill name: `Use feature-delivery`, `Use dev-orchestrator`, `Use research`, `Use product-manager`, `Use engineering-manager`, `Use backend-developer`, `Use frontend-developer`, `Use diagnose`, `Use qa`, `Use security-sast`, `Use security-dast`, `Use monitoring`, `Use deployment-ops`, `Use drawing`, `Use plane`, or `roast me`.
 2. Scope: repo path, service, environment, URL, host group, time window, or target allowlist.
 3. Action class: read-only review, active scan, plan only, or approved execution.
 4. Output contract: findings, health status, rollout plan, rollback plan, or verification evidence.
@@ -140,6 +152,18 @@ Token-saving rules:
 ## Use Cases And Examples
 
 ### Development Workflow
+
+Deliver a broad feature end to end:
+
+```text
+Use feature-delivery. Scope: implement the Xendit payment gateway in the payment service. Action: end-to-end implementation. Output: changed behavior, tests, callback/security checks, gates, and verification evidence.
+```
+
+Expected flow:
+
+```text
+repo inspection -> compact plan -> implementation -> focused tests -> QA/security review -> delivery report
+```
 
 Route a broad feature from idea to delivery:
 
@@ -434,6 +458,12 @@ Operational skills include `references/karpathy-superpowers-base.md` so single-s
 
 ```text
 skills/
+  feature-delivery/
+    SKILL.md
+    references/
+      feature-delivery-workflow.md
+      payment-integration-checklist.md
+      delivery-report.md
   dev-orchestrator/
     SKILL.md
     references/

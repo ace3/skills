@@ -10,6 +10,27 @@
   },
   "plugins": [
     {
+      "name": "feature-delivery",
+      "source": "./skills/feature-delivery",
+      "description": "End-to-end feature delivery for natural implementation requests, from repo inspection and planning through implementation, tests, QA, security review, and release handoff.",
+      "version": "0.1.0",
+      "author": {
+        "name": "ace3"
+      },
+      "category": "development",
+      "tags": [
+        "feature-delivery",
+        "implementation",
+        "end-to-end",
+        "software-delivery",
+        "qa",
+        "security",
+        "payment",
+        "xendit"
+      ],
+      "homepage": "https://github.com/ace3/skills/tree/main/skills/feature-delivery"
+    },
+    {
       "name": "dev-orchestrator",
       "source": "./skills/dev-orchestrator",
       "description": "Thin router for multi-role software delivery across research, product, engineering, backend, frontend, QA, security, monitoring, deployment, Plane, drawing, and roast.",
