@@ -1,6 +1,6 @@
 # Repo Static Scan
 
-Use for source-code review, auth/API/backend deep-dives, SAST runner orchestration, dependency CVE audits, secrets scan review, and container/IaC/CI checks.
+Use for source-code review, auth/API/backend deep-dives, SAST runner orchestration, dependency CVE audits, supply-chain risk review, secrets scan review, and container/IaC/CI checks.
 
 ## Procedure
 
@@ -17,6 +17,9 @@ Use for source-code review, auth/API/backend deep-dives, SAST runner orchestrati
 - Use targeted commands when scope is narrow. Whole-repo scans are acceptable only when the user asks for broad coverage or the repo shape makes targeting unreliable.
 - Capture the command, version when available, target path, timestamp, and relevant output excerpt for each scanner result.
 - If a scanner is not installed, provide the exact recommended command and continue with manual review when useful.
+- Present scanner plans before broad scans when the run would create many artifacts, require third-party rules, build databases, use network-backed services, or materially consume time.
+- Disable telemetry when the scanner supports it. For Semgrep, include `--metrics=off` and avoid `--config auto` when the ruleset must be controlled.
+- Keep generated scanner output under a named scratch/output directory. Do not scatter databases, SARIF, logs, or cloned repos into the project root unless the repo already has that convention.
 
 Common read-only tools:
 
@@ -29,6 +32,14 @@ Common read-only tools:
 - Trivy image: runtime package and OS-layer vulnerability evidence when an image name, tag, digest, or local image is in scope.
 - Gitleaks or TruffleHog: secrets detection across current files or git history when history scanning is explicitly in scope.
 
+## Semgrep, CodeQL, And SARIF Notes
+
+- Semgrep is best for fast pattern and taint checks. Prefer targeted rulesets for the detected languages, and record exact configs, target paths, and filtering criteria.
+- CodeQL is best when interprocedural data flow matters. A built database is not automatically valid; check extractor errors, expected source file coverage, build logs, and language before trusting results.
+- Existing CI SARIF is useful evidence. Normalize tool paths, rule IDs, severity, fingerprints, and timestamps before comparing runs.
+- Zero findings is not proof of safety. Check whether the scanner had the right language, source coverage, query pack, database quality, and modeled framework sources/sinks.
+- Treat third-party rules as untrusted input. Use them for leads, but confirm with code, configuration, and exploitability evidence before reporting.
+
 ## Dependency CVE Audit
 
 - Identify manifests and lockfiles first: `go.mod`, `go.sum`, `package.json`, lockfiles, Dockerfiles, Compose, CI images, and generated dependency manifests.
@@ -37,6 +48,15 @@ Common read-only tools:
 - Distinguish application dependencies from runtime image packages. A CVE in an image layer needs image tag or digest evidence and runtime relevance; it is not automatically an application dependency bug.
 - Mark stale, unreachable, dev-only, excluded-platform, or uninstalled advisory hits as unconfirmed unless the vulnerable code or package is actually used in the scoped artifact.
 - For actionable dependency findings, include package, installed version, fixed version or mitigation, source manifest or lockfile, reachability evidence, and the safest verification command.
+
+## Supply-Chain Risk Review
+
+- Use this when the concern is dependency takeover, maintainer risk, package health, provenance, or malicious install behavior rather than a known CVE.
+- Check direct dependencies first, then high-risk transitive dependencies that execute code at install, build, test, runtime plugin load, or native binding load time.
+- Risk signals include single-maintainer control, anonymous or unreachable maintainers, archived or stale repos, no security contact, unusual install scripts, Git dependencies, low adoption for security-critical code, past compromise, broad filesystem/network behavior, or native/FFI/deserialization features.
+- Separate takeover risk from confirmed vulnerability. A risky dependency may justify monitoring, pinning, replacement, provenance checks, or release gates without being a current exploitable bug.
+- When network or GitHub lookups are in scope, record exact repo URL, package version, maintainer/org signal, last release or commit date, security policy evidence, and replacement recommendation if one is clear.
+- Hand off broad inventory or alert reporting to `monitoring`; keep exploitability, CVSS, remediation validation, or release blocking in `security-sast`.
 
 ## Secrets Scan Review
 

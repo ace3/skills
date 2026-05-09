@@ -8,6 +8,8 @@ Use when combining scanner, code review, log, cloud, or manual findings.
 - `affected_asset`: service, host, repo, file, image, domain, route, account, or cloud resource.
 - `vulnerable_resource`: endpoint, package, config key, permission, query, path, or control.
 - `source`: tool, command, log source, code review, runtime check, or human report.
+- `scanner_artifact`: SARIF, JSON, log, dashboard, or report path when the source is machine-generated.
+- `fingerprint`: stable rule/location/content identifier when available.
 - `severity`: Critical, High, Medium, Low, Info.
 - `cvss`: numeric score and vector when claimed, or `Risk-rated, CVSS not applicable`.
 - `classification`: CWE, OWASP Top 10, OWASP ASVS, cloud control, or policy mapping when relevant.
@@ -26,6 +28,8 @@ Use when combining scanner, code review, log, cloud, or manual findings.
 
 - Do not merge unrelated vulnerabilities into one finding.
 - Deduplicate the same root cause across tools.
+- For SARIF, normalize `ruleId`, `level`, `message`, `artifactLocation.uri`, `region.startLine`, and fingerprints before deduplication.
+- Path-only matching is weak; prefer fingerprints or rule plus normalized relative path plus code context.
 - Mark unverified scanner output as unconfirmed.
 - Preserve exploitability context when deduplicating; the same CVE can have different severity in different deployments.
 - Redact secrets, tokens, cookies, auth headers, private keys, and customer data by default.

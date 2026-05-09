@@ -1,7 +1,7 @@
 {
   "name": "security-dast",
   "version": "0.1.0",
-  "description": "Blackbox/dynamic security workflows for authorized runtime targets, active surface scans, API and web probing, TLS checks, fuzzing, pentest reports, finding normalization, and hardening gates.",
+  "description": "Blackbox/dynamic security workflows for authorized runtime targets, JavaScript web apps, Next.js, Node.js, active surface scans, API and web probing, TLS checks, fuzzing, pentest reports, finding normalization, and hardening gates.",
   "author": {
     "name": "ace3",
     "url": "https://github.com/ace3"
@@ -13,6 +13,10 @@
     "security",
     "dast",
     "pentest",
+    "javascript",
+    "typescript",
+    "nextjs",
+    "nodejs",
     "zap",
     "nuclei",
     "surface-scan",

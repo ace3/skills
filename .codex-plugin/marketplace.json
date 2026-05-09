@@ -12,7 +12,7 @@
     {
       "name": "security-sast",
       "source": "./skills/security-sast",
-      "description": "Whitebox/static security workflows for source code, config, dependencies, containers, IaC, threat modeling, scanner-output review, finding normalization, and hardening gates.",
+      "description": "Whitebox/static security workflows for source code, JavaScript, TypeScript, Next.js, Node.js, Fastify, config, dependencies, supply-chain risk, containers, IaC, threat modeling, scanner-output review, finding normalization, and hardening gates.",
       "version": "0.1.0",
       "author": {
         "name": "ace3"
@@ -24,6 +24,13 @@
         "audit",
         "threat-modeling",
         "static-scan",
+        "javascript",
+        "typescript",
+        "nextjs",
+        "nodejs",
+        "fastify",
+        "supply-chain",
+        "deepsec",
         "codeql",
         "semgrep",
         "hardening"
@@ -33,7 +40,7 @@
     {
       "name": "security-dast",
       "source": "./skills/security-dast",
-      "description": "Blackbox/dynamic security workflows for authorized runtime targets, active surface scans, API and web probing, TLS checks, fuzzing, pentest reports, finding normalization, and hardening gates.",
+      "description": "Blackbox/dynamic security workflows for authorized runtime targets, JavaScript web apps, Next.js, Node.js, active surface scans, API and web probing, TLS checks, fuzzing, pentest reports, finding normalization, and hardening gates.",
       "version": "0.1.0",
       "author": {
         "name": "ace3"
@@ -43,6 +50,10 @@
         "security",
         "dast",
         "pentest",
+        "javascript",
+        "typescript",
+        "nextjs",
+        "nodejs",
         "zap",
         "nuclei",
         "surface-scan",
@@ -53,7 +64,7 @@
     {
       "name": "monitoring",
       "source": "./skills/monitoring",
-      "description": "Monitoring workflows for read-only health checks, dashboard and alert design, telemetry coverage, dependency and runtime vulnerability inventory, and incident triage.",
+      "description": "Monitoring workflows for read-only health checks, dashboard and alert design, telemetry coverage, dependency and runtime vulnerability inventory, supply-chain risk signals, and incident triage.",
       "version": "0.1.0",
       "author": {
         "name": "ace3"
@@ -67,6 +78,7 @@
         "health-checks",
         "incident-response",
         "vulnerability-inventory",
+        "supply-chain",
         "dependency-inventory",
         "runtime-drift"
       ],

@@ -5,8 +5,10 @@ description: >
   dependencies, containers, IaC, CI, threat modeling, scanner-output review,
   finding normalization, vulnerability reports, CVSS scoring, remediation
   plans, fix queue handoffs, and release hardening. Use for SAST, Semgrep,
-  CodeQL, govulncheck, Trivy filesystem/image/config scans, auth reviews,
-  secrets, data protection, money movement, or integrity-sensitive code.
+  CodeQL, govulncheck, Trivy filesystem/image/config scans, JavaScript,
+  TypeScript, Next.js, Node.js, Fastify, deep audit context, supply-chain
+  risk, auth reviews, secrets, data protection, money movement, or
+  integrity-sensitive code.
 ---
 
 # Security SAST
@@ -20,16 +22,20 @@ Load `references/karpathy-superpowers-base.md` first. It defines assumptions, si
 ## Classify
 
 - Source-code review: auth, API/backend, input handling, data access, crypto, filesystem, outbound requests, integrity, secrets, or money-sensitive paths.
+- JavaScript web review: Next.js, Node.js, TypeScript, React, API routes, server actions, middleware, SSR/SSG boundaries, browser/client bundles, and package scripts.
 - SAST runner orchestration: read-only Semgrep, CodeQL, `gosec`, `govulncheck`, Trivy filesystem/config/image, Gitleaks, TruffleHog, or scanner-output review.
-- Dependency CVE audit: manifests, lockfiles, package managers, transitive dependency evidence, reachability, stale advisories, runtime package and image package distinction.
+- Dependency and supply-chain audit: manifests, lockfiles, package managers, transitive dependency evidence, reachability, maintainer/takeover risk, stale advisories, runtime package and image package distinction.
 - Threat model to test cases: assets, actors, trust boundaries, entry points, STRIDE paths, and security tests backed by repo or architecture evidence.
+- Deep audit context: bottom-up code comprehension, invariant reconstruction, call-chain tracing, or anti-hallucination review before vulnerability conclusions.
 - Container, IaC, and CI review: Dockerfiles, Compose, Kubernetes, Terraform, GitHub Actions, GitLab CI, deployment config, generated artifacts, or hardening gates.
 - Privileged change: any remediation, service change, credential change, DNS change, or deploy action.
 
 ## References
 
 - Threat model, STRIDE, security test cases, API security, OWASP, trust boundaries, exploit paths, or threat-model checklist: `references/threat-modeling.md`.
-- Go/backend review, auth/API deep-dive, Semgrep, CodeQL, `gosec`, `govulncheck`, Trivy, dependency CVE audit, secrets scanning, repo/image/IaC/CI scanning: `references/repo-static-scan.md`.
+- Deep context building, invariant reconstruction, call-chain tracing, or context-first audit preparation: `references/deep-audit-context.md`.
+- Go/backend review, auth/API deep-dive, Semgrep, CodeQL, SARIF, `gosec`, `govulncheck`, Trivy, dependency CVE audit, supply-chain risk, secrets scanning, repo/image/IaC/CI scanning: `references/repo-static-scan.md`.
+- Next.js, Node.js, TypeScript, React, API routes, server actions, SSR/SSG, browser bundle exposure, package scripts, JavaScript supply chain, or optional deepsec workflow: `references/javascript-web-static-scan.md`.
 - Multi-tool triage, deduplication, severity, confidence, or retest state: `references/finding-normalization.md`.
 - Enterprise report, pentest report, vulnerability report, CVSS, roadmap, or release hardening: `references/enterprise-security-report.md`.
 - Security finding handoff to `em-thinking`, `golang-developer`, or `deployment-ops`: `references/security-fix-queue.md`.

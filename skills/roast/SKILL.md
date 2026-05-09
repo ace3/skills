@@ -23,6 +23,16 @@ Pressure-test a plan until the user and agent share a precise understanding. Be 
 7. If the user says "you decide", decide, state it, and continue.
 8. If the user says "done", stop and offer a synthesis.
 
+## Large-Scope Decomposition
+
+Use this when the plan, spec, or codebase is too large for one reliable pass: 10+ files, many independent subsystems, 50k+ tokens, scattered evidence, or repeated context loss risk.
+
+1. Partition by decision area, subsystem, or evidence source.
+2. Review one partition at a time and keep a short map of resolved, open, and blocked points.
+3. Ask only the most blocking cross-partition question.
+4. Re-check final conclusions against the smaller partition notes before synthesizing.
+5. If a partition is independent enough to be its own spec, say so and recommend splitting the work.
+
 ## Roast Tree
 
 Adapt the order to the plan. Cover only branches that matter.

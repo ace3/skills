@@ -6,7 +6,8 @@ description: >
   validation, finding normalization, enterprise security reports, penetration
   test reports, vulnerability reports, CVSS scoring, remediation plans, and
   retest evidence. Use for DAST, ZAP, Nuclei, SSLyze, Naabu, httpx, ffuf,
-  Amass, external exposure, domains, URLs, APIs, ports, or deployed services.
+  Amass, JavaScript web apps, Next.js, Node.js, TypeScript, external
+  exposure, domains, URLs, APIs, ports, or deployed services.
 ---
 
 # Security DAST
@@ -20,12 +21,14 @@ Load `references/karpathy-superpowers-base.md` first. It defines assumptions, si
 ## Classify
 
 - Passive target review: supplied domains, URLs, API specs, known routes, scanner output, screenshots, or runtime evidence.
+- JavaScript web runtime testing: Next.js, Node.js, TypeScript, React, `_next` assets, API routes, auth flows, browser storage, GraphQL, security headers, and cache behavior.
 - Active scan: network, web, TLS, endpoint, fuzzing, or attack-surface probing against an explicit allowlist.
 - Privileged change: any remediation, service change, credential change, DNS change, or deploy action.
 
 ## References
 
 - Blackbox web/API pentest, OWASP scan, auth probing, input validation probing, retest requests, Amass, Naabu, httpx, ffuf, ZAP, Nuclei, SSLyze, or active scan planning: `references/active-surface-scan.md`.
+- Next.js, Node.js, TypeScript, React, browser-observed requests, `_next` assets, GraphQL, client storage, source maps, CORS, CSRF, cache poisoning, or JavaScript runtime testing: `references/javascript-web-runtime-scan.md`.
 - Multi-tool triage, deduplication, severity, confidence, or retest state: `references/finding-normalization.md`.
 - Enterprise report, pentest report, vulnerability report, CVSS, roadmap, or release hardening: `references/enterprise-security-report.md`.
 - Security finding handoff to `em-thinking`, `golang-developer`, or `deployment-ops`: `references/security-fix-queue.md`.

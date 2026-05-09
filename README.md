@@ -10,13 +10,13 @@ Every operational skill carries a standalone Karpathy + Superpowers base layer. 
 
 | Skill | Use when | Loads guidance for |
 |---|---|---|
-| `security-sast` | You need whitebox/static review of code, config, dependencies, containers, IaC, CI, threat models, scanner output, security reports, fix queue handoff, or release hardening. | STRIDE, OWASP/API review, Semgrep/CodeQL, `govulncheck`, Trivy filesystem/image/config scans, finding normalization, CVSS, reports, remediation roadmaps, security fix queue bundles. |
-| `security-dast` | You need blackbox/dynamic testing of authorized runtime targets, APIs, web surfaces, domains, ports, TLS, active scan planning/execution, pentest reports, vulnerability reports, or retest evidence. | Amass, Naabu, httpx, ffuf, ZAP, Nuclei, SSLyze, active scan controls, finding normalization, CVSS, reports, remediation roadmaps, security fix queue bundles. |
-| `monitoring` | You need read-only health checks, dashboard/alert design, telemetry gap analysis, dependency/runtime vulnerability inventory, or incident triage. | Grafana, Prometheus, GCP/MIG reads, Docker inspect, Node Exporter, osquery, SLI/SLO design, OTel, version drift, dependency inventory, vulnerability alert reports, alert quality. |
+| `security-sast` | You need whitebox/static review of code, config, dependencies, supply-chain risk, containers, IaC, CI, threat models, scanner output, security reports, fix queue handoff, or release hardening. | Deep audit context, STRIDE, OWASP/API review, JavaScript/TypeScript/Next.js/Node.js/Fastify review, Semgrep/CodeQL/SARIF, optional deepsec workflow, `govulncheck`, Trivy filesystem/image/config scans, finding normalization, CVSS, reports, remediation roadmaps, security fix queue bundles. |
+| `security-dast` | You need blackbox/dynamic testing of authorized runtime targets, APIs, web surfaces, domains, ports, TLS, active scan planning/execution, pentest reports, vulnerability reports, or retest evidence. | JavaScript web runtime testing, Next.js/Node.js route discovery, browser-observed requests, GraphQL, Amass, Naabu, httpx, ffuf, ZAP, Nuclei, SSLyze, active scan controls, finding normalization, CVSS, reports, remediation roadmaps, security fix queue bundles. |
+| `monitoring` | You need read-only health checks, dashboard/alert design, telemetry gap analysis, dependency/runtime vulnerability inventory, supply-chain risk signals, or incident triage. | Grafana, Prometheus, GCP/MIG reads, Docker inspect, Node Exporter, osquery, SLI/SLO design, OTel, version drift, dependency inventory, supply-chain risk, vulnerability alert reports, alert quality. |
 | `deployment-ops` | You need release readiness, GCP MIG rollout, Docker service operations, Ansible Runner, Semaphore UI/API execution, rollback, or post-deploy verification. | Artifact gates, GCP MIG updates, Cloud DNS/LB-aware verification, Docker Compose/Swarm, Ansible Runner, Semaphore UI projects/templates/tasks/runners/schedules, rollback checks. |
 | `drawing` | You need to create, design, explain, render, or improve diagrams with Mermaid or Excalidraw. | Mermaid diagram selection and syntax, Excalidraw visual argument design, technical diagram evidence, and format-specific validation. |
 | `plane` | You need to look up, list, create, update, or report on Plane.so projects and work items through the Plane REST API. | Plane auth, `work-items` endpoints, pagination, project/member/state/label/module/cycle lookup, safe mutation plans, and a small API helper script. |
-| `roast` | You say "roast me" or need a one-question-at-a-time plan, spec, PRD, AGENT_SPEC.md, architecture, or design stress test. | Goal clarity, design tree traversal, codebase-first answers, concrete recommendations, optional CONTEXT.md/ADR-aware domain checks. |
+| `roast` | You say "roast me" or need a one-question-at-a-time plan, spec, PRD, AGENT_SPEC.md, architecture, or design stress test. | Goal clarity, design tree traversal, large-scope decomposition, codebase-first answers, concrete recommendations, optional CONTEXT.md/ADR-aware domain checks. |
 
 ## Install
 
@@ -98,6 +98,24 @@ Run a focused static scan review:
 Use security-sast. Scope: Go service repo, Dockerfile, compose files, and CI config. Action: read-only review. Output: confirmed findings only, using govulncheck/Trivy/Semgrep evidence where available.
 ```
 
+Review a Next.js or Node.js app:
+
+```text
+Use security-sast. Scope: Next.js app, package lockfile, middleware, API routes, server actions, and next.config.js. Action: read-only review. Output: confirmed JS/TS web findings, false positives, unconfirmed scanner leads, and verification commands.
+```
+
+Review a Fastify or Node API:
+
+```text
+Use security-sast. Scope: Fastify TypeScript API, route plugins, schemas, auth hooks, package lockfile, and server entry point. Action: read-only review. Output: confirmed Node/Fastify security findings, supply-chain risks, scanner leads, and verification commands.
+```
+
+Use optional deepsec without making it the only scanner:
+
+```text
+Use security-sast. Scope: TypeScript web app. Action: read-only AI-assisted SAST plan. Output: threat sketch, free candidate-scan step, approval gate before any cost-incurring deepsec process step, and revalidation/report steps.
+```
+
 Create a fix handoff for downstream agents:
 
 ```text
@@ -116,6 +134,12 @@ Prepare an active scan safely:
 
 ```text
 Use security-dast. Scope: https://api.staging.example.com only. Action: active scan plan only. Output: allowlist, rate limits, tools to use, risks, and expected finding schema. Do not run scans yet.
+```
+
+Test a JavaScript web runtime:
+
+```text
+Use security-dast. Scope: https://app.staging.example.com and https://app.staging.example.com/api only. Action: active scan plan only. Output: Next.js route inventory, browser-observed requests, cookie/storage checks, CORS/CSRF/cache/header tests, exclusions, rate limits, and safe retest evidence format.
 ```
 
 Create an enterprise security report:
@@ -156,6 +180,12 @@ Check dependency and runtime vulnerability inventory:
 
 ```text
 Use monitoring. Scope: GitLab repo, package.json, go.mod, Dockerfiles, Compose files, and scoped Docker host versions. Action: read-only. Output: confirmed and potential vulnerability alerts with evidence, owners, next actions, and verification commands. Do not create GitLab issues or monitoring alerts.
+```
+
+Check dependency takeover risk:
+
+```text
+Use monitoring. Scope: package lockfiles, direct dependencies, build tools, Docker images, and GitLab dependency report. Action: read-only. Output: supply-chain risk signals separated from confirmed CVEs, with evidence and suggested next action.
 ```
 
 ### Deployment Ops
@@ -230,6 +260,12 @@ Upgrade into docs-aware roasting:
 
 ```text
 Roast me on this architecture against the codebase docs. If terminology or decisions need to be captured, update CONTEXT.md inline and offer ADRs only for hard-to-reverse trade-offs.
+```
+
+Decompose a large plan:
+
+```text
+Roast me on this full AGENT_SPEC.md, ADRs, and related service folders. Decompose by subsystem, then ask the most blocking cross-subsystem question with your recommendation.
 ```
 
 ## Safety Model

@@ -4,7 +4,7 @@ Use when security findings need to be handed off for implementation by `em-think
 
 ## Purpose
 
-The current security skill owns evidence, risk framing, exploitability, routing, and verification requirements. It does not perform broad remediation by default. For implementation handoff, produce one Markdown bundle with an embedded strict JSON block that downstream skills can process one finding at a time.
+The current security-sast or security-dast skill owns evidence, risk framing, exploitability, routing, and verification requirements. It does not perform broad remediation by default. For implementation handoff, produce one Markdown bundle with an embedded strict JSON block that downstream skills can process one finding at a time.
 
 Owner routing:
 
@@ -21,7 +21,7 @@ Use `em-thinking` as the thinking consumer name.
 - Keep each fix packet focused on one root cause. Split unrelated vulnerabilities.
 - Include enough evidence and verification that the owner does not need to reread the full audit.
 - Route by the smallest real owner: code to the thinking-plus-Go chain; infra and operations to `deployment-ops`.
-- Preserve destructive-command and privileged-change gates. If a fix needs destructive or privileged action, describe the manual gate, approval need, rollback notes, and exact verification, but do not execute it from the current security skill.
+- Preserve destructive-command and privileged-change gates. If a fix needs destructive or privileged action, describe the manual gate, approval need, rollback notes, and exact verification, but do not execute it from the current security skill package.
 - Keep `implementation_hints` as hints, not permission for unrelated cleanup.
 
 ## Markdown Shape
