@@ -23,6 +23,7 @@ If the request is a narrow bug fix, execute after stating assumptions and checki
 - Prefer typed request, response, and error contracts.
 - Keep REST/gRPC mapping explicit and backwards compatible unless the approved plan says otherwise.
 - Protect idempotency, authorization, validation, pagination, and transaction boundaries.
+- For payment callbacks, webhooks, queues, provider status updates, or reconciliation, load `external-event-integrity.md`.
 - For SQL changes, include migration direction, compatibility, and rollback notes.
 - For Go services, inspect entity, repository, service, controller, transformer, provider, worker, routine, and DI patterns before adding new code.
 - Prefer behavior tests through public interfaces; avoid tests that only lock private implementation.

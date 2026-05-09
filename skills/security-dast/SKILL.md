@@ -29,6 +29,7 @@ Load `references/karpathy-superpowers-base.md` first. It defines assumptions, si
 
 - Blackbox web/API pentest, OWASP scan, auth probing, input validation probing, retest requests, Amass, Naabu, httpx, ffuf, ZAP, Nuclei, SSLyze, or active scan planning: `references/active-surface-scan.md`.
 - Next.js, Node.js, TypeScript, React, browser-observed requests, `_next` assets, GraphQL, client storage, source maps, CORS, CSRF, cache poisoning, or JavaScript runtime testing: `references/javascript-web-runtime-scan.md`.
+- Authorized callback, webhook, provider status, queue ingress, or reconciliation endpoint integrity testing: `references/external-event-integrity.md`.
 - Multi-tool triage, deduplication, severity, confidence, or retest state: `references/finding-normalization.md`.
 - Enterprise report, pentest report, vulnerability report, CVSS, roadmap, or release hardening: `references/enterprise-security-report.md`.
 - Security finding handoff to `em-thinking`, `golang-developer`, or `deployment-ops`: `references/security-fix-queue.md`.

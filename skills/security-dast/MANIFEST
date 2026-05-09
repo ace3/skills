@@ -3,6 +3,7 @@ SKILL.md
 .codex-plugin/plugin.json
 references/active-surface-scan.md
 references/javascript-web-runtime-scan.md
+references/external-event-integrity.md
 references/finding-normalization.md
 references/enterprise-security-report.md
 references/security-fix-queue.md

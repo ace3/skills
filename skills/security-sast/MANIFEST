@@ -5,6 +5,7 @@ references/threat-modeling.md
 references/deep-audit-context.md
 references/repo-static-scan.md
 references/javascript-web-static-scan.md
+references/external-event-integrity.md
 references/finding-normalization.md
 references/enterprise-security-report.md
 references/security-fix-queue.md

@@ -2,3 +2,4 @@ SKILL.md
 .claude-plugin/plugin.json
 .codex-plugin/plugin.json
 references/backend-implementation.md
+references/external-event-integrity.md

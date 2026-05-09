@@ -23,6 +23,7 @@ Verify behavior against intent. Find concrete gaps, reproduce them, and make the
 ## References
 
 - QA workflow, scenario design, defect reporting, and acceptance validation: `references/qa-workflow.md`.
+- High-risk payment callbacks, webhooks, queues, provider updates, or reconciliation: `references/external-event-integrity.md`.
 
 ## Trust Boundary
 

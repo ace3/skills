@@ -25,6 +25,7 @@ Load `references/backend-implementation.md` before editing. It defines execution
 ## References
 
 - Backend implementation workflow: `references/backend-implementation.md`.
+- High-risk payment callbacks, webhooks, queues, provider updates, or reconciliation: `references/external-event-integrity.md`.
 
 ## Trust Boundary
 

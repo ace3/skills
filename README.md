@@ -44,13 +44,13 @@ Common shortcuts:
 | `dev-orchestrator` | You need a thin router for multi-role software delivery and want the next correct skill sequence across research, product, engineering, backend, frontend, QA, security, monitoring, deployment, Plane, drawing, or roast. | Development workflow routing, handoff shape, shortcut rules, and plan-first gates. |
 | `research` | You need current-state investigation, competitor/API/library research, technical feasibility, repo discovery, or an evidence-backed decision brief. | Research workflow, source quality, evidence handling, current-source expectations, and concise research brief format. |
 | `product-manager` | You need a PRD, feature brief, acceptance criteria, scope cut, user flow, product tradeoff, or release slice before engineering work starts. | Product brief workflow, requirements, non-goals, acceptance criteria, scope control, and engineering handoff. |
-| `engineering-manager` | You need architecture review, implementation strategy, boundaries, interfaces, migration sequencing, risk gates, task breakdown, rollout planning, or verification strategy. | Implementation plan workflow, architecture decisions, interfaces, data flow, task order, risks, rollout, rollback, and downstream handoffs. |
-| `backend-developer` | You need approved server/API/data work, with first-class guidance for Go services, REST/gRPC, SQL, queues, auth, idempotency, and migrations. | Backend execution gates, repo inspection, Go/API/data guidance, focused tests, and verification evidence. |
+| `engineering-manager` | You need architecture review, implementation strategy, boundaries, interfaces, migration sequencing, risk gates, task breakdown, rollout planning, branch comparison, or verification strategy. | Implementation plan workflow, external-event integrity planning, benchmark-quality branch comparison, architecture decisions, interfaces, data flow, task order, risks, rollout, rollback, and downstream handoffs. |
+| `backend-developer` | You need approved server/API/data work, with first-class guidance for Go services, REST/gRPC, SQL, queues, callbacks, webhooks, auth, idempotency, and migrations. | Backend execution gates, repo inspection, Go/API/data guidance, external-event integrity, focused tests, and verification evidence. |
 | `frontend-developer` | You need approved UI/app work, with first-class guidance for JS/TS, React, Next.js, forms, state, API integration, accessibility, and responsive behavior. | Frontend execution gates, React/Next.js guidance, complete UI states, accessibility, browser checks, and visual verification. |
 | `diagnose` | You need disciplined root-cause work for hard bugs, failing tests, broken runtime behavior, flaky failures, unclear causes, or performance regressions before fixing. | Reproduction loops, minimization, hypothesis testing, instrumentation, regression checks, and implementation handoff. |
-| `qa` | You need test planning, regression testing, edge-case review, acceptance validation, bug reproduction, release confidence, or retest evidence. | QA scenario design, defect reporting, coverage gaps, acceptance checks, retest checklist, and release recommendation. |
-| `security-sast` | You need whitebox/static review of code, config, dependencies, supply-chain risk, containers, IaC, CI, threat models, scanner output, security reports, fix queue handoff, or release hardening. | Deep audit context, STRIDE, OWASP/API review, JavaScript/TypeScript/Next.js/Node.js/Fastify review, Semgrep/CodeQL/SARIF, optional deepsec workflow, `govulncheck`, Trivy filesystem/image/config scans, finding normalization, CVSS, reports, remediation roadmaps, security fix queue bundles. |
-| `security-dast` | You need blackbox/dynamic testing of authorized runtime targets, APIs, web surfaces, domains, ports, TLS, active scan planning/execution, pentest reports, vulnerability reports, or retest evidence. | JavaScript web runtime testing, Next.js/Node.js route discovery, browser-observed requests, GraphQL, Amass, Naabu, httpx, ffuf, ZAP, Nuclei, SSLyze, active scan controls, finding normalization, CVSS, reports, remediation roadmaps, security fix queue bundles. |
+| `qa` | You need test planning, regression testing, edge-case review, acceptance validation, bug reproduction, release confidence, or retest evidence. | QA scenario design, external-event integrity scenarios, defect reporting, coverage gaps, acceptance checks, retest checklist, and release recommendation. |
+| `security-sast` | You need whitebox/static review of code, config, dependencies, supply-chain risk, containers, IaC, CI, threat models, scanner output, event integrity, security reports, fix queue handoff, or release hardening. | Deep audit context, STRIDE, OWASP/API review, external-event integrity review, JavaScript/TypeScript/Next.js/Node.js/Fastify review, Semgrep/CodeQL/SARIF, optional deepsec workflow, `govulncheck`, Trivy filesystem/image/config scans, finding normalization, CVSS, reports, remediation roadmaps, security fix queue bundles. |
+| `security-dast` | You need blackbox/dynamic testing of authorized runtime targets, APIs, callbacks, webhooks, web surfaces, domains, ports, TLS, active scan planning/execution, pentest reports, vulnerability reports, or retest evidence. | JavaScript web runtime testing, Next.js/Node.js route discovery, callback/webhook integrity tests, browser-observed requests, GraphQL, Amass, Naabu, httpx, ffuf, ZAP, Nuclei, SSLyze, active scan controls, finding normalization, CVSS, reports, remediation roadmaps, security fix queue bundles. |
 | `monitoring` | You need read-only health checks, dashboard/alert design, telemetry gap analysis, dependency/runtime vulnerability inventory, supply-chain risk signals, or incident triage. | Grafana, Prometheus, GCP/MIG reads, Docker inspect, Node Exporter, osquery, SLI/SLO design, OTel, version drift, dependency inventory, supply-chain risk, vulnerability alert reports, alert quality. |
 | `deployment-ops` | You need release readiness, GCP MIG rollout, Docker service operations, Ansible Runner, Semaphore UI/API execution, rollback, or post-deploy verification. | Artifact gates, GCP MIG updates, Cloud DNS/LB-aware verification, Docker Compose/Swarm, Ansible Runner, Semaphore UI projects/templates/tasks/runners/schedules, rollback checks. |
 | `drawing` | You need to create, design, explain, render, or improve diagrams with Mermaid or Excalidraw. | Mermaid diagram selection and syntax, Excalidraw visual argument design, technical diagram evidence, and format-specific validation. |
@@ -450,10 +450,13 @@ skills/
     SKILL.md
     references/
       implementation-plan.md
+      external-event-integrity.md
+      benchmark-quality.md
   backend-developer/
     SKILL.md
     references/
       backend-implementation.md
+      external-event-integrity.md
   frontend-developer/
     SKILL.md
     references/
@@ -466,16 +469,19 @@ skills/
     SKILL.md
     references/
       qa-workflow.md
+      external-event-integrity.md
   security-sast/
     SKILL.md
     references/
       karpathy-superpowers-base.md
       repo-static-scan.md
+      external-event-integrity.md
   security-dast/
     SKILL.md
     references/
       karpathy-superpowers-base.md
       active-surface-scan.md
+      external-event-integrity.md
   monitoring/
     SKILL.md
     references/

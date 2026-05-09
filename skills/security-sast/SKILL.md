@@ -36,6 +36,7 @@ Load `references/karpathy-superpowers-base.md` first. It defines assumptions, si
 - Deep context building, invariant reconstruction, call-chain tracing, or context-first audit preparation: `references/deep-audit-context.md`.
 - Go/backend review, auth/API deep-dive, Semgrep, CodeQL, SARIF, `gosec`, `govulncheck`, Trivy, dependency CVE audit, supply-chain risk, secrets scanning, repo/image/IaC/CI scanning: `references/repo-static-scan.md`.
 - Next.js, Node.js, TypeScript, React, API routes, server actions, SSR/SSG, browser bundle exposure, package scripts, JavaScript supply chain, or optional deepsec workflow: `references/javascript-web-static-scan.md`.
+- Payment callbacks, webhooks, queue consumers, provider status updates, reconciliation, event forgery, cross-tenant provider lookup, retry abuse, or idempotency flaws: `references/external-event-integrity.md`.
 - Multi-tool triage, deduplication, severity, confidence, or retest state: `references/finding-normalization.md`.
 - Enterprise report, pentest report, vulnerability report, CVSS, roadmap, or release hardening: `references/enterprise-security-report.md`.
 - Security finding handoff to `em-thinking`, `golang-developer`, or `deployment-ops`: `references/security-fix-queue.md`.

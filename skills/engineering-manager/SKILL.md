@@ -23,6 +23,8 @@ Turn approved product intent into a decision-complete implementation plan. Optim
 ## References
 
 - Implementation planning workflow and handoff format: `references/implementation-plan.md`.
+- High-risk payment callbacks, webhooks, queues, provider updates, or reconciliation: `references/external-event-integrity.md`.
+- Comparing agent outputs, branches, patches, or implementation candidates: `references/benchmark-quality.md`.
 
 ## Trust Boundary
 
