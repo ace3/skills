@@ -23,6 +23,8 @@ Turn approved product intent into a decision-complete implementation plan. Optim
 ## References
 
 - Implementation planning workflow and handoff format: `references/implementation-plan.md`.
+- Engineering-management thinking, risk tiering, architecture boundaries, invariants, failure modes, deploy readiness, and role-based handoffs: `references/engineering-management-thinking.md`.
+- Benchmark or implementation comparison methodology: `references/benchmark-quality-review.md`.
 
 ## Trust Boundary
 
@@ -33,12 +35,15 @@ Turn approved product intent into a decision-complete implementation plan. Optim
 ## Rules
 
 - Inspect the actual codebase before proposing an implementation plan.
+- Load `references/engineering-management-thinking.md` before broad plans, T0/T1 work, or architecture reviews.
 - Prefer existing project patterns over new abstractions.
 - Split independent subsystems into separate implementation slices.
-- Assign a risk tier and scale process to risk.
+- Assign T0/T1/T2/T3 risk and scale process to reversibility, blast radius, sensitive data, external contracts, concurrency, migrations, and ownership.
+- For T0/T1, require boundaries, data flow, state transitions, trust boundaries, invariants, failure modes, test strategy, deploy readiness, rollback, and role-based handoff.
+- For T2/T3, keep the plan compact and include only sections that materially reduce risk.
 - Call out destructive or privileged operations and route them through manual or deployment gates.
 - Do not implement code unless the user explicitly changes the task from planning to execution.
 
 ## Output Contract
 
-Return the plan first. Include architecture decisions, interfaces, data flow, task order, risks, verification, rollout, rollback, and exact downstream skill handoffs.
+Return the plan first. Include architecture decisions, interfaces, data flow, task order, risks, verification, rollout, rollback, and downstream role handoffs. Use role names such as `engineer`, `qa-reviewer`, `security-reviewer`, and `release-engineer` when the execution environment may map roles to different skills.

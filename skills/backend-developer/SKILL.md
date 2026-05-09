@@ -13,7 +13,7 @@ Implement approved backend plans with surgical scope and proof. Do not start bro
 
 ## Base Operating Layer
 
-Load `references/backend-implementation.md` before editing. It defines execution gates, backend workflow, Go/API/data guidance, and verification.
+Load `references/backend-implementation.md` before editing. For non-trivial backend work, also load `references/engineering-quality.md`. For Go repos or Go implementation requests, load `references/go-microservice-standards.md`.
 
 ## Classify
 
@@ -25,6 +25,8 @@ Load `references/backend-implementation.md` before editing. It defines execution
 ## References
 
 - Backend implementation workflow: `references/backend-implementation.md`.
+- Generic engineering quality bar for invariants, typed failures, retries, idempotency, boundaries, observability, and verification: `references/engineering-quality.md`.
+- Conditional Go microservice standards: `references/go-microservice-standards.md`.
 
 ## Trust Boundary
 
@@ -37,6 +39,7 @@ Load `references/backend-implementation.md` before editing. It defines execution
 - Inspect the codebase first and match existing architecture.
 - Keep every changed line traceable to the request or approved plan.
 - Use existing helpers, error patterns, logging, validation, and tests.
+- Strengthen typed contracts, error taxonomy, idempotency, retry handling, transaction boundaries, and observability when the changed path needs them.
 - Add or update focused tests for changed behavior.
 - Verify with the repo's own commands where available.
 

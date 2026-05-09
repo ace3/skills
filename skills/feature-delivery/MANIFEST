@@ -2,5 +2,8 @@ SKILL.md
 .claude-plugin/plugin.json
 .codex-plugin/plugin.json
 references/feature-delivery-workflow.md
+references/engineering-quality.md
+references/go-microservice-standards.md
+references/external-event-integrity.md
 references/payment-integration-checklist.md
 references/delivery-report.md

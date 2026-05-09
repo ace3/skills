@@ -14,13 +14,14 @@ Deliver feature requests end to end. The user's original implementation request 
 
 ## Base Operating Layer
 
-Load `references/feature-delivery-workflow.md` before implementation. For payment provider work, also load `references/payment-integration-checklist.md`. Use `references/delivery-report.md` for the final response shape.
+Load `references/feature-delivery-workflow.md` before implementation. For non-trivial implementation, load `references/engineering-quality.md`. For Go repos or Go implementation requests, load `references/go-microservice-standards.md`. For provider callbacks, webhooks, queues, imports, or external status updates, load `references/external-event-integrity.md`; for payment provider work, also load `references/payment-integration-checklist.md`. Use `references/delivery-report.md` for the final response shape.
 
 ## Classify
 
 - Broad feature request: inspect, plan the smallest useful slice, implement, test, review, and report.
 - Product ambiguity: use product-manager behavior only when acceptance criteria cannot be inferred safely.
 - Architecture or multi-module change: use engineering-manager behavior to lock boundaries, risks, task order, and verification before edits.
+- T0/T1 or unclear architecture: use engineering-manager behavior for risk tiering, invariants, failure modes, deploy readiness, and role handoff before edits.
 - Backend/UI implementation: use backend-developer and frontend-developer behavior internally; do not require the user to invoke them.
 - Broken or flaky behavior: use diagnose behavior before attempting the fix.
 - Security-sensitive feature: include security-sast/security-dast style review before completion.
@@ -37,6 +38,7 @@ Load `references/feature-delivery-workflow.md` before implementation. For paymen
 - Inspect the real repo first: entrypoints, configs, tests, service boundaries, schemas, routes, providers, env patterns, and conventions.
 - State assumptions and a brief execution loop before substantial edits.
 - Prefer the minimum code that satisfies the feature; avoid speculative abstractions or optional behavior.
+- Apply the generic engineering quality bar for invariants, typed failures, retries, idempotency, boundaries, observability, and verification.
 - Auto-continue from plan to implementation by default.
 - Stop only for critical ambiguity, destructive commands, production data changes, real credentials, live provider actions, irreversible migrations, privileged deployment, or business rules that affect money movement or permissions.
 - Print exact manual commands for destructive or security-sensitive operations instead of running them.

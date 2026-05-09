@@ -19,6 +19,7 @@ Verify behavior against intent. Find concrete gaps, reproduce them, and make the
 - Bug reproduction: create minimal repro steps and expected versus actual behavior, then route hard root-cause work to `diagnose`.
 - Review readiness: compare diff to plan, acceptance criteria, failure modes, and regression risk.
 - Release confidence: report pass/fail, residual risk, coverage gaps, and retest needs.
+- Risk-sensitive validation: cover retries, timeouts, cancellation, duplicate events, mismatches, permissions, rollback or recovery, and observability when the change touches external systems, auth, data integrity, or T0/T1 paths.
 
 ## References
 
@@ -34,6 +35,7 @@ Verify behavior against intent. Find concrete gaps, reproduce them, and make the
 
 - Inspect the plan, acceptance criteria, changed files, and existing tests before designing checks.
 - Prioritize behavior, risk, and regressions over exhaustive checklists.
+- Expand scenarios around retry success/exhaustion, timeout, cancellation, duplicate event, mismatch, permission denial, rollback/recovery, and observability when relevant.
 - Separate confirmed defects from suspected gaps.
 - Severity must reflect user impact and release risk, not how much code changed.
 - Do not mutate production data.
