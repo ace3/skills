@@ -1,10 +1,11 @@
 ---
 name: backend-developer
 description: >
-  Backend implementation for server, API, data, queue, auth, idempotency, and
-  migration work after an implementation plan is approved. Generic by default
-  with strong Go, REST, gRPC, SQL, queue, repository, service, provider,
-  scheduler, and testing guidance.
+  Backend implementation for server, API, data, queue, callback, webhook,
+  provider status update, reconciliation, auth, idempotency, and migration work
+  after an implementation plan is approved. Generic by default with strong Go,
+  REST, gRPC, SQL, queue, repository, service, provider, scheduler, and testing
+  guidance.
 ---
 
 # Backend Developer
@@ -38,6 +39,7 @@ Load `references/backend-implementation.md` before editing. It defines execution
 - Inspect the codebase first and match existing architecture.
 - Keep every changed line traceable to the request or approved plan.
 - Use existing helpers, error patterns, logging, validation, and tests.
+- For payment callbacks, webhooks, queues, provider status updates, or reconciliation, load `references/external-event-integrity.md` before editing.
 - Add or update focused tests for changed behavior.
 - Verify with the repo's own commands where available.
 

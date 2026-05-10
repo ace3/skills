@@ -3,9 +3,10 @@ name: qa
 description: >
   Quality assurance for test planning, regression testing, edge-case review,
   acceptance validation, bug reproduction, release confidence, retest evidence,
-  code review readiness, defect reporting, and pass/fail reporting. Use after
-  implementation, before release, or when the user asks whether a change meets
-  acceptance criteria.
+  code review readiness, defect reporting, external-event integrity validation,
+  and pass/fail reporting. Use after implementation, before release, or when the
+  user asks whether a change meets acceptance criteria for callbacks, webhooks,
+  queues, provider status updates, reconciliation, or other behavior.
 ---
 
 # QA
@@ -37,6 +38,7 @@ Verify behavior against intent. Find concrete gaps, reproduce them, and make the
 - Prioritize behavior, risk, and regressions over exhaustive checklists.
 - Separate confirmed defects from suspected gaps.
 - Severity must reflect user impact and release risk, not how much code changed.
+- For payment callbacks, webhooks, queues, provider status updates, or reconciliation, load `references/external-event-integrity.md` before judging release confidence.
 - Do not mutate production data.
 - Route security findings to security skills and release execution to `deployment-ops`.
 

@@ -3,7 +3,9 @@ name: engineering-manager
 description: >
   Engineering planning for architecture review, implementation strategy,
   boundaries, interfaces, migration sequencing, risk gates, task breakdown,
-  rollout planning, and verification strategy. Use when a PRD, bug pattern,
+  rollout planning, external-event integrity planning, benchmark branch
+  comparison, and verification strategy. Use when a PRD, bug pattern,
+  callback, webhook, queue, provider status update, reconciliation path,
   refactor, architecture choice, or multi-module change needs an engineering
   plan before implementation.
 ---
@@ -38,6 +40,8 @@ Turn approved product intent into a decision-complete implementation plan. Optim
 - Prefer existing project patterns over new abstractions.
 - Split independent subsystems into separate implementation slices.
 - Assign a risk tier and scale process to risk.
+- For high-risk external event work, load `references/external-event-integrity.md` before finalizing the plan.
+- For branch or agent-output comparisons, load `references/benchmark-quality.md` before scoring.
 - Call out destructive or privileged operations and route them through manual or deployment gates.
 - Do not implement code unless the user explicitly changes the task from planning to execution.
 

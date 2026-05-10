@@ -6,8 +6,9 @@ description: >
   validation, finding normalization, enterprise security reports, penetration
   test reports, vulnerability reports, CVSS scoring, remediation plans, and
   retest evidence. Use for DAST, ZAP, Nuclei, SSLyze, Naabu, httpx, ffuf,
-  Amass, JavaScript web apps, Next.js, Node.js, TypeScript, external
-  exposure, domains, URLs, APIs, ports, or deployed services.
+  Amass, JavaScript web apps, Next.js, Node.js, TypeScript, external exposure,
+  callback endpoints, webhooks, provider status updates, reconciliation APIs,
+  domains, URLs, APIs, ports, or deployed services.
 ---
 
 # Security DAST

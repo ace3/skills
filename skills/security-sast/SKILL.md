@@ -8,7 +8,8 @@ description: >
   CodeQL, govulncheck, Trivy filesystem/image/config scans, JavaScript,
   TypeScript, Next.js, Node.js, Fastify, deep audit context, supply-chain
   risk, auth reviews, secrets, data protection, money movement, or
-  integrity-sensitive code.
+  integrity-sensitive callbacks, webhooks, queues, provider status updates, or
+  reconciliation code.
 ---
 
 # Security SAST

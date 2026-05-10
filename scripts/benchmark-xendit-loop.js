@@ -23,14 +23,14 @@ const BASELINE_BRANCHES = [
   { branch: "codex/verify-xendit-callbacks-v4", label: "ace3 workflow v4" }
 ];
 
-const IMPLEMENT_PROMPT = `use [$feature-delivery:feature-delivery](/Users/ignasius/claude-skills/feature-delivery/SKILL.md)
-i want to implement, when i got the xendit callback , i want to check into xendit API ( transaction list ) and check if the transaction is exist, so we can make sure it's not forged.
+const IMPLEMENT_PROMPT = `use [$engineering-manager](/Users/ignasius/_PROJECT/_NOBI/dki/ace3-skills/skills/engineering-manager/SKILL.md), [$backend-developer](/Users/ignasius/_PROJECT/_NOBI/dki/ace3-skills/skills/backend-developer/SKILL.md), [$security-sast](/Users/ignasius/_PROJECT/_NOBI/dki/ace3-skills/skills/security-sast/SKILL.md), and [$qa](/Users/ignasius/_PROJECT/_NOBI/dki/ace3-skills/skills/qa/SKILL.md)
+Implement Xendit callback anti-forgery verification. When a Xendit callback arrives, verify the transaction against the Xendit API before state mutation or success acknowledgement.
 
-the APi for xendit can be accessed from
+The Xendit API can be accessed from:
 list transactions - https://docs.xendit.co/apidocs/list-transactions
 get transaction by id - https://docs.xendit.co/apidocs/get-transaction
 
-i think both can be used. so which one you think is better ?`;
+Treat this as approved execution after a concise plan. Prefer get transaction by id when a canonical transaction ID is available. Implement, test, and verify in this run.`;
 
 function benchmarkPrompt(entry, history) {
   return `help me benchmark the quality of the agent.

@@ -219,6 +219,18 @@ Run QA:
 Use qa. Scope: refund feature PRD, implementation diff, and staging URL. Action: acceptance and regression validation. Output: pass/fail, scenarios, defects, coverage gaps, retest list, and release recommendation.
 ```
 
+Plan high-risk external event work:
+
+```text
+Use engineering-manager. Scope: payment callback, webhook, queue consumer, provider status update, or reconciliation path. Action: plan only. Output: source-of-truth verification, canonical ID checks, scoped provider context, fail-closed mismatches, retry classes, idempotency, tests, and handoffs.
+```
+
+Compare implementation candidates:
+
+```text
+Use engineering-manager. Scope: candidate branches for the same target behavior. Action: benchmark quality review. Output: measured facts, commands, rubric interpretation, merge readiness, and what to keep from each branch.
+```
+
 ### Security SAST
 
 Threat model a sensitive API:
