@@ -2,9 +2,10 @@
 name: frontend-developer
 description: >
   Frontend implementation for UI, app flow, JavaScript, TypeScript, React,
-  Next.js, forms, state, API integration, accessibility, and responsive behavior
-  after an implementation plan is approved. Use for approved pages, components,
-  forms, client/server boundaries, visual states, and browser-verified UI fixes.
+  Next.js, forms, state, API integration, accessibility, and responsive
+  behavior after an implementation plan is approved. Use for approved pages,
+  components, forms, client/server boundaries, visual states, and
+  browser-verified UI fixes.
 ---
 
 # Frontend Developer
@@ -25,6 +26,7 @@ Load `references/frontend-implementation.md` before editing. It defines executio
 ## References
 
 - Frontend implementation workflow: `references/frontend-implementation.md`.
+- Prompt-injection prevention and untrusted-content handling: `references/prompt-injection-defense.md`.
 
 ## Trust Boundary
 

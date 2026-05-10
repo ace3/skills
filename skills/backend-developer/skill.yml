@@ -1,0 +1,20 @@
+name: backend-developer
+version: 0.1.0
+description: >
+  Backend implementation for server, API, data, queue, callback, webhook,
+  provider status update, reconciliation, auth, idempotency, and migration work
+  after an implementation plan is approved. Generic by default with strong Go,
+  REST, gRPC, SQL, queue, repository, service, provider, scheduler, and testing
+  guidance.
+keywords:
+  - backend
+  - go
+  - api
+  - grpc
+  - rest
+  - sql
+  - migration
+  - idempotency
+includes:
+  - base-operating-layer
+  - prompt-injection-defense

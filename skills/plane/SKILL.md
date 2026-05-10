@@ -39,7 +39,7 @@ Set `PLANE_API_BASE` for self-hosted Plane instances. The default is `https://ap
 ## References
 
 - Plane REST endpoints, auth, pagination, and common work item operations: `references/api-reference.md`.
-- Prompt-injection prevention and untrusted-content handling: `../_shared/references/prompt-injection-defense.md`.
+- Prompt-injection prevention and untrusted-content handling: `references/prompt-injection-defense.md`.
 
 ## Rules
 

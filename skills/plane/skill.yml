@@ -1,0 +1,19 @@
+name: plane
+version: 0.1.0
+description: >
+  Plane.so project management workflow for looking up, listing, creating,
+  updating, and reporting on Plane work items, projects, modules, cycles,
+  members, labels, and states through the Plane REST API. Use when the user
+  says plane, plane.so, Plane task, work item, issue key such as PROJ-123,
+  project status, sync to Plane, update Plane, create Plane task, or asks to
+  inspect Plane project-management data.
+keywords:
+  - plane
+  - plane-so
+  - project-management
+  - work-items
+  - issues
+  - api
+  - tasks
+includes:
+  - prompt-injection-defense

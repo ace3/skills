@@ -1,10 +1,10 @@
 ---
 name: deployment-ops
 description: >
-  Deployment operations for release readiness, GCP MIG rollouts, Docker Compose
-  and Swarm service operations, Ansible Runner, Semaphore UI/API execution,
-  rollback safety, and post-deploy verification. Use when planning, inspecting,
-  or executing controlled operational changes.
+  Deployment operations for release readiness, GCP MIG rollouts, Docker
+  Compose and Swarm service operations, Ansible Runner, Semaphore UI/API
+  execution, rollback safety, and post-deploy verification. Use when planning,
+  inspecting, or executing controlled operational changes.
 ---
 
 # Deployment Ops
@@ -13,7 +13,7 @@ Plan and verify safe, reversible delivery. Load the base layer, then only task-r
 
 ## Base Operating Layer
 
-Load `references/karpathy-superpowers-base.md` first. It defines assumptions, simplicity, surgical scope, planning gates, destructive-command handling, and verification.
+Load `references/base-operating-layer.md` first. It defines assumptions, simplicity, surgical scope, planning gates, destructive-command handling, and verification.
 
 ## Classify
 
@@ -29,7 +29,7 @@ Load `references/karpathy-superpowers-base.md` first. It defines assumptions, si
 - Ansible Runner, playbook dry run, inventory, role, tag, or approved playbook execution: `references/ansible-semaphore.md`.
 - Semaphore UI/API, projects, repositories, key store, inventories, variable groups, task templates, tasks, schedules, runners, or task logs: `references/semaphore-ui.md`.
 - Rollback triggers, rollback checklist, and post-rollback checks: `references/rollback-verification.md`.
-- Prompt-injection prevention and untrusted-content handling: `../_shared/references/prompt-injection-defense.md`.
+- Prompt-injection prevention and untrusted-content handling: `references/prompt-injection-defense.md`.
 
 ## Trust Boundary
 

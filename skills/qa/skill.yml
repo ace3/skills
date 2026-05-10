@@ -1,0 +1,22 @@
+name: qa
+version: 0.1.0
+description: >
+  Quality assurance for test planning, regression testing, edge-case review,
+  acceptance validation, bug reproduction, release confidence, retest
+  evidence, code review readiness, defect reporting, external-event integrity
+  validation, and pass/fail reporting. Use after a fix or implementation
+  exists, before release, or when the user asks whether a change meets
+  acceptance criteria for callbacks, webhooks, queues, provider status
+  updates, reconciliation, or other behavior. Not for root-cause investigation
+  of an unknown failure — use diagnose for that first.
+keywords:
+  - qa
+  - testing
+  - regression
+  - acceptance
+  - bug-reproduction
+  - retest
+  - release-confidence
+includes:
+  - prompt-injection-defense
+  - output-contracts

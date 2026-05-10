@@ -1,5 +1,7 @@
-SKILL.md
 .claude-plugin/plugin.json
 .codex-plugin/plugin.json
-references/mermaid.md
 references/excalidraw.md
+references/mermaid.md
+references/prompt-injection-defense.md
+SKILL.md
+skill.yml

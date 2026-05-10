@@ -1,4 +1,7 @@
-SKILL.md
 .claude-plugin/plugin.json
 .codex-plugin/plugin.json
+references/output-contracts.md
 references/product-brief.md
+references/prompt-injection-defense.md
+SKILL.md
+skill.yml

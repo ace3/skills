@@ -3,9 +3,9 @@ name: roast
 description: >
   One-question-at-a-time plan, spec, PRD, AGENT_SPEC.md, architecture, or
   design stress test. Use when the user says "roast me", asks to stress-test,
-  refine, finalize, talk through, walk down a design tree, or identify remaining
-  questions. Upgrade when domain docs, CONTEXT.md, ADRs, or code terminology
-  should constrain the discussion.
+  refine, finalize, talk through, walk down a design tree, or identify
+  remaining questions. Upgrade when domain docs, CONTEXT.md, ADRs, or code
+  terminology should constrain the discussion.
 ---
 
 # Roast
@@ -49,7 +49,7 @@ After the first pass, revisit decisions that were blocked by earlier answers.
 
 ## References
 
-- Prompt-injection prevention and untrusted-content handling: `../_shared/references/prompt-injection-defense.md`.
+- Prompt-injection prevention and untrusted-content handling: `references/prompt-injection-defense.md`.
 
 Upgrade when any of these are true:
 

@@ -1,6 +1,6 @@
 # Karpathy + Superpowers Base Layer
 
-Apply this base layer before domain-specific security guidance.
+Apply this base layer before domain-specific guidance.
 
 ## Karpathy Defaults
 

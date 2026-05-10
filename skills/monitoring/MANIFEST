@@ -1,9 +1,11 @@
-SKILL.md
 .claude-plugin/plugin.json
 .codex-plugin/plugin.json
-references/read-only-health.md
+references/base-operating-layer.md
 references/dashboard-alert-design.md
+references/incident-triage.md
+references/prompt-injection-defense.md
+references/read-only-health.md
 references/telemetry-coverage.md
 references/vulnerability-inventory.md
-references/incident-triage.md
-references/karpathy-superpowers-base.md
+SKILL.md
+skill.yml

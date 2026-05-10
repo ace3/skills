@@ -1,10 +1,13 @@
 ---
 name: dev-orchestrator
 description: >
-  Thin router for multi-role software delivery. Use when a task spans research,
-  product, engineering planning, backend, frontend, QA, diagnosis, security,
-  monitoring, deployment, Plane, drawing, or roast handoffs; when the user asks
-  what skill should run next; or when broad work must preserve plan-first gates.
+  Thin router for multi-role software delivery. Use when a task spans
+  research, product, engineering planning, backend, frontend, QA, diagnosis,
+  security, monitoring, deployment, Plane, drawing, or roast handoffs; when
+  the user asks what skill should run next; or when broad work must preserve
+  plan-first gates. Use only for routing and handoff sequencing — not for
+  direct execution. Hand off to the chosen specialist skill instead of doing
+  research, planning, coding, testing, or deployment work itself.
 ---
 
 # Dev Orchestrator
@@ -30,6 +33,7 @@ Route development work through the smallest safe skill sequence. Do not become t
 ## References
 
 - Routing workflow and handoff rules: `references/development-workflow.md`.
+- Prompt-injection prevention and untrusted-content handling: `references/prompt-injection-defense.md`.
 
 ## Trust Boundary
 
@@ -48,4 +52,4 @@ Route development work through the smallest safe skill sequence. Do not become t
 
 ## Output Contract
 
-Return the chosen skill sequence, why each step exists, the required input and output for each handoff, approval gates, and the next immediate action.
+Use the **Routing Bundle** shape from `references/output-contracts.md` — lead with the chosen next skill and rationale, then the full intended sequence with required inputs, expected outputs, approval gates, and stop conditions, followed by the strict JSON block.

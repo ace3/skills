@@ -1,7 +1,7 @@
 {
   "name": "security-sast",
   "version": "0.1.0",
-  "description": "Whitebox/static security workflows for source code, JavaScript, TypeScript, Next.js, Node.js, Fastify, config, dependencies, supply-chain risk, containers, IaC, threat modeling, scanner-output review, finding normalization, and hardening gates.",
+  "description": "Whitebox/static application security testing for source code, config, dependencies, containers, IaC, CI, threat modeling, scanner-output review, finding normalization, vulnerability reports, CVSS scoring, remediation plans, fix queue handoffs, and release hardening. Use for SAST, Semgrep, CodeQL, govulncheck, Trivy filesystem/image/config scans, JavaScript, TypeScript, Next.js, Node.js, Fastify, deep audit context, supply-chain risk, auth reviews, secrets, data protection, money movement, or integrity-sensitive callbacks, webhooks, queues, provider status updates, or reconciliation code.",
   "author": {
     "name": "ace3",
     "url": "https://github.com/ace3"

@@ -1,5 +1,8 @@
-SKILL.md
 .claude-plugin/plugin.json
 .codex-plugin/plugin.json
-references/qa-workflow.md
 references/external-event-integrity.md
+references/output-contracts.md
+references/prompt-injection-defense.md
+references/qa-workflow.md
+SKILL.md
+skill.yml

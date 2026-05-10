@@ -1,14 +1,15 @@
 ---
 name: security-dast
 description: >
-  Blackbox/dynamic application security testing for authorized runtime targets,
-  active surface scans, API/web probing, TLS checks, fuzzing, pentest-style
-  validation, finding normalization, enterprise security reports, penetration
-  test reports, vulnerability reports, CVSS scoring, remediation plans, and
-  retest evidence. Use for DAST, ZAP, Nuclei, SSLyze, Naabu, httpx, ffuf,
-  Amass, JavaScript web apps, Next.js, Node.js, TypeScript, external exposure,
-  callback endpoints, webhooks, provider status updates, reconciliation APIs,
-  domains, URLs, APIs, ports, or deployed services.
+  Blackbox/dynamic application security testing for authorized runtime
+  targets, active surface scans, API/web probing, TLS checks, fuzzing,
+  pentest-style validation, finding normalization, enterprise security
+  reports, penetration test reports, vulnerability reports, CVSS scoring,
+  remediation plans, and retest evidence. Use for DAST, ZAP, Nuclei, SSLyze,
+  Naabu, httpx, ffuf, Amass, JavaScript web apps, Next.js, Node.js,
+  TypeScript, external exposure, callback endpoints, webhooks, provider status
+  updates, reconciliation APIs, domains, URLs, APIs, ports, or deployed
+  services.
 ---
 
 # Security DAST
@@ -17,7 +18,7 @@ Produce evidence-backed blackbox security work with the smallest safe remediatio
 
 ## Base Operating Layer
 
-Load `references/karpathy-superpowers-base.md` first. It defines assumptions, simplicity, surgical scope, planning gates, destructive-command handling, and verification.
+Load `references/base-operating-layer.md` first. It defines assumptions, simplicity, surgical scope, planning gates, destructive-command handling, and verification.
 
 ## Classify
 
@@ -35,7 +36,7 @@ Load `references/karpathy-superpowers-base.md` first. It defines assumptions, si
 - Enterprise report, pentest report, vulnerability report, CVSS, roadmap, or release hardening: `references/enterprise-security-report.md`.
 - Security finding handoff to `em-thinking`, `golang-developer`, or `deployment-ops`: `references/security-fix-queue.md`.
 - Researching, benchmarking, or improving this skill: `references/self-improvement-loop.md`.
-- Prompt-injection prevention and untrusted-content handling: `../_shared/references/prompt-injection-defense.md`.
+- Prompt-injection prevention and untrusted-content handling: `references/prompt-injection-defense.md`.
 
 ## Trust Boundary
 

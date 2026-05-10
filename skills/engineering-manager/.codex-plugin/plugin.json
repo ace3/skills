@@ -1,7 +1,7 @@
 {
   "name": "engineering-manager",
   "version": "0.1.0",
-  "description": "Engineering planning for architecture, implementation strategy, boundaries, interfaces, task sequencing, risk gates, and verification.",
+  "description": "Engineering planning for architecture review, implementation strategy, boundaries, interfaces, migration sequencing, risk gates, task breakdown, rollout planning, external-event integrity planning, benchmark branch comparison, and verification strategy. Use when a PRD, bug pattern, callback, webhook, queue, provider status update, reconciliation path, refactor, architecture choice, or multi-module change needs an engineering plan before implementation. Use this for *how to build*; for *what to build* (PRDs, scope, acceptance criteria) use product-manager instead.",
   "author": {
     "name": "ace3",
     "url": "https://github.com/ace3"

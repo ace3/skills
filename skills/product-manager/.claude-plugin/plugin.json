@@ -1,7 +1,7 @@
 {
   "name": "product-manager",
   "version": "0.1.0",
-  "description": "Product management for PRDs, feature briefs, acceptance criteria, scope cuts, user flows, tradeoffs, and release slices.",
+  "description": "Product management for PRDs, feature briefs, acceptance criteria, scope cuts, user flows, product tradeoffs, release slices, and business-ready product decisions before engineering work starts. Use when turning discovery, feedback, support tickets, stakeholder asks, or feature ideas into an engineering-ready product brief.",
   "author": {
     "name": "ace3",
     "url": "https://github.com/ace3"

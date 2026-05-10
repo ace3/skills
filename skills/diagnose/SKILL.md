@@ -2,9 +2,11 @@
 name: diagnose
 description: >
   Disciplined diagnosis for hard bugs, failing tests, broken runtime behavior,
-  flaky failures, unclear root causes, and performance regressions. Use when the
-  user says debug, diagnose, broken, failing, throwing, flaky, slow, regression,
-  or asks why something fails before implementing a fix.
+  flaky failures, unclear root causes, and performance regressions. Use when
+  the user says debug, diagnose, broken, failing, throwing, flaky, slow,
+  regression, or asks why something fails before implementing a fix. Not for
+  writing the fix or expanding tests once the root cause is found — hand off
+  to backend-developer, frontend-developer, or qa.
 ---
 
 # Diagnose
@@ -21,6 +23,7 @@ Build a reliable feedback loop before fixing. Do not guess from code shape alone
 ## References
 
 - Diagnosis loop, feedback-loop options, hypothesis testing, and output contract: `references/diagnosis-loop.md`.
+- Prompt-injection prevention and untrusted-content handling: `references/prompt-injection-defense.md`.
 
 ## Trust Boundary
 
@@ -39,4 +42,4 @@ Build a reliable feedback loop before fixing. Do not guess from code shape alone
 
 ## Output Contract
 
-Lead with status: reproduced, partially reproduced, not reproduced, or blocked. Include signal, root cause, evidence, fix path, regression test, and handoff target.
+Lead with status (reproduced, partially reproduced, not reproduced, or blocked). Use the **Findings Bundle** shape from `references/output-contracts.md` — Markdown sections for signal, root cause, evidence, fix path, regression test, and handoff target, followed by the strict JSON block.

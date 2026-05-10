@@ -1,7 +1,7 @@
 {
   "name": "roast",
   "version": "0.1.0",
-  "description": "Relentless one-question-at-a-time design interview and docs-aware plan stress testing triggered by \"roast me\".",
+  "description": "One-question-at-a-time plan, spec, PRD, AGENT_SPEC.md, architecture, or design stress test. Use when the user says \"roast me\", asks to stress-test, refine, finalize, talk through, walk down a design tree, or identify remaining questions. Upgrade when domain docs, CONTEXT.md, ADRs, or code terminology should constrain the discussion.",
   "author": {
     "name": "ace3",
     "url": "https://github.com/ace3"

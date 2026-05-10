@@ -4,7 +4,7 @@ SKILL ?= all
 
 SKILLS := $(shell find skills -mindepth 2 -maxdepth 2 -name SKILL.md -exec dirname {} \; | xargs -n1 basename | sort)
 
-.PHONY: help list validate install install-global install-project install-claude install-codex install-claude-project install-codex-project benchmark-xendit-loop
+.PHONY: help list build lint validate install install-global install-project install-claude install-codex install-claude-project install-codex-project benchmark-xendit-loop
 
 help:
 	@printf '%s\n' 'Targets:'
@@ -14,13 +14,21 @@ help:
 	@printf '  %-24s %s\n' 'make install-project' 'Install all skills to ./.claude and ./.codex'
 	@printf '  %-24s %s\n' 'make install-claude' 'Install all or SKILL=name to ~/.claude/skills only'
 	@printf '  %-24s %s\n' 'make install-codex' 'Install all or SKILL=name to ~/.codex/skills only'
-	@printf '  %-24s %s\n' 'make validate' 'Run repository validation'
+	@printf '  %-24s %s\n' 'make build' 'Regenerate per-skill MANIFEST, plugin.json, frontmatter, and template copies from skill.yml'
+	@printf '  %-24s %s\n' 'make lint' 'Verify every skill is in sync with skill.yml + templates/'
+	@printf '  %-24s %s\n' 'make validate' 'Run repository validation (build + lint + json + english)'
 	@printf '  %-24s %s\n' 'make benchmark-xendit-loop' 'Run autonomous Xendit callback benchmark loop'
 
 list:
 	@node bin/cli.js list
 
-validate:
+build:
+	@node scripts/build-skills.js
+
+lint:
+	@node scripts/lint-skills.js
+
+validate: lint
 	@node scripts/validate-english.js
 	@node -e 'JSON.parse(require("fs").readFileSync("package.json", "utf8")); JSON.parse(require("fs").readFileSync(".claude-plugin/marketplace.json", "utf8")); JSON.parse(require("fs").readFileSync(".codex-plugin/marketplace.json", "utf8")); console.log("json ok")'
 

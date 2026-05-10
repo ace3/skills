@@ -1,0 +1,18 @@
+name: deployment-ops
+version: 0.1.0
+description: >
+  Deployment operations for release readiness, GCP MIG rollouts, Docker Compose
+  and Swarm service operations, Ansible Runner, Semaphore UI/API execution,
+  rollback safety, and post-deploy verification. Use when planning, inspecting,
+  or executing controlled operational changes.
+keywords:
+  - deployment
+  - release
+  - rollback
+  - devops
+  - gcp-mig
+  - docker
+  - ansible
+includes:
+  - base-operating-layer
+  - prompt-injection-defense

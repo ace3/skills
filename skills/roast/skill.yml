@@ -1,0 +1,18 @@
+name: roast
+version: 0.1.0
+description: >
+  One-question-at-a-time plan, spec, PRD, AGENT_SPEC.md, architecture, or
+  design stress test. Use when the user says "roast me", asks to stress-test,
+  refine, finalize, talk through, walk down a design tree, or identify remaining
+  questions. Upgrade when domain docs, CONTEXT.md, ADRs, or code terminology
+  should constrain the discussion.
+keywords:
+  - design-interview
+  - roast
+  - stress-test
+  - architecture
+  - prd
+  - adr
+  - context-docs
+includes:
+  - prompt-injection-defense

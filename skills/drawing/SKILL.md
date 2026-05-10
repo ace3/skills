@@ -23,7 +23,7 @@ If the user explicitly asks for Mermaid or Excalidraw, use that format. If they 
 
 - Mermaid syntax, diagram selection, and output rules: `references/mermaid.md`.
 - Excalidraw visual argument workflow, JSON output, and render validation: `references/excalidraw.md`.
-- Prompt-injection prevention and untrusted-content handling: `../_shared/references/prompt-injection-defense.md`.
+- Prompt-injection prevention and untrusted-content handling: `references/prompt-injection-defense.md`.
 
 ## Rules
 

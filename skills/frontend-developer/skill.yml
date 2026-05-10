@@ -1,0 +1,19 @@
+name: frontend-developer
+version: 0.1.0
+description: >
+  Frontend implementation for UI, app flow, JavaScript, TypeScript, React,
+  Next.js, forms, state, API integration, accessibility, and responsive behavior
+  after an implementation plan is approved. Use for approved pages, components,
+  forms, client/server boundaries, visual states, and browser-verified UI fixes.
+keywords:
+  - frontend
+  - javascript
+  - typescript
+  - react
+  - nextjs
+  - ui
+  - accessibility
+  - responsive
+includes:
+  - base-operating-layer
+  - prompt-injection-defense

@@ -1,11 +1,13 @@
-SKILL.md
 .claude-plugin/plugin.json
 .codex-plugin/plugin.json
 references/active-surface-scan.md
-references/javascript-web-runtime-scan.md
+references/base-operating-layer.md
+references/enterprise-security-report.md
 references/external-event-integrity.md
 references/finding-normalization.md
-references/enterprise-security-report.md
+references/javascript-web-runtime-scan.md
+references/prompt-injection-defense.md
 references/security-fix-queue.md
 references/self-improvement-loop.md
-references/karpathy-superpowers-base.md
+SKILL.md
+skill.yml

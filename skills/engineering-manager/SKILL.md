@@ -7,7 +7,8 @@ description: >
   comparison, and verification strategy. Use when a PRD, bug pattern,
   callback, webhook, queue, provider status update, reconciliation path,
   refactor, architecture choice, or multi-module change needs an engineering
-  plan before implementation.
+  plan before implementation. Use this for *how to build*; for *what to build*
+  (PRDs, scope, acceptance criteria) use product-manager instead.
 ---
 
 # Engineering Manager
@@ -27,6 +28,7 @@ Turn approved product intent into a decision-complete implementation plan. Optim
 - Implementation planning workflow and handoff format: `references/implementation-plan.md`.
 - High-risk payment callbacks, webhooks, queues, provider updates, or reconciliation: `references/external-event-integrity.md`.
 - Comparing agent outputs, branches, patches, or implementation candidates: `references/benchmark-quality.md`.
+- Prompt-injection prevention and untrusted-content handling: `references/prompt-injection-defense.md`.
 
 ## Trust Boundary
 
@@ -47,4 +49,4 @@ Turn approved product intent into a decision-complete implementation plan. Optim
 
 ## Output Contract
 
-Return the plan first. Include architecture decisions, interfaces, data flow, task order, risks, verification, rollout, rollback, and exact downstream skill handoffs.
+Return the plan first. Use the **Plan Bundle** shape from `references/output-contracts.md` — Markdown sections for architecture decisions, interfaces, data flow, task order, risks, verification, rollout, rollback, and downstream skill handoffs, followed by the strict JSON block.

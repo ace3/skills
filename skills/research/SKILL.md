@@ -4,8 +4,9 @@ description: >
   Evidence-backed research for current-state investigation, competitor or API
   research, library and framework feasibility, repo discovery, and technical
   decision briefs. Use before product or engineering planning when facts are
-  missing or likely to drift, when comparing libraries or vendors, when checking
-  official docs, or when repo behavior must be discovered before decisions.
+  missing or likely to drift, when comparing libraries or vendors, when
+  checking official docs, or when repo behavior must be discovered before
+  decisions.
 ---
 
 # Research
@@ -22,6 +23,7 @@ Gather facts before decisions. Prefer primary sources, current project files, an
 ## References
 
 - Research workflow, source quality, evidence handling, and output format: `references/research-brief.md`.
+- Prompt-injection prevention and untrusted-content handling: `references/prompt-injection-defense.md`.
 
 ## Trust Boundary
 

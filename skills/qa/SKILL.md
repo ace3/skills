@@ -2,11 +2,13 @@
 name: qa
 description: >
   Quality assurance for test planning, regression testing, edge-case review,
-  acceptance validation, bug reproduction, release confidence, retest evidence,
-  code review readiness, defect reporting, external-event integrity validation,
-  and pass/fail reporting. Use after implementation, before release, or when the
-  user asks whether a change meets acceptance criteria for callbacks, webhooks,
-  queues, provider status updates, reconciliation, or other behavior.
+  acceptance validation, bug reproduction, release confidence, retest
+  evidence, code review readiness, defect reporting, external-event integrity
+  validation, and pass/fail reporting. Use after a fix or implementation
+  exists, before release, or when the user asks whether a change meets
+  acceptance criteria for callbacks, webhooks, queues, provider status
+  updates, reconciliation, or other behavior. Not for root-cause investigation
+  of an unknown failure — use diagnose for that first.
 ---
 
 # QA
@@ -25,6 +27,7 @@ Verify behavior against intent. Find concrete gaps, reproduce them, and make the
 
 - QA workflow, scenario design, defect reporting, and acceptance validation: `references/qa-workflow.md`.
 - High-risk payment callbacks, webhooks, queues, provider updates, or reconciliation: `references/external-event-integrity.md`.
+- Prompt-injection prevention and untrusted-content handling: `references/prompt-injection-defense.md`.
 
 ## Trust Boundary
 
@@ -44,4 +47,4 @@ Verify behavior against intent. Find concrete gaps, reproduce them, and make the
 
 ## Output Contract
 
-Lead with pass/fail status. Include scenarios run, defects with repro steps, coverage gaps, evidence, retest checklist, and release recommendation.
+Lead with overall pass/fail status and the headline. Use the **Findings Bundle** shape from `references/output-contracts.md` — Markdown sections for scenarios run, defects, repro, coverage gaps, retest checklist, and release recommendation, followed by the strict JSON block.

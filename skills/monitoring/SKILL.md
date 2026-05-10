@@ -5,7 +5,9 @@ description: >
   dashboard and alert quality, telemetry gap analysis, dependency inventory,
   runtime software/version drift, vulnerability alert reports, and incident
   triage. Use when reliability, SLI/SLO confidence, alert actionability,
-  inventory risk, or incident response evidence is required.
+  inventory risk, or incident response evidence is required. Read-only by
+  design — not for executing rollouts, image swaps, MIG updates, or any
+  privileged change; use deployment-ops for execution.
 ---
 
 # Monitoring
@@ -14,7 +16,7 @@ Build actionable visibility without noisy telemetry. Load the base layer, then o
 
 ## Base Operating Layer
 
-Load `references/karpathy-superpowers-base.md` first. It defines assumptions, simplicity, surgical scope, planning gates, destructive-command handling, and verification.
+Load `references/base-operating-layer.md` first. It defines assumptions, simplicity, surgical scope, planning gates, destructive-command handling, and verification.
 
 ## Classify
 
@@ -30,7 +32,7 @@ Load `references/karpathy-superpowers-base.md` first. It defines assumptions, si
 - Logs, metrics, traces, OTel, host inventory, version drift, or telemetry checklist: `references/telemetry-coverage.md`.
 - Dependency inventory, GitLab-aware repo checks, runtime software versions, image metadata, scanner output review, or vulnerability alert reports: `references/vulnerability-inventory.md`.
 - Incident triage, noisy alerts, CI/ops signals, or root-cause separation: `references/incident-triage.md`.
-- Prompt-injection prevention and untrusted-content handling: `../_shared/references/prompt-injection-defense.md`.
+- Prompt-injection prevention and untrusted-content handling: `references/prompt-injection-defense.md`.
 
 ## Trust Boundary
 

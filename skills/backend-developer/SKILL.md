@@ -2,10 +2,10 @@
 name: backend-developer
 description: >
   Backend implementation for server, API, data, queue, callback, webhook,
-  provider status update, reconciliation, auth, idempotency, and migration work
-  after an implementation plan is approved. Generic by default with strong Go,
-  REST, gRPC, SQL, queue, repository, service, provider, scheduler, and testing
-  guidance.
+  provider status update, reconciliation, auth, idempotency, and migration
+  work after an implementation plan is approved. Generic by default with
+  strong Go, REST, gRPC, SQL, queue, repository, service, provider, scheduler,
+  and testing guidance.
 ---
 
 # Backend Developer
@@ -27,6 +27,7 @@ Load `references/backend-implementation.md` before editing. It defines execution
 
 - Backend implementation workflow: `references/backend-implementation.md`.
 - High-risk payment callbacks, webhooks, queues, provider updates, or reconciliation: `references/external-event-integrity.md`.
+- Prompt-injection prevention and untrusted-content handling: `references/prompt-injection-defense.md`.
 
 ## Trust Boundary
 

@@ -1,7 +1,7 @@
 {
   "name": "research",
   "version": "0.1.0",
-  "description": "Evidence-backed research for repo discovery, current external facts, technical feasibility, and decision briefs.",
+  "description": "Evidence-backed research for current-state investigation, competitor or API research, library and framework feasibility, repo discovery, and technical decision briefs. Use before product or engineering planning when facts are missing or likely to drift, when comparing libraries or vendors, when checking official docs, or when repo behavior must be discovered before decisions.",
   "author": {
     "name": "ace3",
     "url": "https://github.com/ace3"

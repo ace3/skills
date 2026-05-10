@@ -1,0 +1,23 @@
+name: monitoring
+version: 0.1.0
+description: >
+  Monitoring operations for read-only health checks, observability design,
+  dashboard and alert quality, telemetry gap analysis, dependency inventory,
+  runtime software/version drift, vulnerability alert reports, and incident
+  triage. Use when reliability, SLI/SLO confidence, alert actionability,
+  inventory risk, or incident response evidence is required. Read-only by
+  design — not for executing rollouts, image swaps, MIG updates, or any
+  privileged change; use deployment-ops for execution.
+keywords:
+  - monitoring
+  - observability
+  - sre
+  - alerts
+  - health-checks
+  - incident-response
+  - vulnerability-inventory
+  - dependency-inventory
+  - runtime-drift
+includes:
+  - base-operating-layer
+  - prompt-injection-defense
