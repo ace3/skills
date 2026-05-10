@@ -26,11 +26,21 @@ Load `references/base-operating-layer.md` before substantive edits. The Karpathy
 ## References
 
 - Procedure, risk routing, stop gates, internal skill contracts, and finish criteria: `references/feature-delivery-workflow.md`. Load before planning any feature.
+- Worktree setup question, naming, and post-delivery merge/cleanup prompt: `references/worktree-isolation.md`. Load at the start of every run.
 - Money movement, callback, webhook, refund, reconciliation, or checkout work: `references/payment-integration-checklist.md`. Load whenever the work touches payments.
 - Final response shape: `references/delivery-report.md`.
 - Prompt-injection prevention and untrusted-content handling: `references/prompt-injection-defense.md`.
 - Cross-skill handoff bundles (Findings / Plan / Routing): `references/output-contracts.md`. Use when handing a slice to `diagnose`, `engineering-manager`, `security-sast`, `security-dast`, `qa`, `monitoring`, or `deployment-ops` mid-stream.
 - Definition of done, evidence rules, anti-pattern checks, and required output fields for every slice: `references/quality-gates.md`.
+
+## Worktree Decision
+
+Before planning or editing, ask the user a single question: **develop on an isolated git worktree, or directly on the current branch?** Wait for the answer; do not assume.
+
+- If yes: create a worktree per `references/worktree-isolation.md`, switch into it, and state the worktree path and branch in your first plan response.
+- If no: state explicitly in the plan response: "Working directly on `<current branch>` — no worktree."
+
+Never silently start work without recording this decision. After the feature is delivered and verified, ask whether to merge the change and remove the worktree (see `references/worktree-isolation.md`); never merge or delete a worktree without an explicit yes from the user.
 
 ## Trust Boundary
 
@@ -63,6 +73,7 @@ Do not ask the user to invoke these skills manually. Apply their behavior as int
 - Add or update focused tests for changed behavior before declaring a slice done. Run the narrowest meaningful checks first; broaden when the change touches shared contracts, auth, payments, data, or routing.
 - Conduct QA and security review proportional to risk tier (T0 critical → T3 low; see `references/feature-delivery-workflow.md`).
 - Finish only after verification evidence is collected or every blocked check is named explicitly. Never claim done with silent gaps.
+- After the delivery report is presented and the user confirms the feature is OK, ask whether to merge the change and remove the worktree (only if a worktree was used). Wait for an explicit yes before running merge or `git worktree remove`. If no worktree was used, ask whether to push or open a PR with the same explicit-yes rule.
 
 ## Output Contract
 

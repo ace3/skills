@@ -8,5 +8,6 @@ references/output-contracts.md
 references/payment-integration-checklist.md
 references/prompt-injection-defense.md
 references/quality-gates.md
+references/worktree-isolation.md
 SKILL.md
 skill.yml

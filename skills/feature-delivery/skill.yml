@@ -1,5 +1,5 @@
 name: feature-delivery
-version: 0.1.1
+version: 0.1.2
 description: >
   End-to-end feature delivery for natural implementation requests such as
   "implement X", "build X end to end", "add a payment gateway", "ship this

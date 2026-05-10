@@ -10,6 +10,7 @@ Do not ask the user to invoke those skills manually. Apply their behavior as int
 
 ## Procedure
 
+0. **Worktree decision (always first).** Ask the user: develop on an isolated git worktree, or directly on the current branch? Wait for the answer. If yes, set up the worktree and switch into it before reading the repo (see `worktree-isolation.md`). If no, record `Working directly on <current branch> — no worktree.` Never skip this question.
 1. Inspect the repo: entrypoints, package scripts, configs, routes, schemas, data models, service boundaries, providers, tests, docs, and env examples.
 2. State assumptions and the execution loop:
    ```text
@@ -68,4 +69,5 @@ For destructive or security-sensitive operations, print the exact command for th
 - Tests/checks relevant to the changed behavior ran.
 - Security-sensitive paths have been reviewed.
 - Any skipped or blocked verification is explicit.
-- Final output follows `delivery-report.md`.
+- Final output follows `delivery-report.md` and includes a `Worktree:` line.
+- After the user confirms the feature is OK, run the merge/cleanup prompt from `worktree-isolation.md`. Never merge or remove a worktree without an explicit user yes.

@@ -32,7 +32,7 @@
       "name": "feature-delivery",
       "source": "./skills/feature-delivery",
       "description": "End-to-end feature delivery on a single trigger. Drives plan, implementation, focused tests, QA, security review, and release handoff without manually invoking specialist skills. Stops only on hard gates.",
-      "version": "0.1.1",
+      "version": "0.1.2",
       "author": {
         "name": "ace3"
       },
