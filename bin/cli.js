@@ -2,6 +2,7 @@
 
 const fs = require("fs");
 const path = require("path");
+const { spawnSync } = require("child_process");
 
 const PACKAGE_ROOT = path.resolve(__dirname, "..");
 const SKILLS_DIR = path.join(PACKAGE_ROOT, "skills");
@@ -127,7 +128,13 @@ function cmdList() {
 }
 
 function cmdHelp() {
-  console.log(`@ace3/skills v${VERSION}\n\nUSAGE\n  npx @ace3/skills <command> [options]\n\nCOMMANDS\n  install [skill...]\n  install --all\n  list\n  help\n\nFLAGS\n  -g, --global\n  -p, --project`);
+  console.log(`@ace3/skills v${VERSION}\n\nUSAGE\n  npx @ace3/skills <command> [options]\n\nCOMMANDS\n  install [skill...]\n  install --all\n  learn --failure path/to/failure.json --skill <name> [--approve]\n  list\n  help\n\nFLAGS\n  -g, --global\n  -p, --project`);
+}
+
+function cmdLearn(args) {
+  const script = path.join(PACKAGE_ROOT, "scripts", "learn.js");
+  const result = spawnSync(process.execPath, [script, ...args], { cwd: PACKAGE_ROOT, stdio: "inherit" });
+  process.exit(result.status === null ? 1 : result.status);
 }
 
 async function main() {
@@ -141,6 +148,9 @@ async function main() {
     case "list":
     case "ls":
       cmdList();
+      break;
+    case "learn":
+      cmdLearn(args);
       break;
     case "help":
     case "--help":
