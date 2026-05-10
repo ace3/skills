@@ -9,11 +9,11 @@ SKILLS := $(shell find skills -mindepth 2 -maxdepth 2 -name SKILL.md -exec dirna
 help:
 	@printf '%s\n' 'Targets:'
 	@printf '  %-24s %s\n' 'make list' 'List available skills'
-	@printf '  %-24s %s\n' 'make install' 'Install all skills globally to Claude and Codex'
-	@printf '  %-24s %s\n' 'make install SKILL=name' 'Install one skill globally to Claude and Codex'
-	@printf '  %-24s %s\n' 'make install-project' 'Install all skills to ./.claude and ./.codex'
-	@printf '  %-24s %s\n' 'make install-claude' 'Install all or SKILL=name to ~/.claude/skills only'
-	@printf '  %-24s %s\n' 'make install-codex' 'Install all or SKILL=name to ~/.codex/skills only'
+	@printf '  %-24s %s\n' 'make install' 'Build, validate, then install all skills globally to Claude and Codex'
+	@printf '  %-24s %s\n' 'make install SKILL=name' 'Build, validate, then install one skill globally to Claude and Codex'
+	@printf '  %-24s %s\n' 'make install-project' 'Build, validate, then install all skills to ./.claude and ./.codex'
+	@printf '  %-24s %s\n' 'make install-claude' 'Build, validate, then install all or SKILL=name to ~/.claude/skills'
+	@printf '  %-24s %s\n' 'make install-codex' 'Build, validate, then install all or SKILL=name to ~/.codex/skills'
 	@printf '  %-24s %s\n' 'make build' 'Regenerate per-skill MANIFEST, plugin.json, frontmatter, and template copies from skill.yml'
 	@printf '  %-24s %s\n' 'make lint' 'Verify every skill is in sync with skill.yml + templates/'
 	@printf '  %-24s %s\n' 'make validate' 'Run repository validation (build + lint + json + english)'
@@ -28,36 +28,36 @@ build:
 lint:
 	@node scripts/lint-skills.js
 
-validate: lint
+validate: build lint
 	@node scripts/validate-english.js
 	@node -e 'JSON.parse(require("fs").readFileSync("package.json", "utf8")); JSON.parse(require("fs").readFileSync(".claude-plugin/marketplace.json", "utf8")); JSON.parse(require("fs").readFileSync(".codex-plugin/marketplace.json", "utf8")); console.log("json ok")'
 
 install: install-global
 
-install-global:
+install-global: build validate
 	@if [ "$(SKILL)" = "all" ]; then \
 		node bin/cli.js install --all --global; \
 	else \
 		node bin/cli.js install "$(SKILL)" --global; \
 	fi
 
-install-project:
+install-project: build validate
 	@if [ "$(SKILL)" = "all" ]; then \
 		node bin/cli.js install --all --project; \
 	else \
 		node bin/cli.js install "$(SKILL)" --project; \
 	fi
 
-install-claude:
+install-claude: build validate
 	@$(MAKE) _install-target TARGET="$(HOME)/.claude/skills" SKILL="$(SKILL)"
 
-install-codex:
+install-codex: build validate
 	@$(MAKE) _install-target TARGET="$(HOME)/.codex/skills" SKILL="$(SKILL)"
 
-install-claude-project:
+install-claude-project: build validate
 	@$(MAKE) _install-target TARGET=".claude/skills" SKILL="$(SKILL)"
 
-install-codex-project:
+install-codex-project: build validate
 	@$(MAKE) _install-target TARGET=".codex/skills" SKILL="$(SKILL)"
 
 benchmark-xendit-loop:
