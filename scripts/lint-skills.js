@@ -101,8 +101,21 @@ function lintSkill(name) {
   if (curManifest === null) err(name, "missing MANIFEST");
   else if (curManifest !== expectedManifest) err(name, "MANIFEST out of sync with file tree — run `make build`");
 
+  // CHANGELOG.md must exist and its top version entry must match skill.yml version.
+  const changelog = readIfExists(path.join(dir, "CHANGELOG.md"));
+  if (changelog === null) {
+    err(name, "missing CHANGELOG.md");
+  } else {
+    const m = changelog.match(/^##\s+(\d+\.\d+\.\d+)\b/m);
+    if (!m) {
+      err(name, "CHANGELOG.md has no `## <semver>` entry");
+    } else if (m[1] !== skill.version) {
+      err(name, `CHANGELOG.md top version ${m[1]} != skill.yml version ${skill.version} — bump one to match the other`);
+    }
+  }
+
   // Soft section checks.
-  const want = ["## References"];
+  const want = ["## References", "## Trust Boundary"];
   for (const sec of want) {
     if (!skillMd.includes(`\n${sec}\n`) && !skillMd.startsWith(`${sec}\n`)) {
       warn(name, `missing recommended section: ${sec}`);

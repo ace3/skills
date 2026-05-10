@@ -1,5 +1,6 @@
 .claude-plugin/plugin.json
 .codex-plugin/plugin.json
+CHANGELOG.md
 references/base-operating-layer.md
 references/dashboard-alert-design.md
 references/incident-triage.md

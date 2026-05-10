@@ -1,5 +1,6 @@
 .claude-plugin/plugin.json
 .codex-plugin/plugin.json
+CHANGELOG.md
 references/benchmark-quality.md
 references/external-event-integrity.md
 references/implementation-plan.md

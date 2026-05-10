@@ -5,11 +5,26 @@ const path = require("path");
 const { spawnSync } = require("child_process");
 
 const ACE3_DIR = process.env.ACE3_DIR || path.resolve(__dirname, "..");
-const PAYMENT_DIR = process.env.PAYMENT_DIR || "/Users/ignasius/_PROJECT/_NOBI/dki/payment-engine-v2";
+const PAYMENT_DIR = requireEnv("PAYMENT_DIR", "absolute path to the payment-engine-v2 repository");
+const SOEKARNO_DIR = process.env.SOEKARNO_DIR || "";
+const CLAUDE_SKILLS_DIR = process.env.CLAUDE_SKILLS_DIR || "";
 const ARTIFACT_DIR = process.env.ARTIFACT_DIR || path.join(ACE3_DIR, ".ace3-benchmark");
 const HISTORY_PATH = path.join(ARTIFACT_DIR, "history.json");
 const BASE_REF = process.env.BASE_REF || "origin/master";
 const ACE3_LOOP_BRANCH = process.env.ACE3_LOOP_BRANCH || "codex/ace3-xendit-benchmark-loop";
+
+function requireEnv(name, hint) {
+  const v = process.env[name];
+  if (v && v.trim()) return v;
+  console.error(`${name} env var is required (${hint})`);
+  console.error(`example: ${name}=/abs/path node scripts/benchmark-xendit-loop.js`);
+  process.exit(2);
+}
+
+function externalSkillRef(label, dirVar, relPath, fallback) {
+  if (!dirVar) return fallback;
+  return `[$${label}](${dirVar}/${relPath})`;
+}
 const ONCE = isEnabled(process.env.ONCE) || process.argv.includes("--once");
 const DRY_RUN = isEnabled(process.env.DRY_RUN) || process.argv.includes("--dry-run");
 const REFRESH_BASELINE = isEnabled(process.env.REFRESH_BASELINE) || process.argv.includes("--refresh-baseline");
@@ -23,7 +38,7 @@ const BASELINE_BRANCHES = [
   { branch: "codex/verify-xendit-callbacks-v4", label: "ace3 workflow v4" }
 ];
 
-const IMPLEMENT_PROMPT = `use [$engineering-manager](/Users/ignasius/_PROJECT/_NOBI/dki/ace3-skills/skills/engineering-manager/SKILL.md), [$backend-developer](/Users/ignasius/_PROJECT/_NOBI/dki/ace3-skills/skills/backend-developer/SKILL.md), [$security-sast](/Users/ignasius/_PROJECT/_NOBI/dki/ace3-skills/skills/security-sast/SKILL.md), and [$qa](/Users/ignasius/_PROJECT/_NOBI/dki/ace3-skills/skills/qa/SKILL.md)
+const IMPLEMENT_PROMPT = `use [$engineering-manager](${ACE3_DIR}/skills/engineering-manager/SKILL.md), [$backend-developer](${ACE3_DIR}/skills/backend-developer/SKILL.md), [$security-sast](${ACE3_DIR}/skills/security-sast/SKILL.md), and [$qa](${ACE3_DIR}/skills/qa/SKILL.md)
 Implement Xendit callback anti-forgery verification. When a Xendit callback arrives, verify the transaction against the Xendit API before state mutation or success acknowledgement.
 
 The Xendit API can be accessed from:
@@ -42,7 +57,7 @@ Candidate branch:
 Known history:
 ${formatHistoryForPrompt(history)}
 
-Use [$engineering-manager](/Users/ignasius/_PROJECT/_NOBI/dki/soekarno/skills/engineering-manager/SKILL.md), [$golang-engineer](/Users/ignasius/_PROJECT/_NOBI/dki/soekarno/skills/golang-engineer/SKILL.md), [$golang-developer](/Users/ignasius/_PROJECT/_NOBI/dki/soekarno/skills/upstream-verzth-golang-developer/SKILL.md), [$nobi-golang-pattern](/Users/ignasius/claude-skills/nobi-golang-pattern/SKILL.md), agent [$brainstorming](/Users/ignasius/_PROJECT/_NOBI/dki/soekarno/skills/upstream-superpowers-brainstorming/SKILL.md), and other skills required to benchmark the quality of the development.
+${benchmarkSkillRefs()}
 
 Benchmark the candidate against the Xendit callback anti-forgery goal:
 - Directly verify the Xendit transaction before state mutation.
@@ -70,8 +85,21 @@ Return ONLY valid JSON with this exact shape:
 }`;
 }
 
+function benchmarkSkillRefs() {
+  const em = externalSkillRef("engineering-manager", SOEKARNO_DIR, "skills/engineering-manager/SKILL.md", "the engineering-manager skill");
+  const ge = externalSkillRef("golang-engineer", SOEKARNO_DIR, "skills/golang-engineer/SKILL.md", "the golang-engineer skill");
+  const gd = externalSkillRef("golang-developer", SOEKARNO_DIR, "skills/upstream-verzth-golang-developer/SKILL.md", "the golang-developer skill");
+  const nobi = externalSkillRef("nobi-golang-pattern", CLAUDE_SKILLS_DIR, "nobi-golang-pattern/SKILL.md", "the nobi-golang-pattern skill");
+  const brain = externalSkillRef("brainstorming", SOEKARNO_DIR, "skills/upstream-superpowers-brainstorming/SKILL.md", "the brainstorming agent");
+  return `Use ${em}, ${ge}, ${gd}, ${nobi}, agent ${brain}, and other skills required to benchmark the quality of the development.`;
+}
+
+function skillCreatorRef() {
+  return externalSkillRef("skill-creator", CLAUDE_SKILLS_DIR, "skill-creator/SKILL.md", "the skill-creator skill (locally installed)");
+}
+
 function improvementPrompt(rejectedEntry, bestEntry) {
-  return `use [$skill-creator](/Users/ignasius/claude-skills/skill-creator/SKILL.md)
+  return `use ${skillCreatorRef()}
 
 Autonomous ACE3 benchmark feedback says the current generated payment-engine-v2 candidate did not beat the best historical score.
 

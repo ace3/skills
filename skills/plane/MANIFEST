@@ -1,6 +1,7 @@
 .claude-plugin/plugin.json
 .codex-plugin/plugin.json
 agents/openai.yaml
+CHANGELOG.md
 references/api-reference.md
 references/prompt-injection-defense.md
 scripts/plane_api.py

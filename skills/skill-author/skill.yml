@@ -1,0 +1,20 @@
+name: skill-author
+version: 0.1.0
+description: >
+  Meta-skill for authoring, modifying, or reviewing skills in this repository.
+  Use when adding a new skill, splitting/renaming an existing one, changing a
+  shared template, debugging a `make build` or `make lint` failure, or
+  proposing a structural change to the skills directory. Codifies the
+  skill.yml schema, required SKILL.md sections, the templates/ system, and
+  the build/lint workflow. Not for using a skill — only for authoring one.
+keywords:
+  - skill-author
+  - meta-skill
+  - skill-development
+  - skill-spec
+  - templates
+  - build
+  - lint
+includes:
+  - skill-spec
+  - prompt-injection-defense
