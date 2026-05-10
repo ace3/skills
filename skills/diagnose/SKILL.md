@@ -24,6 +24,7 @@ Build a reliable feedback loop before fixing. Do not guess from code shape alone
 
 - Diagnosis loop, feedback-loop options, hypothesis testing, and output contract: `references/diagnosis-loop.md`.
 - Prompt-injection prevention and untrusted-content handling: `references/prompt-injection-defense.md`.
+- Definition of done, evidence rules, anti-pattern checks, and required output fields: `references/quality-gates.md`.
 
 ## Trust Boundary
 

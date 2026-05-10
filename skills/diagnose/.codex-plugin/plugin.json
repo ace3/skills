@@ -1,6 +1,6 @@
 {
   "name": "diagnose",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Disciplined diagnosis for hard bugs, failing tests, broken runtime behavior, flaky failures, unclear root causes, and performance regressions. Use when the user says debug, diagnose, broken, failing, throwing, flaky, slow, regression, or asks why something fails before implementing a fix. Not for writing the fix or expanding tests once the root cause is found — hand off to backend-developer, frontend-developer, or qa.",
   "author": {
     "name": "ace3",

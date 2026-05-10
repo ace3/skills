@@ -1,5 +1,5 @@
 name: engineering-manager
-version: 0.1.0
+version: 0.1.1
 description: >
   Engineering planning for architecture review, implementation strategy,
   boundaries, interfaces, migration sequencing, risk gates, task breakdown,
@@ -19,3 +19,5 @@ keywords:
 includes:
   - prompt-injection-defense
   - output-contracts
+  - quality-gates
+  - benchmark-quality

@@ -1,0 +1,12 @@
+.claude-plugin/plugin.json
+.codex-plugin/plugin.json
+CHANGELOG.md
+references/base-operating-layer.md
+references/delivery-report.md
+references/feature-delivery-workflow.md
+references/output-contracts.md
+references/payment-integration-checklist.md
+references/prompt-injection-defense.md
+references/quality-gates.md
+SKILL.md
+skill.yml

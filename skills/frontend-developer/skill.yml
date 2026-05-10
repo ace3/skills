@@ -1,5 +1,5 @@
 name: frontend-developer
-version: 0.1.0
+version: 0.1.1
 description: >
   Frontend implementation for UI, app flow, JavaScript, TypeScript, React,
   Next.js, forms, state, API integration, accessibility, and responsive behavior
@@ -17,3 +17,4 @@ keywords:
 includes:
   - base-operating-layer
   - prompt-injection-defense
+  - quality-gates

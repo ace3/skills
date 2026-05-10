@@ -30,6 +30,7 @@ Load `references/base-operating-layer.md` first. It defines assumptions, simplic
 - Semaphore UI/API, projects, repositories, key store, inventories, variable groups, task templates, tasks, schedules, runners, or task logs: `references/semaphore-ui.md`.
 - Rollback triggers, rollback checklist, and post-rollback checks: `references/rollback-verification.md`.
 - Prompt-injection prevention and untrusted-content handling: `references/prompt-injection-defense.md`.
+- Definition of done, evidence rules, anti-pattern checks, and required output fields: `references/quality-gates.md`.
 
 ## Trust Boundary
 

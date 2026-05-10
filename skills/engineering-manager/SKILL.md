@@ -29,6 +29,7 @@ Turn approved product intent into a decision-complete implementation plan. Optim
 - High-risk payment callbacks, webhooks, queues, provider updates, or reconciliation: `references/external-event-integrity.md`.
 - Comparing agent outputs, branches, patches, or implementation candidates: `references/benchmark-quality.md`.
 - Prompt-injection prevention and untrusted-content handling: `references/prompt-injection-defense.md`.
+- Definition of done, evidence rules, anti-pattern checks, and required output fields for every plan: `references/quality-gates.md`.
 
 ## Trust Boundary
 

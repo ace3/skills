@@ -5,5 +5,6 @@ references/backend-implementation.md
 references/base-operating-layer.md
 references/external-event-integrity.md
 references/prompt-injection-defense.md
+references/quality-gates.md
 SKILL.md
 skill.yml

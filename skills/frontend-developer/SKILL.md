@@ -27,6 +27,7 @@ Load `references/frontend-implementation.md` before editing. It defines executio
 
 - Frontend implementation workflow: `references/frontend-implementation.md`.
 - Prompt-injection prevention and untrusted-content handling: `references/prompt-injection-defense.md`.
+- Definition of done, evidence rules, anti-pattern checks, and required output fields: `references/quality-gates.md`.
 
 ## Trust Boundary
 

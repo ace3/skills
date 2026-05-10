@@ -1,5 +1,5 @@
 name: qa
-version: 0.1.0
+version: 0.1.1
 description: >
   Quality assurance for test planning, regression testing, edge-case review,
   acceptance validation, bug reproduction, release confidence, retest
@@ -20,3 +20,5 @@ keywords:
 includes:
   - prompt-injection-defense
   - output-contracts
+  - quality-gates
+  - benchmark-quality

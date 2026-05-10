@@ -2,7 +2,7 @@
 
 Curated skills for software delivery across Claude and Codex: plan product work, design implementation, diagnose bugs, build backend/frontend changes, verify with QA, review security, and prepare deployment.
 
-This package exposes fifteen installable skills. Use `dev-orchestrator` when a task crosses roles and you want the correct workflow. Use the specialized skills directly when the role is already obvious.
+This package exposes sixteen installable skills. Use `dev-orchestrator` when a task crosses roles and you want the correct workflow. Use the specialized skills directly when the role is already obvious.
 
 Each skill is a compact router that loads one-level `references/` only when needed, keeping prompts cheaper while covering research, product definition, engineering planning, backend and frontend implementation, diagnosis, QA, static security review, dynamic security testing, read-only monitoring, controlled deployments, diagram creation, Plane work item workflows, and plan interviews.
 
@@ -27,6 +27,7 @@ Common shortcuts:
 | Situation | Start with |
 |---|---|
 | Broad feature or project with unclear next step | `dev-orchestrator` |
+| Single-trigger end-to-end feature delivery (plan, build, test, QA, security, release handoff) | `feature-delivery` |
 | Missing facts, external docs, vendor/library choice | `research` |
 | Idea needs PRD, acceptance criteria, or scope cut | `product-manager` |
 | Product intent is clear but implementation shape is not | `engineering-manager` |
@@ -42,6 +43,7 @@ Common shortcuts:
 | Skill | Use when | Loads guidance for |
 |---|---|---|
 | `dev-orchestrator` | You need a thin router for multi-role software delivery and want the next correct skill sequence across research, product, engineering, backend, frontend, QA, security, monitoring, deployment, Plane, drawing, or roast. | Development workflow routing, handoff shape, shortcut rules, and plan-first gates. |
+| `feature-delivery` | You want one agent to drive a feature end to end on a single trigger ("implement X", "build X end to end", "add a payment gateway", "ship this workflow") without manually invoking specialist skills. Stops only on hard gates: ambiguity, destructive ops, real credentials, irreversible migrations, privileged deploys, or unresolved money/permission rules. | Inspect → plan minimal slice → implement → focused tests → QA + security review proportional to risk tier (T0–T3) → delivery report. Internal contracts for product-manager, engineering-manager, backend/frontend developer, diagnose, qa, security-sast/dast, monitoring, deployment-ops. Payment integration checklist for callbacks, idempotency, replay, and money-movement work. |
 | `research` | You need current-state investigation, competitor/API/library research, technical feasibility, repo discovery, or an evidence-backed decision brief. | Research workflow, source quality, evidence handling, current-source expectations, and concise research brief format. |
 | `product-manager` | You need a PRD, feature brief, acceptance criteria, scope cut, user flow, product tradeoff, or release slice before engineering work starts. | Product brief workflow, requirements, non-goals, acceptance criteria, scope control, and engineering handoff. |
 | `engineering-manager` | You need architecture review, implementation strategy, boundaries, interfaces, migration sequencing, risk gates, task breakdown, rollout planning, branch comparison, or verification strategy. | Implementation plan workflow, external-event integrity planning, benchmark-quality branch comparison, architecture decisions, interfaces, data flow, task order, risks, rollout, rollback, and downstream handoffs. |
@@ -61,6 +63,7 @@ Common shortcuts:
 
 ```bash
 npx @ace3/skills install dev-orchestrator
+npx @ace3/skills install feature-delivery
 npx @ace3/skills install research
 npx @ace3/skills install product-manager
 npx @ace3/skills install engineering-manager
@@ -94,6 +97,7 @@ Install plugins:
 
 ```text
 /plugin install dev-orchestrator@ace3-skills
+/plugin install feature-delivery@ace3-skills
 /plugin install research@ace3-skills
 /plugin install product-manager@ace3-skills
 /plugin install engineering-manager@ace3-skills
@@ -114,11 +118,56 @@ Marketplace catalogs:
 - `.claude-plugin/marketplace.json`
 - `.codex-plugin/marketplace.json`
 
+## Auto-Learning Skills
+
+Use auto-learning after a skill caused a bad implementation, missed a required check, asked the wrong questions, produced weak output, or failed a repeatable workflow. Learning is packet-driven and targeted: one failure packet improves one named skill.
+
+Create a failure packet:
+
+```json
+{
+  "skill": "security-sast",
+  "prompt": "Review this Node.js repo for auth issues.",
+  "expected": "The skill should inspect middleware and route guards before reporting.",
+  "actual": "It reported dependency issues but missed unauthenticated admin routes.",
+  "evidence": ["review-notes.md", "missed route: src/routes/admin.ts"],
+  "severity": "high",
+  "constraints": ["Do not weaken destructive-command gates"]
+}
+```
+
+Run the review-gated learner:
+
+```bash
+node bin/cli.js learn --failure ./failures/security-sast-admin-route.json --skill security-sast
+```
+
+The learner treats the packet as untrusted evidence, asks Codex for the smallest targeted skill patch, verifies the change with `make build && make validate`, then stops. It does not commit, push, or install without approval.
+
+Before approving:
+- Inspect the diff.
+- Confirm the improvement is durable skill guidance, not overfitting to one project.
+- Confirm `make validate` passed.
+
+Approve the validated patch:
+
+```bash
+node bin/cli.js learn --failure ./failures/security-sast-admin-route.json --skill security-sast --approve
+```
+
+Approved runs commit the changed skill files, push the current branch to `origin`, and reinstall the target skill into both local Claude and Codex global skill directories.
+
+Manual local update fallback:
+
+```bash
+make install SKILL=security-sast
+```
+
 ## Optimized Usage
 
 Use one skill at a time unless the task clearly crosses domains. Good prompts include four parts:
 
-1. Skill name: `Use dev-orchestrator`, `Use research`, `Use product-manager`, `Use engineering-manager`, `Use backend-developer`, `Use frontend-developer`, `Use diagnose`, `Use qa`, `Use security-sast`, `Use security-dast`, `Use monitoring`, `Use deployment-ops`, `Use drawing`, `Use plane`, or `roast me`.
+1. Skill name: `Use dev-orchestrator`, `Use feature-delivery`, `Use research`, `Use product-manager`, `Use engineering-manager`, `Use backend-developer`, `Use frontend-developer`, `Use diagnose`, `Use qa`, `Use security-sast`, `Use security-dast`, `Use monitoring`, `Use deployment-ops`, `Use drawing`, `Use plane`, or `roast me`.
 2. Scope: repo path, service, environment, URL, host group, time window, or target allowlist.
 3. Action class: read-only review, active scan, plan only, or approved execution.
 4. Output contract: findings, health status, rollout plan, rollback plan, or verification evidence.
@@ -175,6 +224,18 @@ Expected routing:
 
 ```text
 backend-developer and/or frontend-developer -> qa -> deployment-ops if release execution is needed
+```
+
+Deliver a feature end to end on a single trigger:
+
+```text
+Use feature-delivery. Scope: add CSV export to admin reports. Action: end-to-end delivery. Output: changed behavior, focused tests, security/QA notes, verification evidence, and any blocked gates.
+```
+
+Expected behavior:
+
+```text
+inspect repo -> plan minimal slice -> implement -> focused tests -> QA + security review proportional to risk -> delivery report
 ```
 
 Research an integration:
@@ -442,6 +503,12 @@ Operational skills include `references/base-operating-layer.md` so single-skill 
 - Superpowers planning: brainstorming or written design before creative or behavior-changing work.
 - Execution gate: exact plan, approval, rollback, and verification before privileged actions; destructive commands are printed for the user to run manually.
 
+## Quality Gates
+
+Execution and review skills (`feature-delivery`, `backend-developer`, `frontend-developer`, `engineering-manager`, `qa`, `security-sast`, `security-dast`, `deployment-ops`, `diagnose`) include `references/quality-gates.md` so single-skill installs ship the same definition of done. The file defines evidence rules (every success claim cites a file, command, test, browser trace, API trace, or runtime log), a falsification check ("what would prove this wrong?"), role-tagged anti-pattern checks, and an output-contract addendum requiring every final response to surface changed behavior, assumptions, verification, blocked checks, and residual risk.
+
+Skills that compare candidates — `engineering-manager`, `qa`, `security-sast`, `security-dast` — also include `references/benchmark-quality.md` for branch, patch, agent-output, and finding comparison with explicit separation between "passes tests" and "solves the actual risk."
+
 ## Repository Layout
 
 ```text
@@ -450,6 +517,13 @@ skills/
     SKILL.md
     references/
       development-workflow.md
+  feature-delivery/
+    SKILL.md
+    references/
+      feature-delivery-workflow.md
+      payment-integration-checklist.md
+      delivery-report.md
+      base-operating-layer.md
   research/
     SKILL.md
     references/

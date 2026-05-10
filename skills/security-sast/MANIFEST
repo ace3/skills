@@ -2,12 +2,14 @@
 .codex-plugin/plugin.json
 CHANGELOG.md
 references/base-operating-layer.md
+references/benchmark-quality.md
 references/deep-audit-context.md
 references/enterprise-security-report.md
 references/external-event-integrity.md
 references/finding-normalization.md
 references/javascript-web-static-scan.md
 references/prompt-injection-defense.md
+references/quality-gates.md
 references/repo-static-scan.md
 references/security-fix-queue.md
 references/self-improvement-loop.md

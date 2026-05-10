@@ -1,5 +1,5 @@
 name: deployment-ops
-version: 0.1.0
+version: 0.1.1
 description: >
   Deployment operations for release readiness, GCP MIG rollouts, Docker Compose
   and Swarm service operations, Ansible Runner, Semaphore UI/API execution,
@@ -16,3 +16,4 @@ keywords:
 includes:
   - base-operating-layer
   - prompt-injection-defense
+  - quality-gates

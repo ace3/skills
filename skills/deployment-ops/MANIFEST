@@ -6,6 +6,7 @@ references/base-operating-layer.md
 references/docker-service-ops.md
 references/gcp-mig-rollout.md
 references/prompt-injection-defense.md
+references/quality-gates.md
 references/release-readiness.md
 references/rollback-verification.md
 references/semaphore-ui.md

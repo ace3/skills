@@ -67,7 +67,9 @@ Editing a template:
 - Never copy a template file content into a skill manually — list it in `includes:` and let the build copy it.
 - No SKILL.md may reference content outside its own directory. Cross-skill paths break standalone install.
 - A failing `make lint` is the answer, not a suggestion. Fix the underlying drift; do not rewrite the lint to be lenient.
-- Bump `version` and append a `CHANGELOG.md` line for every substantive change.
+- Bump `version` and append a `CHANGELOG.md` line for every substantive change. The marketplace `version` field in `.claude-plugin/marketplace.json` and `.codex-plugin/marketplace.json` must be bumped to match — lint enforces parity.
+- Default include for execution and review skills (implementation, fixes, planning, QA, security review, deployment, diagnosis): `quality-gates`. Default include for skills that compare candidates: `benchmark-quality`. Skip both for thin routers and pure documentation skills.
+- A skill description that promises "quality gates", "anti-patterns", or "rubric" must include the matching template. Lint enforces this capability-claim parity.
 
 ## Output Contract
 

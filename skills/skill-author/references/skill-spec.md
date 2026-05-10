@@ -127,12 +127,18 @@ Adding a new skill:
 - No SKILL.md links cross the skill directory boundary.
 - `MANIFEST` matches the actual file tree.
 - `version` in `skill.yml` matches the top entry in `CHANGELOG.md`.
+- Marketplace parity: `.claude-plugin/marketplace.json` and `.codex-plugin/marketplace.json` are byte-identical, and every advertised plugin entry has a matching `skills/<name>/skill.yml` with the same `version`.
+- README claim parity: the count in `exposes <N> installable skills` matches the marketplace plugin count (digit or English numeral).
+- Capability-claim parity: a `skill.yml` description that promises "quality gates", "anti-patterns", or "rubric" must list the matching template (`quality-gates` or `benchmark-quality`) in `includes:`.
 
-Soft warnings (do not fail the build):
+Soft warnings (do not fail the build unless `--strict` is set):
 
 - Missing `## References` section.
 - Missing `## Trust Boundary` section.
 - `base-operating-layer` in includes but no `## Base Operating Layer` section in SKILL.md.
+- A `references/<file>.md` exists on disk but is neither declared in `includes:` nor cited from SKILL.md (orphaned bundled reference).
+
+Run `node scripts/lint-skills.js --strict` to promote every soft warning to a hard error — useful before publishing a new skill.
 
 ## What lint does **not** check
 

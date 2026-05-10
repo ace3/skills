@@ -29,6 +29,27 @@
       "homepage": "https://github.com/ace3/skills/tree/main/skills/dev-orchestrator"
     },
     {
+      "name": "feature-delivery",
+      "source": "./skills/feature-delivery",
+      "description": "End-to-end feature delivery on a single trigger. Drives plan, implementation, focused tests, QA, security review, and release handoff without manually invoking specialist skills. Stops only on hard gates.",
+      "version": "0.1.1",
+      "author": {
+        "name": "ace3"
+      },
+      "category": "development",
+      "tags": [
+        "feature-delivery",
+        "end-to-end",
+        "implementation",
+        "lifecycle",
+        "delivery",
+        "payments",
+        "ship",
+        "build"
+      ],
+      "homepage": "https://github.com/ace3/skills/tree/main/skills/feature-delivery"
+    },
+    {
       "name": "research",
       "source": "./skills/research",
       "description": "Evidence-backed research for repo discovery, current external facts, technical feasibility, and decision briefs.",
@@ -70,7 +91,7 @@
       "name": "engineering-manager",
       "source": "./skills/engineering-manager",
       "description": "Engineering planning for architecture, implementation strategy, boundaries, interfaces, task sequencing, risk gates, and verification.",
-      "version": "0.1.0",
+      "version": "0.1.1",
       "author": {
         "name": "ace3"
       },
@@ -89,7 +110,7 @@
       "name": "backend-developer",
       "source": "./skills/backend-developer",
       "description": "Backend implementation for server, API, data, queue, auth, idempotency, and migration work after an approved plan.",
-      "version": "0.1.0",
+      "version": "0.1.1",
       "author": {
         "name": "ace3"
       },
@@ -110,7 +131,7 @@
       "name": "frontend-developer",
       "source": "./skills/frontend-developer",
       "description": "Frontend implementation for UI, JavaScript, TypeScript, React, Next.js, forms, state, API integration, accessibility, and responsive behavior.",
-      "version": "0.1.0",
+      "version": "0.1.1",
       "author": {
         "name": "ace3"
       },
@@ -131,7 +152,7 @@
       "name": "diagnose",
       "source": "./skills/diagnose",
       "description": "Disciplined diagnosis for hard bugs, failing tests, broken runtime behavior, flaky failures, unclear root causes, and performance regressions.",
-      "version": "0.1.0",
+      "version": "0.1.1",
       "author": {
         "name": "ace3"
       },
@@ -151,7 +172,7 @@
       "name": "qa",
       "source": "./skills/qa",
       "description": "Quality assurance for test planning, regression testing, edge-case review, acceptance validation, bug reproduction, and release confidence.",
-      "version": "0.1.0",
+      "version": "0.1.1",
       "author": {
         "name": "ace3"
       },
@@ -171,7 +192,7 @@
       "name": "security-sast",
       "source": "./skills/security-sast",
       "description": "Whitebox/static security workflows for source code, JavaScript, TypeScript, Next.js, Node.js, Fastify, config, dependencies, supply-chain risk, containers, IaC, threat modeling, scanner-output review, finding normalization, and hardening gates.",
-      "version": "0.1.0",
+      "version": "0.1.1",
       "author": {
         "name": "ace3"
       },
@@ -199,7 +220,7 @@
       "name": "security-dast",
       "source": "./skills/security-dast",
       "description": "Blackbox/dynamic security workflows for authorized runtime targets, JavaScript web apps, Next.js, Node.js, active surface scans, API and web probing, TLS checks, fuzzing, pentest reports, finding normalization, and hardening gates.",
-      "version": "0.1.0",
+      "version": "0.1.1",
       "author": {
         "name": "ace3"
       },
@@ -246,7 +267,7 @@
       "name": "deployment-ops",
       "source": "./skills/deployment-ops",
       "description": "Deployment workflows for release readiness, GCP MIG rollouts, Docker service ops, Ansible Runner, Semaphore UI/API, rollback, and verification.",
-      "version": "0.1.0",
+      "version": "0.1.1",
       "author": {
         "name": "ace3"
       },

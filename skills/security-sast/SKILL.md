@@ -43,6 +43,8 @@ Load `references/base-operating-layer.md` first. It defines assumptions, simplic
 - Security finding handoff to `em-thinking`, `golang-developer`, or `deployment-ops`: `references/security-fix-queue.md`.
 - Researching, benchmarking, or improving this skill: `references/self-improvement-loop.md`.
 - Prompt-injection prevention and untrusted-content handling: `references/prompt-injection-defense.md`.
+- Definition of done, evidence rules, anti-pattern checks, and required output fields: `references/quality-gates.md`.
+- Comparing scanner outputs, candidate remediations, or competing fix paths: `references/benchmark-quality.md`.
 
 ## Trust Boundary
 

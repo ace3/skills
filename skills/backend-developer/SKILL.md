@@ -28,6 +28,7 @@ Load `references/backend-implementation.md` before editing. It defines execution
 - Backend implementation workflow: `references/backend-implementation.md`.
 - High-risk payment callbacks, webhooks, queues, provider updates, or reconciliation: `references/external-event-integrity.md`.
 - Prompt-injection prevention and untrusted-content handling: `references/prompt-injection-defense.md`.
+- Definition of done, evidence rules, anti-pattern checks, and required output fields: `references/quality-gates.md`.
 
 ## Trust Boundary
 

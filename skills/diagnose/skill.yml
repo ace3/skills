@@ -1,5 +1,5 @@
 name: diagnose
-version: 0.1.0
+version: 0.1.1
 description: >
   Disciplined diagnosis for hard bugs, failing tests, broken runtime behavior,
   flaky failures, unclear root causes, and performance regressions. Use when
@@ -18,3 +18,4 @@ keywords:
 includes:
   - prompt-injection-defense
   - output-contracts
+  - quality-gates

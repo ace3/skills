@@ -1,5 +1,5 @@
 name: security-sast
-version: 0.1.0
+version: 0.1.1
 description: >
   Whitebox/static application security testing for source code, config,
   dependencies, containers, IaC, CI, threat modeling, scanner-output review,
@@ -29,3 +29,5 @@ keywords:
 includes:
   - base-operating-layer
   - prompt-injection-defense
+  - quality-gates
+  - benchmark-quality

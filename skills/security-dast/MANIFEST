@@ -3,11 +3,13 @@
 CHANGELOG.md
 references/active-surface-scan.md
 references/base-operating-layer.md
+references/benchmark-quality.md
 references/enterprise-security-report.md
 references/external-event-integrity.md
 references/finding-normalization.md
 references/javascript-web-runtime-scan.md
 references/prompt-injection-defense.md
+references/quality-gates.md
 references/security-fix-queue.md
 references/self-improvement-loop.md
 SKILL.md

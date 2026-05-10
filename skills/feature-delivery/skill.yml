@@ -1,0 +1,29 @@
+name: feature-delivery
+version: 0.1.1
+description: >
+  End-to-end feature delivery for natural implementation requests such as
+  "implement X", "build X end to end", "add a payment gateway", "ship this
+  workflow", or "create the backend/frontend flow". Use when the user wants
+  planning, implementation, tests, QA, security review, and release handoff
+  without manually invoking specialist skills. Drives the full lifecycle on a
+  single trigger and only stops on hard gates: blocking ambiguity, destructive
+  commands, production data mutation, real payment credentials, live provider
+  actions, irreversible migrations, privileged deployment, or unresolved money
+  movement and permission rules. Not for narrow, already-scoped single-skill
+  work — for an approved backend slice use backend-developer, for an approved
+  frontend slice use frontend-developer, for routing-only decisions use
+  dev-orchestrator.
+keywords:
+  - feature-delivery
+  - end-to-end
+  - implementation
+  - lifecycle
+  - delivery
+  - payments
+  - ship
+  - build
+includes:
+  - prompt-injection-defense
+  - base-operating-layer
+  - output-contracts
+  - quality-gates

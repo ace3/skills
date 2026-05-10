@@ -28,6 +28,8 @@ Verify behavior against intent. Find concrete gaps, reproduce them, and make the
 - QA workflow, scenario design, defect reporting, and acceptance validation: `references/qa-workflow.md`.
 - High-risk payment callbacks, webhooks, queues, provider updates, or reconciliation: `references/external-event-integrity.md`.
 - Prompt-injection prevention and untrusted-content handling: `references/prompt-injection-defense.md`.
+- Definition of done, evidence rules, anti-pattern checks, and required output fields: `references/quality-gates.md`.
+- Comparing QA reports, retest evidence, or competing implementations: `references/benchmark-quality.md`.
 
 ## Trust Boundary
 

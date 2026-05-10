@@ -1,5 +1,5 @@
 name: backend-developer
-version: 0.1.0
+version: 0.1.1
 description: >
   Backend implementation for server, API, data, queue, callback, webhook,
   provider status update, reconciliation, auth, idempotency, and migration work
@@ -18,3 +18,4 @@ keywords:
 includes:
   - base-operating-layer
   - prompt-injection-defense
+  - quality-gates

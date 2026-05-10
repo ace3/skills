@@ -1,5 +1,5 @@
 name: security-dast
-version: 0.1.0
+version: 0.1.1
 description: >
   Blackbox/dynamic application security testing for authorized runtime targets,
   active surface scans, API/web probing, TLS checks, fuzzing, pentest-style
@@ -24,3 +24,5 @@ keywords:
 includes:
   - base-operating-layer
   - prompt-injection-defense
+  - quality-gates
+  - benchmark-quality
