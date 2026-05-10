@@ -1,5 +1,5 @@
 name: skill-author
-version: 0.1.0
+version: 0.2.0
 description: >
   Meta-skill for authoring, modifying, or reviewing skills in this repository.
   Use when adding a new skill, splitting/renaming an existing one, changing a

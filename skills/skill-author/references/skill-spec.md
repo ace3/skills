@@ -41,6 +41,25 @@ includes:
 
 `description` becomes the SKILL.md frontmatter and the `plugin.json` description; it is the only thing routing logic sees, so spell out triggers and boundaries.
 
+## Description shape
+
+The description is the entire routing surface. The body is invisible until the skill triggers, so anything that influences when to load this skill must live here.
+
+Target shape (60–100 words):
+
+1. **Lead with the noun**, not a verb. "Backend implementation for…", "Engineering planning for…", "Diagram creation router for…". The first phrase should let a reader place the skill against its peers in one glance.
+2. **Enumerate concrete triggers**, not generic categories. List the specific words a user would actually type ("the user says roast me", "PRDs", "feature briefs", "Docker rollouts", "Plane work item", "PROJ-123"). Single-word categories like "review" trigger badly because too many skills overlap on them.
+3. **Name sister skills and the boundary** when one exists. The `engineering-manager` ↔ `product-manager` pair is the model: each description ends by stating what the *other* skill is for. Do this for any skill that has a near-neighbor.
+4. **Be a little pushy on triggering, not on action.** Skills tend to under-trigger. Phrases like "Use when…" and "Use … or when …" are good. "Always use this for X" is acceptable when X is unambiguously this skill's domain. Do *not* push the user toward the skill's outputs ("you should always run a full audit") — that is body content.
+
+Anti-patterns in descriptions:
+
+- Time-sensitive phrasing ("as of 2026", "the new V2 API"). Descriptions outlive their authors' assumptions.
+- Hardcoded absolute paths or machine-specific URLs.
+- Environment names that bind the skill to one user's setup.
+- Embedded instructions to other skills ("after running this, run X"). Sequence belongs in `dev-orchestrator`, not in a peer's description.
+- Marketing prose. The reader is a router, not a customer.
+
 ## SKILL.md required sections
 
 Every SKILL.md must contain:
@@ -53,6 +72,27 @@ Every SKILL.md that includes `base-operating-layer` must also contain `## Base O
 Every SKILL.md that includes `output-contracts` should reference the appropriate bundle shape (Findings / Plan / Routing) from `references/output-contracts.md` in its `## Output Contract` section.
 
 The body must be self-contained — never reference content outside the skill's own directory. The `make lint` step rejects `../_shared/`, `../<other-skill>/`, etc.
+
+## SKILL.md body shape
+
+- Aim for under 500 lines. Beyond that, the body stops earning its place in context. Move detail to `references/<purpose>.md` and leave a one-line pointer that says when to read it.
+- Lead each section with what to do, then why. Use imperative form. Avoid all-caps MUSTs and NEVERs as a substitute for explanation — if a rule is non-obvious, give the model the reasoning so it can apply judgment to edge cases the rule did not anticipate.
+- Examples earn their keep. A two-line input/output pair tells the model more than three paragraphs of theory. Skip examples only when the section is genuinely unambiguous.
+- Draft, then re-read with fresh eyes. The second pass is where bloat gets removed; budget time for it.
+
+## Reference files
+
+Each `references/<file>.md` is a doc loaded on demand by the skill body. Three rules:
+
+1. **Name by purpose, not source.** `external-event-integrity.md` and `benchmark-quality.md` are good — a future reader can guess the contents from the filename. Source-attributed names ("acme-style-guide.md", "karpathy-base.md") encode trivia that decays as the source evolves; rename if you find one.
+2. **Add a Table of Contents for any file over 300 lines.** A short TOC near the top lets the model skip to the relevant section instead of reading the whole file. For files under 300 lines, a clear opening paragraph is enough.
+3. **Tell SKILL.md when to load it.** Every reference cited from SKILL.md should have a sentence that says when to consult it ("for oversized plans, load `references/roast-tree.md`"). A reference with no load-trigger in the body is a reference that will not be read.
+
+`scripts/` vs `references/` vs `assets/`:
+
+- `scripts/` — executable code the skill should run, not read. Use this when the same multi-step or error-prone task is showing up across runs (e.g., `plane_api.py`). Bundling a script saves every future invocation from rewriting it.
+- `references/` — markdown the skill body points the model at. Use this for guidance, schemas, decision trees, examples.
+- `assets/` — files the skill produces or templates from (icons, fonts, HTML templates). Rare in this repo.
 
 ## Workflow
 

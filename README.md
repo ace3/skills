@@ -436,7 +436,7 @@ Roast me on this full AGENT_SPEC.md, ADRs, and related service folders. Decompos
 
 ## Base Layer
 
-Operational skills include `references/karpathy-superpowers-base.md` so single-skill installs remain self-contained.
+Operational skills include `references/base-operating-layer.md` so single-skill installs remain self-contained. The file carries the Karpathy + Superpowers base layer (the H1 still reads "Karpathy + Superpowers Base Layer"); the filename uses the purpose, not the source, per the skill-spec naming rule.
 
 - Karpathy defaults: explicit assumptions, simplicity first, surgical changes, and goal-driven verification.
 - Superpowers planning: brainstorming or written design before creative or behavior-changing work.
@@ -469,10 +469,12 @@ skills/
     references/
       backend-implementation.md
       external-event-integrity.md
+      base-operating-layer.md
   frontend-developer/
     SKILL.md
     references/
       frontend-implementation.md
+      base-operating-layer.md
   diagnose/
     SKILL.md
     references/
@@ -485,23 +487,23 @@ skills/
   security-sast/
     SKILL.md
     references/
-      karpathy-superpowers-base.md
+      base-operating-layer.md
       repo-static-scan.md
       external-event-integrity.md
   security-dast/
     SKILL.md
     references/
-      karpathy-superpowers-base.md
+      base-operating-layer.md
       active-surface-scan.md
       external-event-integrity.md
   monitoring/
     SKILL.md
     references/
-      karpathy-superpowers-base.md
+      base-operating-layer.md
   deployment-ops/
     SKILL.md
     references/
-      karpathy-superpowers-base.md
+      base-operating-layer.md
   drawing/
     SKILL.md
     references/
