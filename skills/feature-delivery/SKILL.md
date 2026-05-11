@@ -52,13 +52,15 @@ Never silently start work without recording this decision. After the feature is 
 ## Classify
 
 - Broad feature request: inspect, plan the smallest useful slice, implement, add tests, review, verify, and report. Default path.
+- Missing external evidence (vendor docs, library/API facts, unfamiliar repo behavior): apply `research` behavior to gather citations before planning, never invent facts.
 - Product ambiguity: apply `product-manager` behavior internally only when goals, users, acceptance criteria, or non-goals cannot be inferred safely from the repo and the request.
 - Architecture or multi-module change: apply `engineering-manager` behavior to lock boundaries, interfaces, risk tier, task order, tests, rollout, and rollback before edits.
 - Backend slice: apply `backend-developer` behavior — repo inspection, focused tests, external-event integrity for any callback/webhook/queue/reconciliation surface.
 - Frontend slice: apply `frontend-developer` behavior — complete UI states, accessibility, browser verification.
 - Broken or flaky behavior surfacing during delivery: pause and apply `diagnose` behavior to reproduce and isolate root cause before patching.
 - Security-sensitive feature (auth, secrets, money movement, callbacks, file upload, multi-tenant data, public endpoints): include `security-sast`-style review (and `security-dast`-style if a runtime probe is justified) before reporting complete.
-- Release or deployment requested as part of the feature: apply `deployment-ops` behavior, preserve approval gates, print exact privileged commands instead of running them.
+- Observability gap, alert quality, or telemetry verification: apply `monitoring` behavior (read-only) to confirm SLI/SLO, dashboards, and alerts before declaring the slice done.
+- Release or deployment requested as part of the feature: apply `deployment-ops` behavior for the controlled change, and `release-manager` / `document-release` behavior for release notes, rollout steps, and post-release checks. Preserve approval gates and print exact privileged commands instead of running them.
 
 Do not ask the user to invoke these skills manually. Apply their behavior as internal contracts; route to a real handoff only when a gate explicitly requires it.
 

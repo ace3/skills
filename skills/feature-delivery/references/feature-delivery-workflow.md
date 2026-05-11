@@ -62,6 +62,8 @@ For destructive or security-sensitive operations, print the exact command for th
 - `security-dast`: authorized runtime probing, callback/API/web active checks, TLS, retest evidence.
 - `monitoring`: read-only health, observability gaps, alerts, dependency/runtime inventory.
 - `deployment-ops`: release readiness, rollback, controlled deploy, post-deploy verification.
+- `release-manager`: release notes, rollout steps, rollback paths, and post-release checks after engineering, QA, and security are green.
+- `document-release`: release communication, operator updates, and post-release confirmation from verified evidence.
 
 ## Finish Criteria
 
