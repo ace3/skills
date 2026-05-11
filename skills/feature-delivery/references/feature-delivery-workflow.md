@@ -4,7 +4,7 @@ Use this reference for natural feature requests where the user expects one agent
 
 ## Operating Model
 
-`feature-delivery` is the end-to-end wrapper. It borrows the role pipeline from `dev-orchestrator`, the implementation planning discipline from `engineering-manager`, execution behavior from `backend-developer` and `frontend-developer`, and review gates from `qa`, `security-sast`, `security-dast`, `monitoring`, and `deployment-ops`.
+`feature-delivery` is the end-to-end wrapper. It borrows the role pipeline from `dev-orchestrator`, the implementation planning discipline from `engineering-manager`, execution behavior from `backend-developer` and `frontend-developer`, and report-only review gates from `qa`, `qa-manager`, `qa-engineer`, `qa-tester`, `security-sast`, `security-dast`, `monitoring`, and `deployment-ops`.
 
 Do not ask the user to invoke those skills manually. Apply their behavior as internal contracts. Route to a real handoff only when a gate explicitly requires it.
 
@@ -57,7 +57,10 @@ For destructive or security-sensitive operations, print the exact command for th
 - `backend-developer`: API, data, queues, jobs, auth, idempotency, migrations, provider integrations.
 - `frontend-developer`: UI flows, forms, state, API integration, accessibility, browser verification.
 - `diagnose`: unclear root cause, flaky behavior, failing checks, or broken runtime behavior surfacing during delivery.
-- `qa`: acceptance, regression, edge cases, defects, and retest evidence.
+- `qa`: broad QA routing when the correct QA role is not obvious.
+- `qa-manager`: requirements coverage, test strategy, test plans, test cases, defect process, and release sign-off.
+- `qa-engineer`: TDD, unit/integration/contract/BDD/E2E test-code guidance, framework setup, and CI test pipeline planning.
+- `qa-tester`: browser, API, performance, visual, exploratory, and retest execution evidence.
 - `security-sast`: source, config, dependency, secrets, containers, IaC, threat model.
 - `security-dast`: authorized runtime probing, callback/API/web active checks, TLS, retest evidence.
 - `monitoring`: read-only health, observability gaps, alerts, dependency/runtime inventory.

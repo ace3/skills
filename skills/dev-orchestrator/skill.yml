@@ -1,13 +1,14 @@
 name: dev-orchestrator
-version: 0.1.0
+version: 0.1.1
 description: >
   Thin router for multi-role software delivery. Use when a task spans
-  research, product, engineering planning, backend, frontend, QA, diagnosis,
-  security, monitoring, deployment, Plane, drawing, or roast handoffs; when
-  the user asks what skill should run next; or when broad work must preserve
-  plan-first gates. Use only for routing and handoff sequencing — not for
-  direct execution. Hand off to the chosen specialist skill instead of doing
-  research, planning, coding, testing, or deployment work itself.
+  research, product, engineering planning, backend, frontend, QA routing,
+  granular QA manager, QA engineer, QA tester, diagnosis, security, monitoring,
+  deployment, Plane, drawing, or roast handoffs; when the user asks what skill
+  should run next; or when broad work must preserve plan-first gates. Use only
+  for routing and handoff sequencing — not for direct execution. Hand off to
+  the chosen specialist skill instead of doing research, planning, coding,
+  testing, or deployment work itself.
 keywords:
   - development
   - orchestration

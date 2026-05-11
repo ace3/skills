@@ -1,0 +1,12 @@
+.claude-plugin/plugin.json
+.codex-plugin/plugin.json
+CHANGELOG.md
+references/e2e-mobile-ci.md
+references/integration-contract-bdd.md
+references/output-contracts.md
+references/prompt-injection-defense.md
+references/quality-gates.md
+references/tdd-and-test-design.md
+references/unit-frameworks.md
+SKILL.md
+skill.yml

@@ -1,0 +1,22 @@
+{
+  "name": "qa-manager",
+  "version": "0.1.0",
+  "description": "QA management for report-only requirements analysis, PRD review, traceability, risk classification, test strategy, test planning, test case design, defect process, QA reporting, and release sign-off. Use when the user needs a test plan, acceptance coverage, PICT or combinatorial scenario design, regression scope, go/no-go criteria, or an audit-style QA report. Not for writing automated test code — use qa-engineer. Not for running browser, API, or load checks — use qa-tester.",
+  "author": {
+    "name": "ace3",
+    "url": "https://github.com/ace3"
+  },
+  "homepage": "https://github.com/ace3/skills/tree/main/skills/qa-manager",
+  "repository": "https://github.com/ace3/skills",
+  "license": "MIT",
+  "keywords": [
+    "qa",
+    "qa-manager",
+    "test-plan",
+    "test-strategy",
+    "requirements-analysis",
+    "test-cases",
+    "defect-reporting",
+    "release-signoff"
+  ]
+}

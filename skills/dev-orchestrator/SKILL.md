@@ -2,11 +2,12 @@
 name: dev-orchestrator
 description: >
   Thin router for multi-role software delivery. Use when a task spans
-  research, product, engineering planning, backend, frontend, QA, diagnosis,
-  security, monitoring, deployment, Plane, drawing, or roast handoffs; when
-  the user asks what skill should run next; or when broad work must preserve
-  plan-first gates. Use only for routing and handoff sequencing — not for
-  direct execution. Hand off to the chosen specialist skill instead of doing
+  research, product, engineering planning, backend, frontend, QA routing,
+  granular QA manager, QA engineer, QA tester, diagnosis, security,
+  monitoring, deployment, Plane, drawing, or roast handoffs; when the user
+  asks what skill should run next; or when broad work must preserve plan-first
+  gates. Use only for routing and handoff sequencing — not for direct
+  execution. Hand off to the chosen specialist skill instead of doing
   research, planning, coding, testing, or deployment work itself.
 ---
 
@@ -21,7 +22,10 @@ Route development work through the smallest safe skill sequence. Do not become t
 - Architecture, implementation strategy, task sequencing, migration, risk, or verification plan: route to `engineering-manager`.
 - Approved backend implementation: route to `backend-developer`.
 - Approved frontend implementation: route to `frontend-developer`.
-- Test planning, regression, acceptance validation, or bug reproduction: route to `qa`.
+- Broad QA request with unclear role: route to `qa`.
+- Requirements analysis, test strategy, test planning, test case design, defect process, QA reporting, or release sign-off: route to `qa-manager`.
+- TDD, unit/integration/contract/BDD/E2E test-code guidance, framework setup, or CI test pipeline planning: route to `qa-engineer`.
+- Running browser, API, performance, visual, exploratory, or retest checks and collecting evidence: route to `qa-tester`.
 - Broken behavior, hard bug, failing check, performance regression, or unclear root cause: route to `diagnose`.
 - Security review or security test: route to `security-sast` or `security-dast`.
 - Runtime health or observability: route to `monitoring`.

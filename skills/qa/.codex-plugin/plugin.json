@@ -1,7 +1,7 @@
 {
   "name": "qa",
-  "version": "0.1.1",
-  "description": "Quality assurance for test planning, regression testing, edge-case review, acceptance validation, bug reproduction, release confidence, retest evidence, code review readiness, defect reporting, external-event integrity validation, and pass/fail reporting. Use after a fix or implementation exists, before release, or when the user asks whether a change meets acceptance criteria for callbacks, webhooks, queues, provider status updates, reconciliation, or other behavior. Not for root-cause investigation of an unknown failure — use diagnose for that first.",
+  "version": "0.2.0",
+  "description": "QA routing for report-only quality assurance work. Use when the user asks broadly for QA, testing, release confidence, acceptance validation, regression review, test planning, test implementation guidance, or test execution evidence and the correct QA role is not already obvious. Routes PRD analysis and sign-off to qa-manager, test-code and framework work to qa-engineer, and live UI/API/performance/exploratory execution to qa-tester. Not for root-cause investigation — use diagnose; not for fixes — use backend or frontend developer skills.",
   "author": {
     "name": "ace3",
     "url": "https://github.com/ace3"
@@ -12,10 +12,11 @@
   "keywords": [
     "qa",
     "testing",
+    "qa-router",
     "regression",
     "acceptance",
-    "bug-reproduction",
-    "retest",
+    "test-planning",
+    "test-execution",
     "release-confidence"
   ]
 }

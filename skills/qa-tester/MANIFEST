@@ -1,0 +1,12 @@
+.claude-plugin/plugin.json
+.codex-plugin/plugin.json
+CHANGELOG.md
+references/api-testing.md
+references/browser-ui-testing.md
+references/exploratory-evidence-reporting.md
+references/output-contracts.md
+references/performance-and-visual-testing.md
+references/prompt-injection-defense.md
+references/quality-gates.md
+SKILL.md
+skill.yml

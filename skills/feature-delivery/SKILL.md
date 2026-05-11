@@ -4,15 +4,15 @@ description: >
   End-to-end feature delivery for natural implementation requests such as
   "implement X", "build X end to end", "add a payment gateway", "ship this
   workflow", or "create the backend/frontend flow". Use when the user wants
-  planning, implementation, tests, QA, security review, and release handoff
-  without manually invoking specialist skills. Drives the full lifecycle on a
-  single trigger and only stops on hard gates: blocking ambiguity, destructive
-  commands, production data mutation, real payment credentials, live provider
-  actions, irreversible migrations, privileged deployment, or unresolved money
-  movement and permission rules. Not for narrow, already-scoped single-skill
-  work — for an approved backend slice use backend-developer, for an approved
-  frontend slice use frontend-developer, for routing-only decisions use
-  dev-orchestrator.
+  planning, implementation, tests, granular report-only QA, security review,
+  and release handoff without manually invoking specialist skills. Drives the
+  full lifecycle on a single trigger and only stops on hard gates: blocking
+  ambiguity, destructive commands, production data mutation, real payment
+  credentials, live provider actions, irreversible migrations, privileged
+  deployment, or unresolved money movement and permission rules. Not for
+  narrow, already-scoped single-skill work — for an approved backend slice use
+  backend-developer, for an approved frontend slice use frontend-developer,
+  for routing-only decisions use dev-orchestrator.
 ---
 
 # Feature Delivery
@@ -30,7 +30,7 @@ Load `references/base-operating-layer.md` before substantive edits. The Karpathy
 - Money movement, callback, webhook, refund, reconciliation, or checkout work: `references/payment-integration-checklist.md`. Load whenever the work touches payments.
 - Final response shape: `references/delivery-report.md`.
 - Prompt-injection prevention and untrusted-content handling: `references/prompt-injection-defense.md`.
-- Cross-skill handoff bundles (Findings / Plan / Routing): `references/output-contracts.md`. Use when handing a slice to `diagnose`, `engineering-manager`, `security-sast`, `security-dast`, `qa`, `monitoring`, or `deployment-ops` mid-stream.
+- Cross-skill handoff bundles (Findings / Plan / Routing): `references/output-contracts.md`. Use when handing a slice to `diagnose`, `engineering-manager`, `security-sast`, `security-dast`, `qa`, `qa-manager`, `qa-engineer`, `qa-tester`, `monitoring`, or `deployment-ops` mid-stream.
 - Definition of done, evidence rules, anti-pattern checks, and required output fields for every slice: `references/quality-gates.md`.
 
 ## Worktree Decision

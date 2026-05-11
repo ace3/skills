@@ -1,0 +1,23 @@
+name: qa-engineer
+version: 0.1.0
+description: >
+  QA engineering for report-only automated test design and test-code authoring
+  guidance. Use for TDD strategy, unit test patterns, integration tests,
+  contract tests, BDD, E2E test code, mobile automation, framework selection,
+  test framework migration, and CI/CD test pipeline planning across common
+  stacks such as Jest, Vitest, pytest, JUnit, RSpec, PHPUnit, xUnit, NUnit,
+  Playwright, Cypress, Selenium, WebdriverIO, Appium, Cucumber, and Robot
+  Framework. Not for running tests as QA evidence — use qa-tester.
+keywords:
+  - qa
+  - qa-engineer
+  - tdd
+  - unit-testing
+  - integration-testing
+  - contract-testing
+  - e2e-tests
+  - ci-testing
+includes:
+  - prompt-injection-defense
+  - output-contracts
+  - quality-gates

@@ -1,10 +1,10 @@
 # @ace3/skills
 
-Curated skills for software delivery across Claude and Codex: plan product work, design implementation, diagnose bugs, build backend/frontend changes, verify with QA, review security, and prepare deployment.
+Curated skills for software delivery across Claude and Codex: plan product work, design implementation, diagnose bugs, build backend/frontend changes, verify with granular report-only QA, review security, and prepare deployment.
 
-This package exposes sixteen installable skills. Use `dev-orchestrator` when a task crosses roles and you want the correct workflow. Use the specialized skills directly when the role is already obvious.
+This package exposes nineteen installable skills. Use `dev-orchestrator` when a task crosses roles and you want the correct workflow. Use the specialized skills directly when the role is already obvious.
 
-Each skill is a compact router that loads one-level `references/` only when needed, keeping prompts cheaper while covering research, product definition, engineering planning, backend and frontend implementation, diagnosis, QA, static security review, dynamic security testing, read-only monitoring, controlled deployments, diagram creation, Plane work item workflows, and plan interviews.
+Each skill is a compact router that loads one-level `references/` only when needed, keeping prompts cheaper while covering research, product definition, engineering planning, backend and frontend implementation, diagnosis, QA routing, QA management, QA engineering, QA testing, static security review, dynamic security testing, read-only monitoring, controlled deployments, diagram creation, Plane work item workflows, and plan interviews.
 
 Operational and implementation skills require assumptions, the simplest sufficient path, surgical changes, verification before action, approval gates for broad or privileged changes, and manual user execution for destructive commands.
 
@@ -34,7 +34,10 @@ Common shortcuts:
 | Bug fails but root cause is not proven | `diagnose` |
 | Approved backend change | `backend-developer` |
 | Approved frontend change | `frontend-developer` |
-| Need release confidence or acceptance validation | `qa` |
+| Broad QA request with unclear role | `qa` |
+| PRD coverage, test plan, test cases, or sign-off | `qa-manager` |
+| TDD, automated test design, framework setup, or CI test plan | `qa-engineer` |
+| Run UI/API/performance/exploratory checks and collect evidence | `qa-tester` |
 | Security review or active security testing | `security-sast` / `security-dast` |
 | Runtime health, release, rollback, or deploy | `monitoring` / `deployment-ops` |
 
@@ -42,15 +45,18 @@ Common shortcuts:
 
 | Skill | Use when | Loads guidance for |
 |---|---|---|
-| `dev-orchestrator` | You need a thin router for multi-role software delivery and want the next correct skill sequence across research, product, engineering, backend, frontend, QA, security, monitoring, deployment, Plane, drawing, or roast. | Development workflow routing, handoff shape, shortcut rules, and plan-first gates. |
-| `feature-delivery` | You want one agent to drive a feature end to end on a single trigger ("implement X", "build X end to end", "add a payment gateway", "ship this workflow") without manually invoking specialist skills. Stops only on hard gates: ambiguity, destructive ops, real credentials, irreversible migrations, privileged deploys, or unresolved money/permission rules. | Inspect → plan minimal slice → implement → focused tests → QA + security review proportional to risk tier (T0–T3) → delivery report. Internal contracts for product-manager, engineering-manager, backend/frontend developer, diagnose, qa, security-sast/dast, monitoring, deployment-ops. Payment integration checklist for callbacks, idempotency, replay, and money-movement work. |
+| `dev-orchestrator` | You need a thin router for multi-role software delivery and want the next correct skill sequence across research, product, engineering, backend, frontend, granular QA, security, monitoring, deployment, Plane, drawing, or roast. | Development workflow routing, handoff shape, shortcut rules, and plan-first gates. |
+| `feature-delivery` | You want one agent to drive a feature end to end on a single trigger ("implement X", "build X end to end", "add a payment gateway", "ship this workflow") without manually invoking specialist skills. Stops only on hard gates: ambiguity, destructive ops, real credentials, irreversible migrations, privileged deploys, or unresolved money/permission rules. | Inspect -> plan minimal slice -> implement -> focused tests -> granular report-only QA + security review proportional to risk tier (T0-T3) -> delivery report. Internal contracts for product-manager, engineering-manager, backend/frontend developer, diagnose, qa/qa-manager/qa-engineer/qa-tester, security-sast/dast, monitoring, deployment-ops. Payment integration checklist for callbacks, idempotency, replay, and money-movement work. |
 | `research` | You need current-state investigation, competitor/API/library research, technical feasibility, repo discovery, or an evidence-backed decision brief. | Research workflow, source quality, evidence handling, current-source expectations, and concise research brief format. |
 | `product-manager` | You need a PRD, feature brief, acceptance criteria, scope cut, user flow, product tradeoff, or release slice before engineering work starts. | Product brief workflow, requirements, non-goals, acceptance criteria, scope control, and engineering handoff. |
 | `engineering-manager` | You need architecture review, implementation strategy, boundaries, interfaces, migration sequencing, risk gates, task breakdown, rollout planning, branch comparison, or verification strategy. | Implementation plan workflow, external-event integrity planning, benchmark-quality branch comparison, architecture decisions, interfaces, data flow, task order, risks, rollout, rollback, and downstream handoffs. |
 | `backend-developer` | You need approved server/API/data work, with first-class guidance for Go services, REST/gRPC, SQL, queues, callbacks, webhooks, auth, idempotency, and migrations. | Backend execution gates, repo inspection, Go/API/data guidance, external-event integrity, focused tests, and verification evidence. |
 | `frontend-developer` | You need approved UI/app work, with first-class guidance for JS/TS, React, Next.js, forms, state, API integration, accessibility, and responsive behavior. | Frontend execution gates, React/Next.js guidance, complete UI states, accessibility, browser checks, and visual verification. |
 | `diagnose` | You need disciplined root-cause work for hard bugs, failing tests, broken runtime behavior, flaky failures, unclear causes, or performance regressions before fixing. | Reproduction loops, minimization, hypothesis testing, instrumentation, regression checks, and implementation handoff. |
-| `qa` | You need test planning, regression testing, edge-case review, acceptance validation, bug reproduction, release confidence, or retest evidence. | QA scenario design, external-event integrity scenarios, defect reporting, coverage gaps, acceptance checks, retest checklist, and release recommendation. |
+| `qa` | You need broad report-only QA routing and the correct QA role is not already obvious. | Routes PRD/test planning/sign-off to `qa-manager`, automated test design to `qa-engineer`, execution evidence to `qa-tester`, root-cause work to `diagnose`, security to `security-sast` / `security-dast`, and fixes to developer skills. |
+| `qa-manager` | You need requirements analysis, PRD review, traceability, risk classification, test strategy, test planning, test case design, defect process, QA reporting, or release sign-off. | Requirements gaps, test strategy, PICT-style combinatorial coverage, test cases, defect reporting, blocked checks, retest needs, and release recommendation. |
+| `qa-engineer` | You need TDD strategy, unit/integration/contract/BDD/E2E test-code guidance, framework setup, mobile automation planning, test framework migration, or CI test pipeline planning. | TDD red/green workflow, unit framework guidance, integration and contract testing, BDD, E2E/mobile/CI plans, and downstream implementation handoffs. |
+| `qa-tester` | You need safe report-only execution of browser UI checks, API tests, performance/load checks, visual regression, exploratory sessions, accessibility spot checks, or retest evidence. | Browser, API, performance, visual, exploratory, and retest execution evidence with defects, blocked checks, coverage gaps, and release recommendation. |
 | `security-sast` | You need whitebox/static review of code, config, dependencies, supply-chain risk, containers, IaC, CI, threat models, scanner output, event integrity, security reports, fix queue handoff, or release hardening. | Deep audit context, STRIDE, OWASP/API review, external-event integrity review, JavaScript/TypeScript/Next.js/Node.js/Fastify review, Semgrep/CodeQL/SARIF, optional deepsec workflow, `govulncheck`, Trivy filesystem/image/config scans, finding normalization, CVSS, reports, remediation roadmaps, security fix queue bundles. |
 | `security-dast` | You need blackbox/dynamic testing of authorized runtime targets, APIs, callbacks, webhooks, web surfaces, domains, ports, TLS, active scan planning/execution, pentest reports, vulnerability reports, or retest evidence. | JavaScript web runtime testing, Next.js/Node.js route discovery, callback/webhook integrity tests, browser-observed requests, GraphQL, Amass, Naabu, httpx, ffuf, ZAP, Nuclei, SSLyze, active scan controls, finding normalization, CVSS, reports, remediation roadmaps, security fix queue bundles. |
 | `monitoring` | You need read-only health checks, dashboard/alert design, telemetry gap analysis, dependency/runtime vulnerability inventory, supply-chain risk signals, or incident triage. | Grafana, Prometheus, GCP/MIG reads, Docker inspect, Node Exporter, osquery, SLI/SLO design, OTel, version drift, dependency inventory, supply-chain risk, vulnerability alert reports, alert quality. |
@@ -71,6 +77,9 @@ npx @ace3/skills install backend-developer
 npx @ace3/skills install frontend-developer
 npx @ace3/skills install diagnose
 npx @ace3/skills install qa
+npx @ace3/skills install qa-manager
+npx @ace3/skills install qa-engineer
+npx @ace3/skills install qa-tester
 npx @ace3/skills install security-sast
 npx @ace3/skills install security-dast
 npx @ace3/skills install monitoring
@@ -105,6 +114,9 @@ Install plugins:
 /plugin install frontend-developer@ace3-skills
 /plugin install diagnose@ace3-skills
 /plugin install qa@ace3-skills
+/plugin install qa-manager@ace3-skills
+/plugin install qa-engineer@ace3-skills
+/plugin install qa-tester@ace3-skills
 /plugin install security-sast@ace3-skills
 /plugin install security-dast@ace3-skills
 /plugin install monitoring@ace3-skills
@@ -167,7 +179,7 @@ make install SKILL=security-sast
 
 Use one skill at a time unless the task clearly crosses domains. Good prompts include four parts:
 
-1. Skill name: `Use dev-orchestrator`, `Use feature-delivery`, `Use research`, `Use product-manager`, `Use engineering-manager`, `Use backend-developer`, `Use frontend-developer`, `Use diagnose`, `Use qa`, `Use security-sast`, `Use security-dast`, `Use monitoring`, `Use deployment-ops`, `Use drawing`, `Use plane`, or `roast me`.
+1. Skill name: `Use dev-orchestrator`, `Use feature-delivery`, `Use research`, `Use product-manager`, `Use engineering-manager`, `Use backend-developer`, `Use frontend-developer`, `Use diagnose`, `Use qa`, `Use qa-manager`, `Use qa-engineer`, `Use qa-tester`, `Use security-sast`, `Use security-dast`, `Use monitoring`, `Use deployment-ops`, `Use drawing`, `Use plane`, or `roast me`.
 2. Scope: repo path, service, environment, URL, host group, time window, or target allowlist.
 3. Action class: read-only review, active scan, plan only, or approved execution.
 4. Output contract: findings, health status, rollout plan, rollback plan, or verification evidence.
