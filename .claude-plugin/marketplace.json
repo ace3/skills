@@ -52,6 +52,27 @@
       "homepage": "https://github.com/ace3/skills/tree/main/skills/feature-delivery"
     },
     {
+      "name": "delivery-from-task",
+      "source": "./skills/delivery-from-task",
+      "description": "Task-link delivery workflow for turning a Plane or Notion task link into a strict execution contract, then routing through product, engineering, implementation, QA, security, monitoring, or deployment skills.",
+      "version": "0.1.0",
+      "author": {
+        "name": "ace3"
+      },
+      "category": "development",
+      "tags": [
+        "task-link",
+        "plane",
+        "notion",
+        "hermes",
+        "delivery",
+        "implementation",
+        "workflow",
+        "task-contract"
+      ],
+      "homepage": "https://github.com/ace3/skills/tree/main/skills/delivery-from-task"
+    },
+    {
       "name": "research",
       "source": "./skills/research",
       "description": "Evidence-backed research for repo discovery, current external facts, technical feasibility, and decision briefs.",

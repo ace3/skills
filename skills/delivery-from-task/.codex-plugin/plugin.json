@@ -1,0 +1,22 @@
+{
+  "name": "delivery-from-task",
+  "version": "0.1.0",
+  "description": "Task-link delivery workflow for turning a Plane or Notion task link into an execution-ready software delivery brief, then routing through product, engineering, backend, frontend, QA, security, monitoring, or deployment skills. Use when the user pastes a Plane task, Notion task, work item URL, or says to chat with Hermes about a task and do the step. Requires a strict task contract before implementation. Not for Plane-only lookup or mutation work — use plane for that.",
+  "author": {
+    "name": "ace3",
+    "url": "https://github.com/ace3"
+  },
+  "homepage": "https://github.com/ace3/skills/tree/main/skills/delivery-from-task",
+  "repository": "https://github.com/ace3/skills",
+  "license": "MIT",
+  "keywords": [
+    "task-link",
+    "plane",
+    "notion",
+    "hermes",
+    "delivery",
+    "implementation",
+    "workflow",
+    "task-contract"
+  ]
+}

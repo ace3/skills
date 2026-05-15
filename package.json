@@ -1,7 +1,7 @@
 {
   "name": "@ace3/skills",
   "version": "0.1.0",
-  "description": "Development workflow, granular QA, diagnosis, SAST, DAST, monitoring, deployment ops, drawing, Plane, and design stress-test skills installable for Codex and Claude",
+  "description": "Development workflow, task-link delivery, granular QA, diagnosis, SAST, DAST, monitoring, deployment ops, drawing, Plane, and design stress-test skills installable for Codex and Claude",
   "bin": {
     "ace3-skills": "./bin/cli.js"
   },
@@ -18,6 +18,9 @@
     "typescript",
     "javascript",
     "development",
+    "task-link",
+    "notion",
+    "hermes",
     "software-delivery",
     "research",
     "product-management",

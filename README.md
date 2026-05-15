@@ -2,13 +2,19 @@
 
 Curated skills for software delivery across Claude and Codex: plan product work, design implementation, diagnose bugs, build backend/frontend changes, verify with granular report-only QA, review security, and prepare deployment.
 
-This package exposes nineteen installable skills. Use `dev-orchestrator` when a task crosses roles and you want the correct workflow. Use the specialized skills directly when the role is already obvious.
+This package exposes twenty installable skills. Use `dev-orchestrator` when a task crosses roles and you want the correct workflow. Use the specialized skills directly when the role is already obvious.
 
-Each skill is a compact router that loads one-level `references/` only when needed, keeping prompts cheaper while covering research, product definition, engineering planning, backend and frontend implementation, diagnosis, QA routing, QA management, QA engineering, QA testing, static security review, dynamic security testing, read-only monitoring, controlled deployments, diagram creation, Plane work item workflows, and plan interviews.
+Each skill is a compact router that loads one-level `references/` only when needed, keeping prompts cheaper while covering task-link delivery from Plane or Notion, research, product definition, engineering planning, backend and frontend implementation, diagnosis, QA routing, QA management, QA engineering, QA testing, static security review, dynamic security testing, read-only monitoring, controlled deployments, diagram creation, Plane work item workflows, and plan interviews.
 
 Operational and implementation skills require assumptions, the simplest sufficient path, surgical changes, verification before action, approval gates for broad or privileged changes, and manual user execution for destructive commands.
 
 ## Start Here
+
+Use `delivery-from-task` when a Plane or Notion link should become a strict contract before planning or execution:
+
+```text
+Use delivery-from-task. Scope: <Plane or Notion task link>. Action: validate contract first. Output: missing fields, route sequence, approval gates, and next action.
+```
 
 Use `agent run` when a Plane work item should drive the lifecycle from PM planning through EM planning, implementation, and QA:
 
@@ -45,6 +51,7 @@ Common shortcuts:
 
 | Situation | Start with |
 |---|---|
+| Plane or Notion task link should drive delivery through a strict contract | `delivery-from-task` |
 | Broad feature or project with unclear next step | `dev-orchestrator` |
 | Single-trigger end-to-end feature delivery (plan, build, test, QA, security, release handoff) | `feature-delivery` |
 | Missing facts, external docs, vendor/library choice | `research` |
@@ -66,6 +73,7 @@ Common shortcuts:
 |---|---|---|
 | `dev-orchestrator` | You need a thin router for multi-role software delivery and want the next correct skill sequence across research, product, engineering, backend, frontend, granular QA, security, monitoring, deployment, Plane, drawing, or roast. | Development workflow routing, handoff shape, shortcut rules, and plan-first gates. |
 | `feature-delivery` | You want one agent to drive a feature end to end on a single trigger ("implement X", "build X end to end", "add a payment gateway", "ship this workflow") without manually invoking specialist skills. Stops only on hard gates: ambiguity, destructive ops, real credentials, irreversible migrations, privileged deploys, or unresolved money/permission rules. | Inspect -> plan minimal slice -> implement -> focused tests -> granular report-only QA + security review proportional to risk tier (T0-T3) -> delivery report. Internal contracts for product-manager, engineering-manager, backend/frontend developer, diagnose, qa/qa-manager/qa-engineer/qa-tester, security-sast/dast, monitoring, deployment-ops. Payment integration checklist for callbacks, idempotency, replay, and money-movement work. |
+| `delivery-from-task` | You paste a Plane or Notion task link and want it converted into a strict task contract before planning or execution. | Required task contract, missing-field prompts, task normalization, route sequence, approval gates, execution mode, verification, and task-system update body. |
 | `research` | You need current-state investigation, competitor/API/library research, technical feasibility, repo discovery, or an evidence-backed decision brief. | Research workflow, source quality, evidence handling, current-source expectations, and concise research brief format. |
 | `product-manager` | You need a PRD, feature brief, acceptance criteria, scope cut, user flow, product tradeoff, or release slice before engineering work starts. | Product brief workflow, requirements, non-goals, acceptance criteria, scope control, and engineering handoff. |
 | `engineering-manager` | You need architecture review, implementation strategy, boundaries, interfaces, migration sequencing, risk gates, task breakdown, rollout planning, branch comparison, or verification strategy. | Implementation plan workflow, external-event integrity planning, benchmark-quality branch comparison, architecture decisions, interfaces, data flow, task order, risks, rollout, rollback, and downstream handoffs. |
@@ -89,6 +97,7 @@ Common shortcuts:
 ```bash
 npx @ace3/skills install dev-orchestrator
 npx @ace3/skills install feature-delivery
+npx @ace3/skills install delivery-from-task
 npx @ace3/skills install research
 npx @ace3/skills install product-manager
 npx @ace3/skills install engineering-manager
@@ -126,6 +135,7 @@ Install plugins:
 ```text
 /plugin install dev-orchestrator@ace3-skills
 /plugin install feature-delivery@ace3-skills
+/plugin install delivery-from-task@ace3-skills
 /plugin install research@ace3-skills
 /plugin install product-manager@ace3-skills
 /plugin install engineering-manager@ace3-skills
@@ -198,7 +208,7 @@ make install SKILL=security-sast
 
 Use one skill at a time unless the task clearly crosses domains. Good prompts include four parts:
 
-1. Skill name: `Use dev-orchestrator`, `Use feature-delivery`, `Use research`, `Use product-manager`, `Use engineering-manager`, `Use backend-developer`, `Use frontend-developer`, `Use diagnose`, `Use qa`, `Use qa-manager`, `Use qa-engineer`, `Use qa-tester`, `Use security-sast`, `Use security-dast`, `Use monitoring`, `Use deployment-ops`, `Use drawing`, `Use plane`, or `roast me`.
+1. Skill name: `Use dev-orchestrator`, `Use feature-delivery`, `Use delivery-from-task`, `Use research`, `Use product-manager`, `Use engineering-manager`, `Use backend-developer`, `Use frontend-developer`, `Use diagnose`, `Use qa`, `Use qa-manager`, `Use qa-engineer`, `Use qa-tester`, `Use security-sast`, `Use security-dast`, `Use monitoring`, `Use deployment-ops`, `Use drawing`, `Use plane`, or `roast me`.
 2. Scope: repo path, service, environment, URL, host group, time window, or target allowlist.
 3. Action class: read-only review, active scan, plan only, or approved execution.
 4. Output contract: findings, health status, rollout plan, rollback plan, or verification evidence.
@@ -218,6 +228,41 @@ Token-saving rules:
 - For design, workflow, or behavior changes, start with brainstorming or an equivalent written design before implementation.
 
 ## Use Cases And Examples
+
+### Task Link Delivery
+
+Ask for the strict task contract when a Plane or Notion link should drive execution:
+
+```text
+Use delivery-from-task. Scope: <Plane or Notion task link>. Action: validate contract first. Output: missing fields, route sequence, approval gates, and next action.
+```
+
+Minimum contract:
+
+```yaml
+source: plane|notion
+task_url: <url or work item key>
+repo: <absolute path or repository identifier>
+mode: plan_only|execute
+approval_gates:
+  product: required|preapproved|skip
+  engineering: required|preapproved|skip
+  external_mutation: required
+outputs:
+  - <artifact, evidence, PR, patch, report, or comment target>
+```
+
+Run plan-only from a task link:
+
+```text
+Use delivery-from-task. Scope: Plane API-123 and repo /path/to/service. Action: plan_only. Output: normalized brief, skill route, gates, verification plan, and task-system update body.
+```
+
+Run execution only after gates are explicit:
+
+```text
+Use delivery-from-task. Scope: Notion task URL and repo /path/to/app. Action: execute with product and engineering gates preapproved. Output: changed behavior, verification evidence, task update body, and residual risk.
+```
 
 ### Development Workflow
 
