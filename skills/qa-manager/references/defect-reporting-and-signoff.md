@@ -34,6 +34,8 @@ Severity reflects user impact and release risk, not how much code changed.
 # QA Sign-Off
 
 Status:
+- QA Plan Readiness: draft | usable | complete
+- Release Sign-Off:  pass | conditional_pass | fail | blocked | not_applicable
 
 Scenarios Covered:
 
@@ -49,3 +51,10 @@ Release Recommendation:
 
 Downstream Handoffs:
 ```
+
+The two statuses answer different questions and must not be collapsed:
+
+- `QA Plan Readiness` — is the plan itself good enough to act on?
+- `Release Sign-Off` — can we ship the change?
+
+A plan can be `usable` while the release is `blocked` (e.g., the matrix is filled in but a vendor credential is missing). Surface both. The shared Findings Bundle JSON `status` is derived from `release_signoff` per the mapping in `test-strategy-and-planning.md` — keep them aligned so downstream parsers and humans never disagree.

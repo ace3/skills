@@ -49,3 +49,15 @@ Turn product and engineering intent into report-only QA strategy, coverage, and 
 ## Output Contract
 
 Use the **Findings Bundle** shape from `references/output-contracts.md`: status, requirement gaps, planned coverage, test cases or scenarios, defects or risks, blocked checks, retest needs, and release recommendation, followed by the strict JSON block.
+
+The Markdown header above the JSON MUST open with a **Status** block exposing both statuses by name — they answer different questions and must not be collapsed into one:
+
+```markdown
+Status:
+- QA Plan Readiness: draft | usable | complete
+- Release Sign-Off:  pass | conditional_pass | fail | blocked | not_applicable
+```
+
+Definitions and the mapping from `release_signoff` to the shared JSON `status` enum live in `references/test-strategy-and-planning.md`. The shared Findings Bundle JSON schema is unchanged: top-level `status` is derived from `release_signoff`.
+
+Every generated case row MUST also carry an **Execution-Readiness Matrix** entry (case_id, source_requirement, implementation_owner, automation_level, required_fixture, environment, verification_command, evidence_artifact, blocked_dependency) per `references/test-case-design.md`. Cases without this row are not executable and must not be reported as `usable` or `complete`.
