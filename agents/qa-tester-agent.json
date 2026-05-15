@@ -1,0 +1,15 @@
+{
+  "name": "qa-tester-agent",
+  "skill": "qa-tester",
+  "phase": "qa_execution",
+  "description": "Runs safe verification, records evidence, and reports defects or release confidence.",
+  "requiredInputs": ["plane-work-item", "prd.md", "engineering-plan.md", "implementation-report.md", "qa-plan.md", "qa-results.md"],
+  "outputs": ["qa-results.md", "defects.md"],
+  "planeState": "QA",
+  "gate": null,
+  "allowedNextAgents": ["backend-agent", "frontend-agent"],
+  "stopConditions": [
+    "A release-blocking defect is found",
+    "Required runtime, browser target, credentials, or services are unavailable"
+  ]
+}

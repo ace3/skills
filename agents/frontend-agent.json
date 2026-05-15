@@ -1,0 +1,15 @@
+{
+  "name": "frontend-agent",
+  "skill": "frontend-developer",
+  "phase": "implementation",
+  "description": "Implements approved frontend work from the engineering plan with browser-aware verification.",
+  "requiredInputs": ["plane-work-item", "prd.md", "engineering-plan.md", "implementation-report.md"],
+  "outputs": ["implementation-report.md"],
+  "planeState": "In Development",
+  "gate": null,
+  "allowedNextAgents": ["qa-manager-agent", "qa-engineer-agent", "qa-tester-agent"],
+  "stopConditions": [
+    "A hard safety gate from the frontend skill is reached",
+    "Required runtime, browser target, credentials, or services are unavailable"
+  ]
+}

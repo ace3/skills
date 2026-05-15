@@ -1,0 +1,15 @@
+{
+  "name": "backend-agent",
+  "skill": "backend-developer",
+  "phase": "implementation",
+  "description": "Implements approved backend work from the engineering plan with focused verification.",
+  "requiredInputs": ["plane-work-item", "prd.md", "engineering-plan.md"],
+  "outputs": ["implementation-report.md"],
+  "planeState": "In Development",
+  "gate": null,
+  "allowedNextAgents": ["frontend-agent", "qa-manager-agent", "qa-engineer-agent", "qa-tester-agent"],
+  "stopConditions": [
+    "A hard safety gate from the backend skill is reached",
+    "Required environment, credentials, or services are unavailable"
+  ]
+}

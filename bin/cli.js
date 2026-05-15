@@ -128,12 +128,21 @@ function cmdList() {
 }
 
 function cmdHelp() {
-  console.log(`@ace3/skills v${VERSION}\n\nUSAGE\n  npx @ace3/skills <command> [options]\n\nCOMMANDS\n  install [skill...]\n  install --all\n  learn --failure path/to/failure.json --skill <name> [--approve]\n  list\n  help\n\nFLAGS\n  -g, --global\n  -p, --project`);
+  console.log(`@ace3/skills v${VERSION}\n\nUSAGE\n  npx @ace3/skills <command> [options]\n\nCOMMANDS\n  install [skill...]\n  install --all\n  agent run <plane-url-or-key> [--dry-run] [--approve-pm] [--approve-em] [--work-item-id uuid]\n  agent a2a-server [--host 127.0.0.1] [--port 8787] [--repo path]\n  learn --failure path/to/failure.json --skill <name> [--approve]\n  list\n  help\n\nFLAGS\n  -g, --global\n  -p, --project`);
 }
 
 function cmdLearn(args) {
   const script = path.join(PACKAGE_ROOT, "scripts", "learn.js");
   const result = spawnSync(process.execPath, [script, ...args], { cwd: PACKAGE_ROOT, stdio: "inherit" });
+  process.exit(result.status === null ? 1 : result.status);
+}
+
+function cmdAgent(args) {
+  const script = args[0] === "a2a-server"
+    ? path.join(PACKAGE_ROOT, "scripts", "a2a-server.js")
+    : path.join(PACKAGE_ROOT, "scripts", "agent-runner.js");
+  const finalArgs = args[0] === "a2a-server" ? args.slice(1) : args;
+  const result = spawnSync(process.execPath, [script, ...finalArgs], { cwd: process.cwd(), stdio: "inherit" });
   process.exit(result.status === null ? 1 : result.status);
 }
 
@@ -151,6 +160,9 @@ async function main() {
       break;
     case "learn":
       cmdLearn(args);
+      break;
+    case "agent":
+      cmdAgent(args);
       break;
     case "help":
     case "--help":

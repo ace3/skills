@@ -1,0 +1,15 @@
+{
+  "name": "qa-engineer-agent",
+  "skill": "qa-engineer",
+  "phase": "qa_automation",
+  "description": "Plans or adds automated test coverage for the approved implementation when the repository has a suitable test surface.",
+  "requiredInputs": ["plane-work-item", "prd.md", "engineering-plan.md", "implementation-report.md", "qa-plan.md"],
+  "outputs": ["qa-results.md"],
+  "planeState": "QA",
+  "gate": null,
+  "allowedNextAgents": ["qa-tester-agent", "backend-agent", "frontend-agent"],
+  "stopConditions": [
+    "The test framework is absent or cannot run locally",
+    "A test change would require a destructive command or privileged external action"
+  ]
+}

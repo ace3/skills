@@ -1,0 +1,15 @@
+{
+  "name": "pm-agent",
+  "skill": "product-manager",
+  "phase": "product_planning",
+  "description": "Turns a Plane work item into a small, reviewable PRD and acceptance criteria.",
+  "requiredInputs": ["plane-work-item"],
+  "outputs": ["prd.md"],
+  "planeState": "PM Review",
+  "gate": "pm_review",
+  "allowedNextAgents": ["em-agent"],
+  "stopConditions": [
+    "Critical product ambiguity remains after reading the Plane work item",
+    "The work item asks for production mutation or privileged execution"
+  ]
+}

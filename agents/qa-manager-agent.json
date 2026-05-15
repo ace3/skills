@@ -1,0 +1,15 @@
+{
+  "name": "qa-manager-agent",
+  "skill": "qa-manager",
+  "phase": "qa_planning",
+  "description": "Builds the QA strategy, coverage map, and release-signoff criteria from the PRD and engineering plan.",
+  "requiredInputs": ["plane-work-item", "prd.md", "engineering-plan.md", "implementation-report.md"],
+  "outputs": ["qa-plan.md"],
+  "planeState": "QA",
+  "gate": null,
+  "allowedNextAgents": ["qa-engineer-agent", "qa-tester-agent"],
+  "stopConditions": [
+    "Acceptance criteria are untestable",
+    "Implementation evidence is missing for a required feature path"
+  ]
+}

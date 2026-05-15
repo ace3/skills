@@ -3,4 +3,5 @@ node_modules/
 __pycache__/
 .ace3-benchmark/
 .ace3-learning/
+.ace3/
 # docs/

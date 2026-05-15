@@ -1,0 +1,15 @@
+{
+  "name": "em-agent",
+  "skill": "engineering-manager",
+  "phase": "engineering_planning",
+  "description": "Turns the reviewed PRD into an implementation plan, task order, risk gates, and verification strategy.",
+  "requiredInputs": ["plane-work-item", "prd.md"],
+  "outputs": ["engineering-plan.md"],
+  "planeState": "EM Review",
+  "gate": "em_review",
+  "allowedNextAgents": ["backend-agent", "frontend-agent", "qa-manager-agent"],
+  "stopConditions": [
+    "The PRD is missing required acceptance criteria",
+    "The implementation requires a destructive command, credentialed external action, or production data mutation"
+  ]
+}

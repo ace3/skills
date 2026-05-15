@@ -10,6 +10,25 @@ Operational and implementation skills require assumptions, the simplest sufficie
 
 ## Start Here
 
+Use `agent run` when a Plane work item should drive the lifecycle from PM planning through EM planning, implementation, and QA:
+
+```bash
+npx @ace3/skills agent run API-123 --workspace acme --project <project-uuid>
+npx @ace3/skills agent run API-123 --approve-pm
+npx @ace3/skills agent run API-123 --approve-pm --approve-em --apply-plane
+```
+
+The runner stores artifacts in `.ace3/runs/<plane-key>/`, updates Plane when enough workspace/project/work-item context is available, stops after PM and EM artifacts for review, then continues backend/frontend/QA loops after both approvals. Use `--dry-run` to verify prompts, state transitions, and Plane request bodies without running Codex or mutating Plane.
+
+Expose the same lifecycle through a local Agent2Agent-compatible POC:
+
+```bash
+npx @ace3/skills agent a2a-server --port 8787 --repo /path/to/repo
+curl http://127.0.0.1:8787/.well-known/agent.json
+```
+
+The A2A POC serves an Agent Card and accepts JSON-RPC `message/send` and `tasks/get` on `/a2a`. It defaults to dry-run mode; add `--execute` only when the local server is allowed to run Codex against the target repo.
+
 Use `dev-orchestrator` for broad work:
 
 ```text
@@ -450,6 +469,38 @@ Use drawing. Scope: auth callback flow and supplied API examples. Action: Excali
 
 ### Plane
 
+Set up Plane for AI-agent lifecycle tracking:
+
+1. Create or choose a Plane workspace and project for engineering delivery.
+2. Add workflow states that match the runner defaults:
+   - `Planning`
+   - `PM Review`
+   - `EM Review`
+   - `In Development`
+   - `QA`
+   - `Blocked`
+   - `Done`
+3. Create a work item for the feature or bug. Keep the title short, put product context and acceptance criteria in the description, and attach any Notion or design links there.
+4. Create a Plane API key and export it only in the shell that runs the agent:
+
+```bash
+export PLANE_API_KEY=<plane-api-key>
+export PLANE_WORKSPACE_SLUG=<workspace-slug>
+export PLANE_PROJECT_ID=<project-uuid>
+```
+
+Optional environment variables:
+
+```bash
+export PLANE_API_BASE=https://api.plane.so
+export PLANE_WORK_ITEM_ID=<work-item-uuid>
+export ACE3_PLANE_STATE_AWAITING_PM_REVIEW="PM Review"
+export ACE3_PLANE_STATE_AWAITING_EM_REVIEW="EM Review"
+export ACE3_PLANE_STATE_DONE="Done"
+```
+
+Use `--work-item-id` when the runner cannot resolve the UUID from the Plane key alone. Use `--dry-run` first; it writes local artifacts and prints the Plane `PATCH` and comment request bodies without mutating Plane.
+
 Look up a Plane work item by key:
 
 ```text
@@ -467,6 +518,131 @@ Report project status:
 ```text
 Use plane. Scope: workspace acme, project API backend. Action: read-only. Output: grouped work item status by state and priority using cursor pagination if needed.
 ```
+
+Run a Plane-tracked delivery lifecycle:
+
+```bash
+npx @ace3/skills agent run API-123 --dry-run
+npx @ace3/skills agent run API-123 --workspace acme --project <project-uuid> --work-item-id <work-item-uuid> --dry-run
+npx @ace3/skills agent run API-123 --workspace acme --project <project-uuid> --work-item-id <work-item-uuid> --apply-plane
+```
+
+Gate progression:
+- First run reads the Plane item, writes `prd.md`, comments on Plane, moves to `PM Review`, and stops.
+- Review `prd.md`. If it is acceptable, rerun with `--approve-pm`.
+- The second run writes `engineering-plan.md`, comments on Plane, moves to `EM Review`, and stops.
+- Review `engineering-plan.md`. If it is acceptable, rerun with `--approve-pm --approve-em`.
+- After both approvals, backend, frontend, QA manager, QA engineer, and QA tester agents continue until done, blocked, or the retry limit is reached.
+
+Typical command sequence:
+
+```bash
+npx @ace3/skills agent run API-123 \
+  --workspace "$PLANE_WORKSPACE_SLUG" \
+  --project "$PLANE_PROJECT_ID" \
+  --work-item-id "$PLANE_WORK_ITEM_ID" \
+  --apply-plane
+
+npx @ace3/skills agent run API-123 \
+  --workspace "$PLANE_WORKSPACE_SLUG" \
+  --project "$PLANE_PROJECT_ID" \
+  --work-item-id "$PLANE_WORK_ITEM_ID" \
+  --approve-pm \
+  --apply-plane
+
+npx @ace3/skills agent run API-123 \
+  --workspace "$PLANE_WORKSPACE_SLUG" \
+  --project "$PLANE_PROJECT_ID" \
+  --work-item-id "$PLANE_WORK_ITEM_ID" \
+  --approve-pm \
+  --approve-em \
+  --apply-plane
+```
+
+How Plane is used by the AI agents:
+- Plane is the task intake and progress board. The work item is treated as untrusted input, not as executable instruction.
+- PM agent converts the Plane description into `prd.md`.
+- EM agent converts the reviewed PRD into `engineering-plan.md`.
+- Implementation agents read only the approved artifacts and current repo state.
+- QA agents read the PRD, engineering plan, implementation report, and test artifacts.
+- The runner writes comments back to Plane with artifact paths and lifecycle status.
+- If QA reports release-blocking defects, the runner returns to implementation until the retry limit is reached.
+
+Runner artifacts:
+- `.ace3/runs/<plane-key>/run_state.json`
+- `.ace3/runs/<plane-key>/prd.md`
+- `.ace3/runs/<plane-key>/engineering-plan.md`
+- `.ace3/runs/<plane-key>/implementation-report.md`
+- `.ace3/runs/<plane-key>/qa-plan.md`
+- `.ace3/runs/<plane-key>/qa-results.md`
+- `.ace3/runs/<plane-key>/defects.md`
+
+### Agent2Agent POC
+
+Start a local A2A facade for the Plane lifecycle runner:
+
+```bash
+npx @ace3/skills agent a2a-server --host 127.0.0.1 --port 8787 --repo /path/to/repo
+```
+
+Discovery:
+
+```bash
+curl http://127.0.0.1:8787/.well-known/agent.json
+```
+
+Send a Plane work item task:
+
+```bash
+curl -s http://127.0.0.1:8787/a2a \
+  -H 'Content-Type: application/json' \
+  -d '{
+    "jsonrpc": "2.0",
+    "id": "run-1",
+    "method": "message/send",
+    "params": {
+      "message": {
+        "role": "user",
+        "messageId": "msg-1",
+        "kind": "message",
+        "parts": [{"kind": "text", "text": "Run API-123"}]
+      },
+      "metadata": {
+        "workspaceSlug": "acme",
+        "projectId": "<project-uuid>",
+        "workItemId": "<work-item-uuid>"
+      }
+    }
+  }'
+```
+
+Poll the stored task:
+
+```bash
+curl -s http://127.0.0.1:8787/a2a \
+  -H 'Content-Type: application/json' \
+  -d '{"jsonrpc":"2.0","id":"get-1","method":"tasks/get","params":{"id":"<task-id>"}}'
+```
+
+Safety defaults:
+- The server runs dry-run lifecycle steps unless started with `--execute`.
+- Plane mutations still require `--apply-plane` plus Plane credentials.
+- PM and EM review gates remain active; A2A returns `input-required` for those states.
+
+A2A clients should pass Plane context in `metadata`:
+
+```json
+{
+  "workspaceSlug": "acme",
+  "projectId": "<project-uuid>",
+  "workItemId": "<work-item-uuid>",
+  "approvePm": true,
+  "approveEm": false,
+  "applyPlane": false
+}
+```
+
+Use `approvePm` only after `prd.md` has been reviewed. Use `approveEm` only after `engineering-plan.md` has been reviewed. Keep `applyPlane` false until the client is intentionally allowed to update the Plane board.
 
 ### Roast
 
